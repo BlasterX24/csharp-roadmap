@@ -30,6 +30,8 @@ Study inheritance and interface implementation, focusing on virtual/override, ab
 
 Create a base class Animal with a virtual Speak method.
 
+**Solution:**
+
 ```
 class Animal { public virtual void Speak() { Console.WriteLine("..."); } }
 ```
@@ -45,6 +47,8 @@ class Animal { public virtual void Speak() { Console.WriteLine("..."); } }
 ### Problem 2
 
 Create a Dog class that overrides Animal.Speak to print "Woof!".
+
+**Solution:**
 
 ```
 class Dog : Animal { public override void Speak() { Console.WriteLine("Woof!"); } }
@@ -62,6 +66,8 @@ class Dog : Animal { public override void Speak() { Console.WriteLine("Woof!"); 
 
 Define an interface ISwim with a Swim method.
 
+**Solution:**
+
 ```
 interface ISwim { void Swim(); }
 ```
@@ -77,6 +83,8 @@ interface ISwim { void Swim(); }
 ### Problem 4
 
 Make Duck inherit from Animal and implement ISwim.
+
+**Solution:**
 
 ```
 class Duck : Animal, ISwim { public void Swim() { Console.WriteLine("Swimming"); } }
@@ -94,6 +102,8 @@ class Duck : Animal, ISwim { public void Swim() { Console.WriteLine("Swimming");
 
 Create an abstract class Shape with an abstract Area method.
 
+**Solution:**
+
 ```
 abstract class Shape { public abstract double Area(); }
 ```
@@ -109,6 +119,8 @@ abstract class Shape { public abstract double Area(); }
 ### Problem 6
 
 Create a Circle class that inherits Shape and implements Area.
+
+**Solution:**
 
 ```
 class Circle : Shape { double radius; public Circle(double r) { radius = r; } public override double Area() => Math.PI * radius * radius; }
@@ -126,6 +138,8 @@ class Circle : Shape { double radius; public Circle(double r) { radius = r; } pu
 
 Use base to call the parent constructor from a derived class.
 
+**Solution:**
+
 ```
 class Derived : Base { public Derived(int x) : base(x) { } }
 ```
@@ -141,6 +155,8 @@ class Derived : Base { public Derived(int x) : base(x) { } }
 ### Problem 8
 
 Seal a class so it cannot be inherited.
+
+**Solution:**
 
 ```
 sealed class FinalClass { }
@@ -158,6 +174,8 @@ sealed class FinalClass { }
 
 Use an interface to require a Calculate method on any implementing class.
 
+**Solution:**
+
 ```
 interface ICalculator { double Calculate(double a, double b); }
 ```
@@ -173,6 +191,8 @@ interface ICalculator { double Calculate(double a, double b); }
 ### Problem 10
 
 Explicitly implement an interface method so it is only accessible via the interface type.
+
+**Solution:**
 
 ```
 class MyClass : IMyInterface { void IMyInterface.DoWork() { } }

@@ -30,6 +30,8 @@ Study OWASP Top 10, parameterized queries, and .NET security best practices.
 
 Write a parameterized SQL query to prevent injection.
 
+**Solution:**
+
 ```
 cmd.Parameters.AddWithValue("@name", inputName);
 ```
@@ -45,6 +47,8 @@ cmd.Parameters.AddWithValue("@name", inputName);
 ### Problem 2
 
 Validate an email input using [EmailAddress] attribute.
+
+**Solution:**
 
 ```
 [EmailAddress] public string Email { get; set; }
@@ -62,6 +66,8 @@ Validate an email input using [EmailAddress] attribute.
 
 Store a secret using dotnet user-secrets.
 
+**Solution:**
+
 ```
 dotnet user-secrets set "ApiKey" "mykey123"
 ```
@@ -77,6 +83,8 @@ dotnet user-secrets set "ApiKey" "mykey123"
 ### Problem 4
 
 Read a secret from configuration.
+
+**Solution:**
 
 ```
 string key = config["ApiKey"];
@@ -94,6 +102,8 @@ string key = config["ApiKey"];
 
 Hash a password with BCrypt.
 
+**Solution:**
+
 ```
 string hash = BCrypt.Net.BCrypt.HashPassword(password);
 ```
@@ -109,6 +119,8 @@ string hash = BCrypt.Net.BCrypt.HashPassword(password);
 ### Problem 6
 
 Validate input length using [StringLength].
+
+**Solution:**
 
 ```
 [StringLength(100, MinimumLength = 3)] public string Name { get; set; }
@@ -126,6 +138,8 @@ Validate input length using [StringLength].
 
 Use [Range] to validate a numeric input.
 
+**Solution:**
+
 ```
 [Range(1, 100)] public int Quantity { get; set; }
 ```
@@ -141,6 +155,8 @@ Use [Range] to validate a numeric input.
 ### Problem 8
 
 Enable CORS with a specific allowed origin.
+
+**Solution:**
 
 ```
 builder.Services.AddCors(options => options.AddPolicy("Policy", policy => policy.WithOrigins("https://example.com")));
@@ -158,6 +174,8 @@ builder.Services.AddCors(options => options.AddPolicy("Policy", policy => policy
 
 Use [Authorize] to protect an API endpoint.
 
+**Solution:**
+
 ```
 [Authorize] public IActionResult Secret() => Ok("secret");
 ```
@@ -173,6 +191,8 @@ Use [Authorize] to protect an API endpoint.
 ### Problem 10
 
 Sanitize HTML input to prevent XSS.
+
+**Solution:**
 
 ```
 string safe = WebUtility.HtmlEncode(input);

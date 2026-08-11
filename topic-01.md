@@ -30,6 +30,8 @@ Start with the official .NET getting-started guide, then explore the CLI referen
 
 What command creates a new C# console project named MyApp?
 
+**Solution:**
+
 ```
 dotnet new console -n MyApp
 ```
@@ -45,6 +47,8 @@ dotnet new console -n MyApp
 ### Problem 2
 
 Write a Program.cs that prints Hello, World! to the console.
+
+**Solution:**
 
 ```
 Console.WriteLine("Hello, World!");
@@ -62,6 +66,8 @@ Console.WriteLine("Hello, World!");
 
 How do you compile and run a project from the project directory?
 
+**Solution:**
+
 ```
 dotnet run
 ```
@@ -77,6 +83,8 @@ dotnet run
 ### Problem 4
 
 Write a top-level statement Main that prints the current date.
+
+**Solution:**
 
 ```
 Console.WriteLine(DateTime.Now);
@@ -94,6 +102,8 @@ Console.WriteLine(DateTime.Now);
 
 What command restores NuGet packages for a project?
 
+**Solution:**
+
 ```
 dotnet restore
 ```
@@ -109,6 +119,8 @@ dotnet restore
 ### Problem 6
 
 Create a namespace called MyApp.Models and put a class inside it.
+
+**Solution:**
 
 ```
 namespace MyApp.Models { public class User { public string Name { get; set; } } }
@@ -126,6 +138,8 @@ namespace MyApp.Models { public class User { public string Name { get; set; } } 
 
 Write code that prints the .NET runtime version to the console.
 
+**Solution:**
+
 ```
 Console.WriteLine(System.Environment.Version);
 ```
@@ -141,6 +155,8 @@ Console.WriteLine(System.Environment.Version);
 ### Problem 8
 
 What is the extension of a C# project file?
+
+**Solution:**
 
 ```
 .csproj
@@ -158,6 +174,8 @@ What is the extension of a C# project file?
 
 Write a using directive to import the System namespace.
 
+**Solution:**
+
 ```
 using System;
 ```
@@ -173,6 +191,8 @@ using System;
 ### Problem 10
 
 What command lists installed .NET SDK versions?
+
+**Solution:**
 
 ```
 dotnet --list-sdks

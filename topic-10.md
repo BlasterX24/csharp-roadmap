@@ -30,6 +30,8 @@ Study runtime polymorphism (virtual/override), compile-time hiding (new), and ge
 
 Write a base class Animal with virtual Speak and a Dog that overrides it.
 
+**Solution:**
+
 ```
 class Animal { public virtual void Speak() { } } class Dog : Animal { public override void Speak() { Console.WriteLine("Woof"); } }
 ```
@@ -45,6 +47,8 @@ class Animal { public virtual void Speak() { } } class Dog : Animal { public ove
 ### Problem 2
 
 Use new to hide a base method in a derived class.
+
+**Solution:**
 
 ```
 class Base { public void Do() { } } class Derived : Base { public new void Do() { } }
@@ -62,6 +66,8 @@ class Base { public void Do() { } } class Derived : Base { public new void Do() 
 
 Create a generic List<T> and add three integers to it.
 
+**Solution:**
+
 ```
 var list = new List<int> { 1, 2, 3 };
 ```
@@ -77,6 +83,8 @@ var list = new List<int> { 1, 2, 3 };
 ### Problem 4
 
 Write a generic method Max<T> that returns the larger of two values, constrained to IComparable<T>.
+
+**Solution:**
 
 ```
 T Max<T>(T a, T b) where T : IComparable<T> => a.CompareTo(b) > 0 ? a : b;
@@ -94,6 +102,8 @@ T Max<T>(T a, T b) where T : IComparable<T> => a.CompareTo(b) > 0 ? a : b;
 
 Seal an override so no further subclass can override it.
 
+**Solution:**
+
 ```
 class Base { public virtual void Do() { } } class Middle : Base { public sealed override void Do() { } }
 ```
@@ -109,6 +119,8 @@ class Base { public virtual void Do() { } } class Middle : Base { public sealed 
 ### Problem 6
 
 Create a generic Pair<T> class with First and Second properties.
+
+**Solution:**
 
 ```
 class Pair<T> { public T First { get; set; } public T Second { get; set; } }
@@ -126,6 +138,8 @@ class Pair<T> { public T First { get; set; } public T Second { get; set; } }
 
 Use a generic constraint to require that T is a reference type with a parameterless constructor.
 
+**Solution:**
+
 ```
 class Factory<T> where T : class, new() { public T Create() => new T(); }
 ```
@@ -141,6 +155,8 @@ class Factory<T> where T : class, new() { public T Create() => new T(); }
 ### Problem 8
 
 Demonstrate covariance using IEnumerable<out T>.
+
+**Solution:**
 
 ```
 IEnumerable<Derived> derived = new List<Derived>(); IEnumerable<Base> bases = derived;
@@ -158,6 +174,8 @@ IEnumerable<Derived> derived = new List<Derived>(); IEnumerable<Base> bases = de
 
 Write a generic Repository<T> with a GetById method.
 
+**Solution:**
+
 ```
 class Repository<T> where T : class { public T GetById(int id) { return default; } }
 ```
@@ -173,6 +191,8 @@ class Repository<T> where T : class { public T GetById(int id) { return default;
 ### Problem 10
 
 Use typeof to get the Type of a generic parameter at runtime.
+
+**Solution:**
 
 ```
 Type t = typeof(T);

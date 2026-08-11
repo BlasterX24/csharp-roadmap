@@ -30,6 +30,8 @@ Study the System.Reflection namespace and practice inspecting types and invoking
 
 Get the Type of a string variable using reflection.
 
+**Solution:**
+
 ```
 Type t = typeof(string);
 ```
@@ -45,6 +47,8 @@ Type t = typeof(string);
 ### Problem 2
 
 Get all public methods of a type.
+
+**Solution:**
 
 ```
 MethodInfo[] methods = typeof(MyClass).GetMethods(BindingFlags.Public | BindingFlags.Instance);
@@ -62,6 +66,8 @@ MethodInfo[] methods = typeof(MyClass).GetMethods(BindingFlags.Public | BindingF
 
 Invoke a method by name using MethodInfo.Invoke.
 
+**Solution:**
+
 ```
 MethodInfo m = typeof(MyClass).GetMethod("DoWork"); m.Invoke(obj, new object[] { });
 ```
@@ -77,6 +83,8 @@ MethodInfo m = typeof(MyClass).GetMethod("DoWork"); m.Invoke(obj, new object[] {
 ### Problem 4
 
 Get a property value using PropertyInfo.GetValue.
+
+**Solution:**
 
 ```
 PropertyInfo p = typeof(MyClass).GetProperty("Name"); string val = (string)p.GetValue(obj);
@@ -94,6 +102,8 @@ PropertyInfo p = typeof(MyClass).GetProperty("Name"); string val = (string)p.Get
 
 Create an instance of a type dynamically using Activator.
 
+**Solution:**
+
 ```
 object instance = Activator.CreateInstance(typeof(MyClass));
 ```
@@ -109,6 +119,8 @@ object instance = Activator.CreateInstance(typeof(MyClass));
 ### Problem 6
 
 Check if a type implements an interface.
+
+**Solution:**
 
 ```
 bool implements = typeof(MyClass).IsAssignableFrom(typeof(IMyInterface));
@@ -126,6 +138,8 @@ bool implements = typeof(MyClass).IsAssignableFrom(typeof(IMyInterface));
 
 Get custom attributes on a class.
 
+**Solution:**
+
 ```
 var attrs = typeof(MyClass).GetCustomAttributes(typeof(ObsoleteAttribute), false);
 ```
@@ -141,6 +155,8 @@ var attrs = typeof(MyClass).GetCustomAttributes(typeof(ObsoleteAttribute), false
 ### Problem 8
 
 Set a property value dynamically with PropertyInfo.SetValue.
+
+**Solution:**
 
 ```
 PropertyInfo p = typeof(MyClass).GetProperty("Count"); p.SetValue(obj, 42);
@@ -158,6 +174,8 @@ PropertyInfo p = typeof(MyClass).GetProperty("Count"); p.SetValue(obj, 42);
 
 Get all properties of a type that are strings.
 
+**Solution:**
+
 ```
 var strProps = typeof(MyClass).GetProperties().Where(p => p.PropertyType == typeof(string));
 ```
@@ -173,6 +191,8 @@ var strProps = typeof(MyClass).GetProperties().Where(p => p.PropertyType == type
 ### Problem 10
 
 Use Type.GetConstructor to create an instance with constructor parameters.
+
+**Solution:**
 
 ```
 var ctor = typeof(MyClass).GetConstructor(new[] { typeof(string) }); object obj = ctor.Invoke(new object[] { "test" });

@@ -30,6 +30,8 @@ Learn the Array and generic collection classes, then practice with LINQ to manip
 
 Declare and initialize an integer array with values 1, 2, 3.
 
+**Solution:**
+
 ```
 int[] arr = new int[] { 1, 2, 3 };
 ```
@@ -45,6 +47,8 @@ int[] arr = new int[] { 1, 2, 3 };
 ### Problem 2
 
 Add the number 4 to the end of a List<int> named nums.
+
+**Solution:**
 
 ```
 nums.Add(4);
@@ -62,6 +66,8 @@ nums.Add(4);
 
 Use LINQ to select only even numbers from an int array.
 
+**Solution:**
+
 ```
 var evens = arr.Where(x => x % 2 == 0);
 ```
@@ -77,6 +83,8 @@ var evens = arr.Where(x => x % 2 == 0);
 ### Problem 4
 
 Use LINQ query syntax to order strings alphabetically.
+
+**Solution:**
 
 ```
 var sorted = from s in names orderby s select s;
@@ -94,6 +102,8 @@ var sorted = from s in names orderby s select s;
 
 Get the length of a string array.
 
+**Solution:**
+
 ```
 int len = arr.Length;
 ```
@@ -109,6 +119,8 @@ int len = arr.Length;
 ### Problem 6
 
 Check if a Dictionary<string,int> contains a specific key.
+
+**Solution:**
 
 ```
 bool exists = dict.ContainsKey("Alice");
@@ -126,6 +138,8 @@ bool exists = dict.ContainsKey("Alice");
 
 Use LINQ to get the sum of all elements in an int array.
 
+**Solution:**
+
 ```
 int total = arr.Sum();
 ```
@@ -141,6 +155,8 @@ int total = arr.Sum();
 ### Problem 8
 
 Convert a List<int> to an array.
+
+**Solution:**
 
 ```
 int[] array = nums.ToArray();
@@ -158,6 +174,8 @@ int[] array = nums.ToArray();
 
 Use the index operator to get the last element of an array.
 
+**Solution:**
+
 ```
 int last = arr[^1];
 ```
@@ -173,6 +191,8 @@ int last = arr[^1];
 ### Problem 10
 
 Use the range operator to get the first three elements of an array.
+
+**Solution:**
 
 ```
 int[] first3 = arr[0..3];

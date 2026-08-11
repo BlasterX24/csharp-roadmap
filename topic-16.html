@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Write an async method that returns Task<string> with a 1-second delay.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">async</span> Task&lt;<span class="tok-kw">string</span>&gt; <span class="tok-fn">GetDelayedAsync</span>() { <span class="tok-kw">await</span> Task.<span class="tok-fn">Delay</span>(<span class="tok-num">1000</span>); <span class="tok-kw">return</span> <span class="tok-s">&quot;done&quot;</span>; }</code></pre>
 <div class="expected"><pre><code>async Task&lt;string&gt; GetDelayedAsync() { await Task.Delay(1000); return &quot;done&quot;; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Await a Task<int> and store the result.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> result = <span class="tok-kw">await</span> <span class="tok-fn">GetNumberAsync</span>();</code></pre>
 <div class="expected"><pre><code>int result = await GetNumberAsync();</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Run two async operations in parallel using Task.WhenAll.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> task1 = <span class="tok-fn">GetAsync</span>(<span class="tok-s">&quot;a&quot;</span>); <span class="tok-kw">var</span> task2 = <span class="tok-fn">GetAsync</span>(<span class="tok-s">&quot;b&quot;</span>); <span class="tok-kw">await</span> Task.<span class="tok-fn">WhenAll</span>(task1, task2);</code></pre>
 <div class="expected"><pre><code>var task1 = GetAsync(&quot;a&quot;); var task2 = GetAsync(&quot;b&quot;); await Task.WhenAll(task1, task2);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Cancel an async operation using CancellationToken.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> cts = <span class="tok-kw">new</span> <span class="tok-fn">CancellationTokenSource</span>(); <span class="tok-kw">await</span> <span class="tok-fn">LongRunningAsync</span>(cts.Token);</code></pre>
 <div class="expected"><pre><code>var cts = new CancellationTokenSource(); await LongRunningAsync(cts.Token);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Check for cancellation inside an async loop.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">while</span> (!token.IsCancellationRequested) { <span class="tok-kw">await</span> Task.<span class="tok-fn">Delay</span>(<span class="tok-num">100</span>); }</code></pre>
 <div class="expected"><pre><code>while (!token.IsCancellationRequested) { await Task.Delay(100); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Use Task.Run to execute CPU-bound work asynchronously.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> result = <span class="tok-kw">await</span> Task.<span class="tok-fn">Run</span>(() =&gt; <span class="tok-fn">HeavyComputation</span>());</code></pre>
 <div class="expected"><pre><code>int result = await Task.Run(() =&gt; HeavyComputation());</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Use ConfigureAwait(false) to avoid deadlocks in library code.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">await</span> <span class="tok-fn">GetDataAsync</span>().<span class="tok-fn">ConfigureAwait</span>(<span class="tok-kw">false</span>);</code></pre>
 <div class="expected"><pre><code>await GetDataAsync().ConfigureAwait(false);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Handle exceptions from an async method with try/catch.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">try</span> { <span class="tok-kw">await</span> <span class="tok-fn">RiskyAsync</span>(); } <span class="tok-kw">catch</span> (Exception ex) { Console.<span class="tok-fn">WriteLine</span>(ex.Message); }</code></pre>
 <div class="expected"><pre><code>try { await RiskyAsync(); } catch (Exception ex) { Console.WriteLine(ex.Message); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Cancel a Task after a timeout using CancellationTokenSource.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> cts = <span class="tok-kw">new</span> <span class="tok-fn">CancellationTokenSource</span>(TimeSpan.<span class="tok-fn">FromSeconds</span>(<span class="tok-num">5</span>)); <span class="tok-kw">await</span> <span class="tok-fn">LongOpAsync</span>(cts.Token);</code></pre>
 <div class="expected"><pre><code>var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5)); await LongOpAsync(cts.Token);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Use Task.WhenAny to get the first completed result from multiple sources.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> winner = <span class="tok-kw">await</span> Task.<span class="tok-fn">WhenAny</span>(task1, task2); <span class="tok-kw">var</span> result = <span class="tok-kw">await</span> winner;</code></pre>
 <div class="expected"><pre><code>var winner = await Task.WhenAny(task1, task2); var result = await winner;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

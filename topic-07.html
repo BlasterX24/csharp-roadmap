@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Write a method Add that takes two ints and returns their sum.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> <span class="tok-fn">Add</span>(<span class="tok-kw">int</span> a, <span class="tok-kw">int</span> b) =&gt; a + b;</code></pre>
 <div class="expected"><pre><code>int Add(int a, int b) =&gt; a + b;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Write a method DoubleRef that uses ref to double a parameter.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">void</span> <span class="tok-fn">DoubleRef</span>(<span class="tok-kw">ref</span> <span class="tok-kw">int</span> x) { x *= <span class="tok-num">2</span>; }</code></pre>
 <div class="expected"><pre><code>void DoubleRef(ref int x) { x *= 2; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Write a method TryDivide that returns true via out and the result via a second out.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">bool</span> <span class="tok-fn">TryDivide</span>(<span class="tok-kw">int</span> a, <span class="tok-kw">int</span> b, <span class="tok-kw">out</span> <span class="tok-kw">double</span> result) { result = <span class="tok-num">0</span>; <span class="tok-kw">if</span> (b == <span class="tok-num">0</span>) <span class="tok-kw">return</span> <span class="tok-kw">false</span>; result = (<span class="tok-kw">double</span>)a / b; <span class="tok-kw">return</span> <span class="tok-kw">true</span>; }</code></pre>
 <div class="expected"><pre><code>bool TryDivide(int a, int b, out double result) { result = 0; if (b == 0) return false; result = (double)a / b; return true; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Write a method with a default parameter greeting = "Hello".</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">void</span> <span class="tok-fn">Greet</span>(<span class="tok-kw">string</span> greeting = <span class="tok-s">&quot;Hello&quot;</span>) { Console.<span class="tok-fn">WriteLine</span>(greeting); }</code></pre>
 <div class="expected"><pre><code>void Greet(string greeting = &quot;Hello&quot;) { Console.WriteLine(greeting); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Write a method using params to accept any number of ints and return their sum.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> <span class="tok-fn">Sum</span>(<span class="tok-kw">params</span> <span class="tok-kw">int</span>[] numbers) { <span class="tok-kw">int</span> total = <span class="tok-num">0</span>; <span class="tok-kw">foreach</span> (<span class="tok-kw">var</span> n <span class="tok-kw">in</span> numbers) total += n; <span class="tok-kw">return</span> total; }</code></pre>
 <div class="expected"><pre><code>int Sum(params int[] numbers) { int total = 0; foreach (var n in numbers) total += n; return total; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Write an expression-bodied method that returns the square of an int.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> <span class="tok-fn">Square</span>(<span class="tok-kw">int</span> x) =&gt; x * x;</code></pre>
 <div class="expected"><pre><code>int Square(int x) =&gt; x * x;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Write a method that takes an in parameter and prints it without modifying it.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">void</span> <span class="tok-fn">Print</span>(<span class="tok-kw">in</span> <span class="tok-kw">int</span> value) { Console.<span class="tok-fn">WriteLine</span>(value); }</code></pre>
 <div class="expected"><pre><code>void Print(in int value) { Console.WriteLine(value); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Overload a method Print to accept either an int or a string.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">void</span> <span class="tok-fn">Print</span>(<span class="tok-kw">int</span> n) { Console.<span class="tok-fn">WriteLine</span>(n); } <span class="tok-kw">void</span> <span class="tok-fn">Print</span>(<span class="tok-kw">string</span> s) { Console.<span class="tok-fn">WriteLine</span>(s); }</code></pre>
 <div class="expected"><pre><code>void Print(int n) { Console.WriteLine(n); } void Print(string s) { Console.WriteLine(s); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Write a local function inside a method that calculates factorial.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> <span class="tok-fn">Factorial</span>(<span class="tok-kw">int</span> n) { <span class="tok-kw">int</span> <span class="tok-fn">fact</span>(<span class="tok-kw">int</span> x) =&gt; x &lt;= <span class="tok-num">1</span> ? <span class="tok-num">1</span> : x * <span class="tok-fn">fact</span>(x - <span class="tok-num">1</span>); <span class="tok-kw">return</span> <span class="tok-fn">fact</span>(n); }</code></pre>
 <div class="expected"><pre><code>int Factorial(int n) { int fact(int x) =&gt; x &lt;= 1 ? 1 : x * fact(x - 1); return fact(n); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Write a method with named arguments so the caller can pass arguments in any order.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">void</span> <span class="tok-fn">Build</span>(<span class="tok-kw">string</span> name, <span class="tok-kw">int</span> age) { }</code></pre>
 <div class="expected"><pre><code>void Build(string name, int age) { }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

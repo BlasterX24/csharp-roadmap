@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Use LINQ to filter numbers greater than 5 from an array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> result = arr.<span class="tok-fn">Where</span>(x =&gt; x &gt; <span class="tok-num">5</span>);</code></pre>
 <div class="expected"><pre><code>var result = arr.Where(x =&gt; x &gt; 5);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Use Select to square each number in an int array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> squares = arr.<span class="tok-fn">Select</span>(x =&gt; x * x);</code></pre>
 <div class="expected"><pre><code>var squares = arr.Select(x =&gt; x * x);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Order a string array alphabetically using LINQ.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> sorted = arr.<span class="tok-fn">OrderBy</span>(s =&gt; s);</code></pre>
 <div class="expected"><pre><code>var sorted = arr.OrderBy(s =&gt; s);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Group numbers by whether they are even or odd.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> groups = arr.<span class="tok-fn">GroupBy</span>(x =&gt; x % <span class="tok-num">2</span> == <span class="tok-num">0</span> ? <span class="tok-s">&quot;Even&quot;</span> : <span class="tok-s">&quot;Odd&quot;</span>);</code></pre>
 <div class="expected"><pre><code>var groups = arr.GroupBy(x =&gt; x % 2 == 0 ? &quot;Even&quot; : &quot;Odd&quot;);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Count how many strings in an array start with "a".</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> count = arr.<span class="tok-fn">Count</span>(s =&gt; s.<span class="tok-fn">StartsWith</span>(<span class="tok-s">&quot;a&quot;</span>));</code></pre>
 <div class="expected"><pre><code>int count = arr.Count(s =&gt; s.StartsWith(&quot;a&quot;));</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Use LINQ query syntax to select names longer than 3 characters.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> result = from n <span class="tok-kw">in</span> names where n.Length &gt; <span class="tok-num">3</span> select n;</code></pre>
 <div class="expected"><pre><code>var result = from n in names where n.Length &gt; 3 select n;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Use First to get the first element greater than 10.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> first = arr.<span class="tok-fn">First</span>(x =&gt; x &gt; <span class="tok-num">10</span>);</code></pre>
 <div class="expected"><pre><code>int first = arr.First(x =&gt; x &gt; 10);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Use Any to check if any element is negative.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">bool</span> hasNegative = arr.<span class="tok-fn">Any</span>(x =&gt; x &lt; <span class="tok-num">0</span>);</code></pre>
 <div class="expected"><pre><code>bool hasNegative = arr.Any(x =&gt; x &lt; 0);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Use Sum to total all elements in an int array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> total = arr.<span class="tok-fn">Sum</span>();</code></pre>
 <div class="expected"><pre><code>int total = arr.Sum();</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Use Distinct to remove duplicate integers from a list.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> unique = list.<span class="tok-fn">Distinct</span>();</code></pre>
 <div class="expected"><pre><code>var unique = list.Distinct();</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

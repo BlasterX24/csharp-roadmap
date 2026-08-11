@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Write an if/else that prints "positive" if n > 0, else "non-positive".</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">if</span> (n &gt; <span class="tok-num">0</span>) Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;positive&quot;</span>); <span class="tok-kw">else</span> Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;non-positive&quot;</span>);</code></pre>
 <div class="expected"><pre><code>if (n &gt; 0) Console.WriteLine(&quot;positive&quot;); else Console.WriteLine(&quot;non-positive&quot;);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Write a for loop that prints numbers 1 through 5.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">for</span> (<span class="tok-kw">int</span> i = <span class="tok-num">1</span>; i &lt;= <span class="tok-num">5</span>; i++) Console.<span class="tok-fn">WriteLine</span>(i);</code></pre>
 <div class="expected"><pre><code>for (int i = 1; i &lt;= 5; i++) Console.WriteLine(i);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Write a foreach loop that prints each string in a string array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">foreach</span> (<span class="tok-kw">var</span> s <span class="tok-kw">in</span> arr) Console.<span class="tok-fn">WriteLine</span>(s);</code></pre>
 <div class="expected"><pre><code>foreach (var s in arr) Console.WriteLine(s);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Write a while loop that decrements a counter until it reaches 0.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">while</span> (count &gt; <span class="tok-num">0</span>) { Console.<span class="tok-fn">WriteLine</span>(count); count--; }</code></pre>
 <div class="expected"><pre><code>while (count &gt; 0) { Console.WriteLine(count); count--; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Write a switch expression that maps 1 to "One", 2 to "Two", and default to "Other".</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">string</span> result = num <span class="tok-kw">switch</span> { <span class="tok-num">1</span> =&gt; <span class="tok-s">&quot;One&quot;</span>, <span class="tok-num">2</span> =&gt; <span class="tok-s">&quot;Two&quot;</span>, _ =&gt; <span class="tok-s">&quot;Other&quot;</span> };</code></pre>
 <div class="expected"><pre><code>string result = num switch { 1 =&gt; &quot;One&quot;, 2 =&gt; &quot;Two&quot;, _ =&gt; &quot;Other&quot; };</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Write code that breaks out of a foreach loop when a negative number is found.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">foreach</span> (<span class="tok-kw">var</span> n <span class="tok-kw">in</span> nums) { <span class="tok-kw">if</span> (n &lt; <span class="tok-num">0</span>) <span class="tok-kw">break</span>; Console.<span class="tok-fn">WriteLine</span>(n); }</code></pre>
 <div class="expected"><pre><code>foreach (var n in nums) { if (n &lt; 0) break; Console.WriteLine(n); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Write a do-while loop that asks for input until "quit" is entered.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">string</span> input; <span class="tok-kw">do</span> { input = Console.<span class="tok-fn">ReadLine</span>(); } <span class="tok-kw">while</span> (input != <span class="tok-s">&quot;quit&quot;</span>);</code></pre>
 <div class="expected"><pre><code>string input; do { input = Console.ReadLine(); } while (input != &quot;quit&quot;);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Write an if/else if/else chain that categorizes a score into A, B, C, or F.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">if</span> (score &gt;= <span class="tok-num">90</span>) Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;A&quot;</span>); <span class="tok-kw">else</span> <span class="tok-kw">if</span> (score &gt;= <span class="tok-num">80</span>) Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;B&quot;</span>); <span class="tok-kw">else</span> <span class="tok-kw">if</span> (score &gt;= <span class="tok-num">70</span>) Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;C&quot;</span>); <span class="tok-kw">else</span> Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;F&quot;</span>);</code></pre>
 <div class="expected"><pre><code>if (score &gt;= 90) Console.WriteLine(&quot;A&quot;); else if (score &gt;= 80) Console.WriteLine(&quot;B&quot;); else if (score &gt;= 70) Console.WriteLine(&quot;C&quot;); else Console.WriteLine(&quot;F&quot;);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Write a switch statement that prints the day name for a DayOfWeek enum value.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">switch</span> (day) { <span class="tok-kw">case</span> DayOfWeek.Monday: Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Monday&quot;</span>); <span class="tok-kw">break</span>; <span class="tok-kw">case</span> DayOfWeek.Friday: Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Friday&quot;</span>); <span class="tok-kw">break</span>; <span class="tok-kw">default</span>: Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Other day&quot;</span>); <span class="tok-kw">break</span>; }</code></pre>
 <div class="expected"><pre><code>switch (day) { case DayOfWeek.Monday: Console.WriteLine(&quot;Monday&quot;); break; case DayOfWeek.Friday: Console.WriteLine(&quot;Friday&quot;); break; default: Console.WriteLine(&quot;Other day&quot;); break; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Write a continue statement that skips odd numbers in a for loop from 0 to 9.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">for</span> (<span class="tok-kw">int</span> i = <span class="tok-num">0</span>; i &lt; <span class="tok-num">10</span>; i++) { <span class="tok-kw">if</span> (i % <span class="tok-num">2</span> != <span class="tok-num">0</span>) <span class="tok-kw">continue</span>; Console.<span class="tok-fn">WriteLine</span>(i); }</code></pre>
 <div class="expected"><pre><code>for (int i = 0; i &lt; 10; i++) { if (i % 2 != 0) continue; Console.WriteLine(i); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

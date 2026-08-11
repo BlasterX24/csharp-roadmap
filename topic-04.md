@@ -30,6 +30,8 @@ Explore the String class reference, string interpolation docs, and StringBuilder
 
 Use string interpolation to print "Hello, Alice! You are 30 years old."
 
+**Solution:**
+
 ```
 string msg = $"Hello, {name}! You are {age} years old.";
 ```
@@ -45,6 +47,8 @@ string msg = $"Hello, {name}! You are {age} years old.";
 ### Problem 2
 
 Write code that splits a CSV string "a,b,c" into an array.
+
+**Solution:**
 
 ```
 string[] parts = "a,b,c".Split(',');
@@ -62,6 +66,8 @@ string[] parts = "a,b,c".Split(',');
 
 Use StringBuilder to build "aaa" by appending "a" three times.
 
+**Solution:**
+
 ```
 var sb = new System.Text.StringBuilder(); for (int i = 0; i < 3; i++) sb.Append("a"); string result = sb.ToString();
 ```
@@ -77,6 +83,8 @@ var sb = new System.Text.StringBuilder(); for (int i = 0; i < 3; i++) sb.Append(
 ### Problem 4
 
 Check if a string is null or empty.
+
+**Solution:**
 
 ```
 bool empty = string.IsNullOrEmpty(input);
@@ -94,6 +102,8 @@ bool empty = string.IsNullOrEmpty(input);
 
 Replace all spaces in a string with underscores.
 
+**Solution:**
+
 ```
 string result = input.Replace(" ", "_");
 ```
@@ -109,6 +119,8 @@ string result = input.Replace(" ", "_");
 ### Problem 6
 
 Convert a string to lowercase and remove leading/trailing whitespace.
+
+**Solution:**
 
 ```
 string result = input.ToLower().Trim();
@@ -126,6 +138,8 @@ string result = input.ToLower().Trim();
 
 Find the index of the first occurrence of "world" in a string.
 
+**Solution:**
+
 ```
 int idx = "hello world".IndexOf("world");
 ```
@@ -141,6 +155,8 @@ int idx = "hello world".IndexOf("world");
 ### Problem 8
 
 Join an array of strings with a comma separator.
+
+**Solution:**
 
 ```
 string csv = string.Join(",", new[] { "a", "b", "c" });
@@ -158,6 +174,8 @@ string csv = string.Join(",", new[] { "a", "b", "c" });
 
 Use a verbatim string to assign a path with backslashes.
 
+**Solution:**
+
 ```
 string path = @"C:\Users\Alice\Documents";
 ```
@@ -173,6 +191,8 @@ string path = @"C:\Users\Alice\Documents";
 ### Problem 10
 
 Check if a string starts with "http" using case-insensitive comparison.
+
+**Solution:**
 
 ```
 bool ok = url.StartsWith("http", StringComparison.OrdinalIgnoreCase);

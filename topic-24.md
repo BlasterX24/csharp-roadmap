@@ -30,6 +30,8 @@ Study Span<T>, stackalloc, ArrayPool, and BenchmarkDotNet for performance optimi
 
 Create a Span<int> from an array.
 
+**Solution:**
+
 ```
 Span<int> span = arr.AsSpan();
 ```
@@ -45,6 +47,8 @@ Span<int> span = arr.AsSpan();
 ### Problem 2
 
 Use stackalloc to allocate a buffer of 128 bytes on the stack.
+
+**Solution:**
 
 ```
 Span<byte> buffer = stackalloc byte[128];
@@ -62,6 +66,8 @@ Span<byte> buffer = stackalloc byte[128];
 
 Get a shared array from ArrayPool<int>.
 
+**Solution:**
+
 ```
 int[] array = ArrayPool<int>.Shared.Rent(1024);
 ```
@@ -77,6 +83,8 @@ int[] array = ArrayPool<int>.Shared.Rent(1024);
 ### Problem 4
 
 Return an array to the pool after use.
+
+**Solution:**
 
 ```
 ArrayPool<int>.Shared.Return(array);
@@ -94,6 +102,8 @@ ArrayPool<int>.Shared.Return(array);
 
 Slice a Span to get a sub-range.
 
+**Solution:**
+
 ```
 Span<int> slice = span.Slice(2, 5);
 ```
@@ -109,6 +119,8 @@ Span<int> slice = span.Slice(2, 5);
 ### Problem 6
 
 Use MemoryMarshal to read a struct from a byte span.
+
+**Solution:**
 
 ```
 MyStruct s = MemoryMarshal.Read<MyStruct>(byteSpan);
@@ -126,6 +138,8 @@ MyStruct s = MemoryMarshal.Read<MyStruct>(byteSpan);
 
 Use ref return to avoid copying a struct.
 
+**Solution:**
+
 ```
 public ref int GetRef() => ref _field;
 ```
@@ -141,6 +155,8 @@ public ref int GetRef() => ref _field;
 ### Problem 8
 
 Create a ValueTask that returns a cached result.
+
+**Solution:**
 
 ```
 ValueTask<int> GetCachedAsync(int id) => new ValueTask<int>(cachedValue);
@@ -158,6 +174,8 @@ ValueTask<int> GetCachedAsync(int id) => new ValueTask<int>(cachedValue);
 
 Use Array.Empty<T>() to avoid allocating an empty array.
 
+**Solution:**
+
 ```
 return Array.Empty<string>();
 ```
@@ -173,6 +191,8 @@ return Array.Empty<string>();
 ### Problem 10
 
 Write a BenchmarkDotNet benchmark class.
+
+**Solution:**
 
 ```
 [MemoryDiagnoser] public class MyBenchmark { [Benchmark] public void Method() { } }

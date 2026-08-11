@@ -30,6 +30,8 @@ Install dnSpy or ILSpy, open an assembly, and practice navigating the decompiled
 
 Open an assembly in dnSpy and navigate to the Main method.
 
+**Solution:**
+
 ```
 File > Open > select the assembly > expand the tree > navigate to Program.cs > Main
 ```
@@ -45,6 +47,8 @@ Navigate to Program.Main in dnSpy
 ### Problem 2
 
 Decompile a DLL and find all string literals.
+
+**Solution:**
 
 ```
 Use Analyze > search for string references, or search for String in the search bar
@@ -62,6 +66,8 @@ Search for string references in the decompiled assembly
 
 Identify a hardcoded API key in decompiled code.
 
+**Solution:**
+
 ```
 Look for string assignments with suspicious values like "sk-..." or "api_key=..."
 ```
@@ -77,6 +83,8 @@ Find string constants containing API keys or secrets
 ### Problem 4
 
 Use ILSpy to view the IL of a method.
+
+**Solution:**
 
 ```
 Right-click method > IL Instructions
@@ -94,6 +102,8 @@ View IL instructions in ILSpy
 
 Find all methods that call a specific external method.
 
+**Solution:**
+
 ```
 Use the Analyze tab > References to find callers
 ```
@@ -109,6 +119,8 @@ Find references to the target method
 ### Problem 6
 
 Search for all types in an assembly that implement an interface.
+
+**Solution:**
 
 ```
 Use the search bar with IInterfaceName
@@ -126,6 +138,8 @@ Find implementing classes via search
 
 Decompile and find the assembly version.
 
+**Solution:**
+
 ```
 Check Assembly Properties or the AssemblyInfo attribute
 ```
@@ -141,6 +155,8 @@ Read the AssemblyVersion attribute
 ### Problem 8
 
 Identify obfuscated class names in a decompiled assembly.
+
+**Solution:**
 
 ```
 Look for classes with names like <Module>, <>c, or random strings
@@ -158,6 +174,8 @@ Identify compiler-generated or obfuscated types
 
 Find all configuration strings (connection strings, keys).
 
+**Solution:**
+
 ```
 Search for strings containing "Server=", "Password=", or "key="
 ```
@@ -173,6 +191,8 @@ Search for configuration-related string literals
 ### Problem 10
 
 Export decompiled source code from ILSpy.
+
+**Solution:**
 
 ```
 File > Save Code > select output directory

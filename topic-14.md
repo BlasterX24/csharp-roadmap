@@ -30,6 +30,8 @@ Study the exception handling reference, best practices for catching exceptions, 
 
 Write a try/catch that catches DivideByZeroException and prints the error.
 
+**Solution:**
+
 ```
 try { int r = 10 / 0; } catch (DivideByZeroException ex) { Console.WriteLine(ex.Message); }
 ```
@@ -45,6 +47,8 @@ try { int r = 10 / 0; } catch (DivideByZeroException ex) { Console.WriteLine(ex.
 ### Problem 2
 
 Write a try/finally block that closes a file in the finally.
+
+**Solution:**
 
 ```
 try { /* work */ } finally { File.Close(); }
@@ -62,6 +66,8 @@ try { /* work */ } finally { File.Close(); }
 
 Throw an ArgumentException with a message.
 
+**Solution:**
+
 ```
 throw new ArgumentException("Invalid name", nameof(name));
 ```
@@ -77,6 +83,8 @@ throw new ArgumentException("Invalid name", nameof(name));
 ### Problem 4
 
 Create a custom exception class called OrderNotFoundException.
+
+**Solution:**
 
 ```
 class OrderNotFoundException : Exception { public OrderNotFoundException(string msg) : base(msg) { } }
@@ -94,6 +102,8 @@ class OrderNotFoundException : Exception { public OrderNotFoundException(string 
 
 Use a using statement to read all text from a file.
 
+**Solution:**
+
 ```
 using (var sr = new StreamReader(path)) { string content = sr.ReadToEnd(); }
 ```
@@ -109,6 +119,8 @@ using (var sr = new StreamReader(path)) { string content = sr.ReadToEnd(); }
 ### Problem 6
 
 Use a using declaration (C# 8+) for a file stream.
+
+**Solution:**
 
 ```
 using var fs = File.OpenRead(path);
@@ -126,6 +138,8 @@ using var fs = File.OpenRead(path);
 
 Catch multiple exception types in order from most to least specific.
 
+**Solution:**
+
 ```
 try { /* code */ } catch (InvalidOperationException ex) { } catch (Exception ex) { }
 ```
@@ -141,6 +155,8 @@ try { /* code */ } catch (InvalidOperationException ex) { } catch (Exception ex)
 ### Problem 8
 
 Use a when filter to catch only exceptions with a specific HRESULT.
+
+**Solution:**
 
 ```
 catch (COMException ex) when (ex.ErrorCode == -2147024809) { }
@@ -158,6 +174,8 @@ catch (COMException ex) when (ex.ErrorCode == -2147024809) { }
 
 Rethrow an exception preserving the original stack trace.
 
+**Solution:**
+
 ```
 catch (Exception) { throw; }
 ```
@@ -173,6 +191,8 @@ catch (Exception) { throw; }
 ### Problem 10
 
 Use try/catch with async code and await.
+
+**Solution:**
 
 ```
 try { await Task.Run(() => RiskyOperation()); } catch (Exception ex) { Console.WriteLine(ex.Message); }

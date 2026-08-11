@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Write a base class Animal with virtual Speak and a Dog that overrides it.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Animal { <span class="tok-kw">public</span> <span class="tok-kw">virtual</span> <span class="tok-kw">void</span> <span class="tok-fn">Speak</span>() { } } <span class="tok-kw">class</span> Dog : Animal { <span class="tok-kw">public</span> <span class="tok-kw">override</span> <span class="tok-kw">void</span> <span class="tok-fn">Speak</span>() { Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Woof&quot;</span>); } }</code></pre>
 <div class="expected"><pre><code>class Animal { public virtual void Speak() { } } class Dog : Animal { public override void Speak() { Console.WriteLine(&quot;Woof&quot;); } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Use new to hide a base method in a derived class.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Base { <span class="tok-kw">public</span> <span class="tok-kw">void</span> <span class="tok-fn">Do</span>() { } } <span class="tok-kw">class</span> Derived : Base { <span class="tok-kw">public</span> <span class="tok-kw">new</span> <span class="tok-kw">void</span> <span class="tok-fn">Do</span>() { } }</code></pre>
 <div class="expected"><pre><code>class Base { public void Do() { } } class Derived : Base { public new void Do() { } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Create a generic List<T> and add three integers to it.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> list = <span class="tok-kw">new</span> List&lt;<span class="tok-kw">int</span>&gt; { <span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span> };</code></pre>
 <div class="expected"><pre><code>var list = new List&lt;int&gt; { 1, 2, 3 };</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Write a generic method Max<T> that returns the larger of two values, constrained to IComparable<T>.</p>
+<div class="sol-label">Solution</div>
 <pre><code>T Max&lt;T&gt;(T a, T b) where T : IComparable&lt;T&gt; =&gt; a.<span class="tok-fn">CompareTo</span>(b) &gt; <span class="tok-num">0</span> ? a : b;</code></pre>
 <div class="expected"><pre><code>T Max&lt;T&gt;(T a, T b) where T : IComparable&lt;T&gt; =&gt; a.CompareTo(b) &gt; 0 ? a : b;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Seal an override so no further subclass can override it.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Base { <span class="tok-kw">public</span> <span class="tok-kw">virtual</span> <span class="tok-kw">void</span> <span class="tok-fn">Do</span>() { } } <span class="tok-kw">class</span> Middle : Base { <span class="tok-kw">public</span> <span class="tok-kw">sealed</span> <span class="tok-kw">override</span> <span class="tok-kw">void</span> <span class="tok-fn">Do</span>() { } }</code></pre>
 <div class="expected"><pre><code>class Base { public virtual void Do() { } } class Middle : Base { public sealed override void Do() { } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Create a generic Pair<T> class with First and Second properties.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Pair&lt;T&gt; { <span class="tok-kw">public</span> T First { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; } <span class="tok-kw">public</span> T Second { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; } }</code></pre>
 <div class="expected"><pre><code>class Pair&lt;T&gt; { public T First { get; set; } public T Second { get; set; } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Use a generic constraint to require that T is a reference type with a parameterless constructor.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Factory&lt;T&gt; where T : <span class="tok-kw">class</span>, <span class="tok-kw">new</span>() { <span class="tok-kw">public</span> T <span class="tok-fn">Create</span>() =&gt; <span class="tok-kw">new</span> <span class="tok-fn">T</span>(); }</code></pre>
 <div class="expected"><pre><code>class Factory&lt;T&gt; where T : class, new() { public T Create() =&gt; new T(); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Demonstrate covariance using IEnumerable<out T>.</p>
+<div class="sol-label">Solution</div>
 <pre><code>IEnumerable&lt;Derived&gt; derived = <span class="tok-kw">new</span> List&lt;Derived&gt;(); IEnumerable&lt;Base&gt; bases = derived;</code></pre>
 <div class="expected"><pre><code>IEnumerable&lt;Derived&gt; derived = new List&lt;Derived&gt;(); IEnumerable&lt;Base&gt; bases = derived;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Write a generic Repository<T> with a GetById method.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Repository&lt;T&gt; where T : <span class="tok-kw">class</span> { <span class="tok-kw">public</span> T <span class="tok-fn">GetById</span>(<span class="tok-kw">int</span> id) { <span class="tok-kw">return</span> <span class="tok-kw">default</span>; } }</code></pre>
 <div class="expected"><pre><code>class Repository&lt;T&gt; where T : class { public T GetById(int id) { return default; } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Use typeof to get the Type of a generic parameter at runtime.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Type t = <span class="tok-kw">typeof</span>(T);</code></pre>
 <div class="expected"><pre><code>Type t = typeof(T);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

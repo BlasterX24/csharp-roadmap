@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Declare and initialize an integer array with values 1, 2, 3.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span>[] arr = <span class="tok-kw">new</span> <span class="tok-kw">int</span>[] { <span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span> };</code></pre>
 <div class="expected"><pre><code>int[] arr = new int[] { 1, 2, 3 };</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Add the number 4 to the end of a List<int> named nums.</p>
+<div class="sol-label">Solution</div>
 <pre><code>nums.<span class="tok-fn">Add</span>(<span class="tok-num">4</span>);</code></pre>
 <div class="expected"><pre><code>nums.Add(4);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Use LINQ to select only even numbers from an int array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> evens = arr.<span class="tok-fn">Where</span>(x =&gt; x % <span class="tok-num">2</span> == <span class="tok-num">0</span>);</code></pre>
 <div class="expected"><pre><code>var evens = arr.Where(x =&gt; x % 2 == 0);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Use LINQ query syntax to order strings alphabetically.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> sorted = from s <span class="tok-kw">in</span> names orderby s select s;</code></pre>
 <div class="expected"><pre><code>var sorted = from s in names orderby s select s;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Get the length of a string array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> len = arr.Length;</code></pre>
 <div class="expected"><pre><code>int len = arr.Length;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Check if a Dictionary<string,int> contains a specific key.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">bool</span> exists = dict.<span class="tok-fn">ContainsKey</span>(<span class="tok-s">&quot;Alice&quot;</span>);</code></pre>
 <div class="expected"><pre><code>bool exists = dict.ContainsKey(&quot;Alice&quot;);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Use LINQ to get the sum of all elements in an int array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> total = arr.<span class="tok-fn">Sum</span>();</code></pre>
 <div class="expected"><pre><code>int total = arr.Sum();</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Convert a List<int> to an array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span>[] array = nums.<span class="tok-fn">ToArray</span>();</code></pre>
 <div class="expected"><pre><code>int[] array = nums.ToArray();</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Use the index operator to get the last element of an array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span> last = arr[^<span class="tok-num">1</span>];</code></pre>
 <div class="expected"><pre><code>int last = arr[^1];</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Use the range operator to get the first three elements of an array.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">int</span>[] first3 = arr[<span class="tok-num">0</span>..<span class="tok-num">3</span>];</code></pre>
 <div class="expected"><pre><code>int[] first3 = arr[0..3];</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

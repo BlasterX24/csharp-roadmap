@@ -30,6 +30,8 @@ Review the classes and objects tutorial, then study properties, constructors, an
 
 Create a Person class with Name and Age auto-properties.
 
+**Solution:**
+
 ```
 class Person { public string Name { get; set; } public int Age { get; set; } }
 ```
@@ -45,6 +47,8 @@ class Person { public string Name { get; set; } public int Age { get; set; } }
 ### Problem 2
 
 Write a constructor for Person that takes name and age as parameters.
+
+**Solution:**
 
 ```
 class Person { public string Name { get; set; } public int Age { get; set; } public Person(string name, int age) { Name = name; Age = age; } }
@@ -62,6 +66,8 @@ class Person { public string Name { get; set; } public int Age { get; set; } pub
 
 Add a readonly field Id to Person that is set in the constructor.
 
+**Solution:**
+
 ```
 class Person { public readonly int Id; public Person(int id) { Id = id; } }
 ```
@@ -77,6 +83,8 @@ class Person { public readonly int Id; public Person(int id) { Id = id; } }
 ### Problem 4
 
 Create a static class MathHelper with a static method Add.
+
+**Solution:**
 
 ```
 static class MathHelper { public static int Add(int a, int b) => a + b; }
@@ -94,6 +102,8 @@ static class MathHelper { public static int Add(int a, int b) => a + b; }
 
 Write a property with only a getter that computes FullName from First and Last.
 
+**Solution:**
+
 ```
 public string FullName => $"{First} {Last}";
 ```
@@ -109,6 +119,8 @@ public string FullName => $"{First} {Last}";
 ### Problem 6
 
 Create a private field _count and expose it via a public Count property.
+
+**Solution:**
 
 ```
 class Counter { private int _count; public int Count { get { return _count; } set { _count = value; } } }
@@ -126,6 +138,8 @@ class Counter { private int _count; public int Count { get { return _count; } se
 
 Write an object initializer to create a Person with Name="Alice" and Age=30.
 
+**Solution:**
+
 ```
 var p = new Person { Name = "Alice", Age = 30 };
 ```
@@ -141,6 +155,8 @@ var p = new Person { Name = "Alice", Age = 30 };
 ### Problem 8
 
 Create a static constructor that initializes a static field.
+
+**Solution:**
 
 ```
 class Config { public static string AppName; static Config() { AppName = "MyApp"; } }
@@ -158,6 +174,8 @@ class Config { public static string AppName; static Config() { AppName = "MyApp"
 
 Use the 'this' keyword to disambiguate a parameter from a field.
 
+**Solution:**
+
 ```
 class Person { string name; public Person(string name) { this.name = name; } }
 ```
@@ -173,6 +191,8 @@ class Person { string name; public Person(string name) { this.name = name; } }
 ### Problem 10
 
 Add a private setter to the Id property so it can only be set internally.
+
+**Solution:**
 
 ```
 public int Id { get; private set; }

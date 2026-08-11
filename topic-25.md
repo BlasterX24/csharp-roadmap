@@ -30,6 +30,8 @@ Pick a project, plan the architecture, implement incrementally, and test thoroug
 
 Build a CLI file organizer that sorts files by extension using File I/O and LINQ.
 
+**Solution:**
+
 ```
 var files = Directory.GetFiles(sourceDir); var grouped = files.GroupBy(f => Path.GetExtension(f));
 ```
@@ -45,6 +47,8 @@ var files = Directory.GetFiles(sourceDir); var grouped = files.GroupBy(f => Path
 ### Problem 2
 
 Create a REST API with ASP.NET that manages a todo list with CRUD operations.
+
+**Solution:**
 
 ```
 app.MapGet("/todos", () => todos); app.MapPost("/todos", (Todo t) => { todos.Add(t); return Results.Created($"/todos/{t.Id}", t); });
@@ -62,6 +66,8 @@ app.MapGet("/todos", () => todos); app.MapPost("/todos", (Todo t) => { todos.Add
 
 Implement a background task runner using async/await and CancellationToken.
 
+**Solution:**
+
 ```
 var cts = new CancellationTokenSource(); _ = Task.Run(() => ProcessAsync(cts.Token));
 ```
@@ -77,6 +83,8 @@ var cts = new CancellationTokenSource(); _ = Task.Run(() => ProcessAsync(cts.Tok
 ### Problem 4
 
 Build a JSON configuration manager that reads/writes settings using File I/O.
+
+**Solution:**
 
 ```
 var config = JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(path));
@@ -94,6 +102,8 @@ var config = JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(path));
 
 Create a LINQ query engine that filters and sorts a CSV dataset.
 
+**Solution:**
+
 ```
 var results = records.Where(r => r.Age > 18).OrderBy(r => r.Name).Select(r => r.ToDisplayString());
 ```
@@ -109,6 +119,8 @@ var results = records.Where(r => r.Age > 18).OrderBy(r => r.Name).Select(r => r.
 ### Problem 6
 
 Build a plugin system using reflection and interfaces.
+
+**Solution:**
 
 ```
 Assembly.Load(pluginPath); var plugins = assembly.GetTypes().Where(t => typeof(IPlugin).IsAssignableFrom(t));
@@ -126,6 +138,8 @@ Assembly.Load(pluginPath); var plugins = assembly.GetTypes().Where(t => typeof(I
 
 Implement a custom logger using delegates and events.
 
+**Solution:**
+
 ```
 public event Action<string> OnLog; void Log(string msg) => OnLog?.Invoke(msg);
 ```
@@ -141,6 +155,8 @@ public event Action<string> OnLog; void Log(string msg) => OnLog?.Invoke(msg);
 ### Problem 8
 
 Build a URL shortener using ASP.NET with in-memory storage.
+
+**Solution:**
 
 ```
 var urls = new Dictionary<string, string>(); app.MapPost("/shorten", (string url) => { var key = Guid.NewGuid().ToString()[..8]; urls[key] = url; return key; });
@@ -158,6 +174,8 @@ var urls = new Dictionary<string, string>(); app.MapPost("/shorten", (string url
 
 Create a parameterized SQL data access layer using ADO.NET.
 
+**Solution:**
+
 ```
 using var cmd = new SqlCommand("SELECT * FROM Users WHERE Id = @id", conn); cmd.Parameters.AddWithValue("@id", userId);
 ```
@@ -173,6 +191,8 @@ using var cmd = new SqlCommand("SELECT * FROM Users WHERE Id = @id", conn); cmd.
 ### Problem 10
 
 Build a performance-benchmarked caching layer with ArrayPool and ValueTask.
+
+**Solution:**
 
 ```
 [MemoryDiagnoser] public class CacheBenchmark { [Benchmark] public ValueTask<int> GetOrAdd() => new ValueTask<int>(42); }

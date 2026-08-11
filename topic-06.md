@@ -30,6 +30,8 @@ Review the control flow statements reference and practice with pattern matching 
 
 Write an if/else that prints "positive" if n > 0, else "non-positive".
 
+**Solution:**
+
 ```
 if (n > 0) Console.WriteLine("positive"); else Console.WriteLine("non-positive");
 ```
@@ -45,6 +47,8 @@ if (n > 0) Console.WriteLine("positive"); else Console.WriteLine("non-positive")
 ### Problem 2
 
 Write a for loop that prints numbers 1 through 5.
+
+**Solution:**
 
 ```
 for (int i = 1; i <= 5; i++) Console.WriteLine(i);
@@ -62,6 +66,8 @@ for (int i = 1; i <= 5; i++) Console.WriteLine(i);
 
 Write a foreach loop that prints each string in a string array.
 
+**Solution:**
+
 ```
 foreach (var s in arr) Console.WriteLine(s);
 ```
@@ -77,6 +83,8 @@ foreach (var s in arr) Console.WriteLine(s);
 ### Problem 4
 
 Write a while loop that decrements a counter until it reaches 0.
+
+**Solution:**
 
 ```
 while (count > 0) { Console.WriteLine(count); count--; }
@@ -94,6 +102,8 @@ while (count > 0) { Console.WriteLine(count); count--; }
 
 Write a switch expression that maps 1 to "One", 2 to "Two", and default to "Other".
 
+**Solution:**
+
 ```
 string result = num switch { 1 => "One", 2 => "Two", _ => "Other" };
 ```
@@ -109,6 +119,8 @@ string result = num switch { 1 => "One", 2 => "Two", _ => "Other" };
 ### Problem 6
 
 Write code that breaks out of a foreach loop when a negative number is found.
+
+**Solution:**
 
 ```
 foreach (var n in nums) { if (n < 0) break; Console.WriteLine(n); }
@@ -126,6 +138,8 @@ foreach (var n in nums) { if (n < 0) break; Console.WriteLine(n); }
 
 Write a do-while loop that asks for input until "quit" is entered.
 
+**Solution:**
+
 ```
 string input; do { input = Console.ReadLine(); } while (input != "quit");
 ```
@@ -141,6 +155,8 @@ string input; do { input = Console.ReadLine(); } while (input != "quit");
 ### Problem 8
 
 Write an if/else if/else chain that categorizes a score into A, B, C, or F.
+
+**Solution:**
 
 ```
 if (score >= 90) Console.WriteLine("A"); else if (score >= 80) Console.WriteLine("B"); else if (score >= 70) Console.WriteLine("C"); else Console.WriteLine("F");
@@ -158,6 +174,8 @@ if (score >= 90) Console.WriteLine("A"); else if (score >= 80) Console.WriteLine
 
 Write a switch statement that prints the day name for a DayOfWeek enum value.
 
+**Solution:**
+
 ```
 switch (day) { case DayOfWeek.Monday: Console.WriteLine("Monday"); break; case DayOfWeek.Friday: Console.WriteLine("Friday"); break; default: Console.WriteLine("Other day"); break; }
 ```
@@ -173,6 +191,8 @@ switch (day) { case DayOfWeek.Monday: Console.WriteLine("Monday"); break; case D
 ### Problem 10
 
 Write a continue statement that skips odd numbers in a for loop from 0 to 9.
+
+**Solution:**
 
 ```
 for (int i = 0; i < 10; i++) { if (i % 2 != 0) continue; Console.WriteLine(i); }

@@ -30,6 +30,8 @@ Start with the LINQ overview, then practice converting between method and query 
 
 Use LINQ to filter numbers greater than 5 from an array.
 
+**Solution:**
+
 ```
 var result = arr.Where(x => x > 5);
 ```
@@ -45,6 +47,8 @@ var result = arr.Where(x => x > 5);
 ### Problem 2
 
 Use Select to square each number in an int array.
+
+**Solution:**
 
 ```
 var squares = arr.Select(x => x * x);
@@ -62,6 +66,8 @@ var squares = arr.Select(x => x * x);
 
 Order a string array alphabetically using LINQ.
 
+**Solution:**
+
 ```
 var sorted = arr.OrderBy(s => s);
 ```
@@ -77,6 +83,8 @@ var sorted = arr.OrderBy(s => s);
 ### Problem 4
 
 Group numbers by whether they are even or odd.
+
+**Solution:**
 
 ```
 var groups = arr.GroupBy(x => x % 2 == 0 ? "Even" : "Odd");
@@ -94,6 +102,8 @@ var groups = arr.GroupBy(x => x % 2 == 0 ? "Even" : "Odd");
 
 Count how many strings in an array start with "a".
 
+**Solution:**
+
 ```
 int count = arr.Count(s => s.StartsWith("a"));
 ```
@@ -109,6 +119,8 @@ int count = arr.Count(s => s.StartsWith("a"));
 ### Problem 6
 
 Use LINQ query syntax to select names longer than 3 characters.
+
+**Solution:**
 
 ```
 var result = from n in names where n.Length > 3 select n;
@@ -126,6 +138,8 @@ var result = from n in names where n.Length > 3 select n;
 
 Use First to get the first element greater than 10.
 
+**Solution:**
+
 ```
 int first = arr.First(x => x > 10);
 ```
@@ -141,6 +155,8 @@ int first = arr.First(x => x > 10);
 ### Problem 8
 
 Use Any to check if any element is negative.
+
+**Solution:**
 
 ```
 bool hasNegative = arr.Any(x => x < 0);
@@ -158,6 +174,8 @@ bool hasNegative = arr.Any(x => x < 0);
 
 Use Sum to total all elements in an int array.
 
+**Solution:**
+
 ```
 int total = arr.Sum();
 ```
@@ -173,6 +191,8 @@ int total = arr.Sum();
 ### Problem 10
 
 Use Distinct to remove duplicate integers from a list.
+
+**Solution:**
 
 ```
 var unique = list.Distinct();

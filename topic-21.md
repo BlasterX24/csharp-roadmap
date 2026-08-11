@@ -30,6 +30,8 @@ Study IL opcodes with the Common Intermediate Language reference and use ildasm 
 
 Use ildasm to view the IL of a compiled assembly.
 
+**Solution:**
+
 ```
 ildasm MyApp.dll
 ```
@@ -45,6 +47,8 @@ ildasm MyApp.dll
 ### Problem 2
 
 Identify the IL opcode for loading an integer constant onto the stack.
+
+**Solution:**
 
 ```
 ldc.i4 <value>
@@ -62,6 +66,8 @@ ldc.i4 <value>
 
 What IL opcode is used to call a static method?
 
+**Solution:**
+
 ```
 call
 ```
@@ -77,6 +83,8 @@ call
 ### Problem 4
 
 What IL opcode returns from a method?
+
+**Solution:**
 
 ```
 ret
@@ -94,6 +102,8 @@ ret
 
 What is the IL for a simple if/else statement?
 
+**Solution:**
+
 ```
 brfalse/brtrue to jump past the false branch, then br to skip the true branch
 ```
@@ -109,6 +119,8 @@ brfalse/brtrue to jump past the false branch, then br to skip the true branch
 ### Problem 6
 
 What IL opcode stores a value into a local variable?
+
+**Solution:**
 
 ```
 stloc
@@ -126,6 +138,8 @@ stloc
 
 What is a metadata token in IL?
 
+**Solution:**
+
 ```
 A numeric identifier that references a type, method, field, or string in the assembly metadata
 ```
@@ -141,6 +155,8 @@ A numeric identifier that references a type, method, field, or string in the ass
 ### Problem 8
 
 What is the difference between box and unbox IL opcodes?
+
+**Solution:**
 
 ```
 box converts a value type to an object reference on the heap; unbox extracts a value type from an object
@@ -158,6 +174,8 @@ box converts a value type to an object reference on the heap; unbox extracts a v
 
 How does the CLR verify IL for type safety?
 
+**Solution:**
+
 ```
 The verifier checks that operations are type-safe, stack is balanced, and no invalid casts occur before JIT compilation
 ```
@@ -173,6 +191,8 @@ The verifier checks that operations are type-safe, stack is balanced, and no inv
 ### Problem 10
 
 What is the purpose of the .locals directive in IL?
+
+**Solution:**
 
 ```
 Declares local variables for a method, specifying their types and init flag

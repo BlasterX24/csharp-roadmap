@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Write a try/catch that catches DivideByZeroException and prints the error.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">try</span> { <span class="tok-kw">int</span> r = <span class="tok-num">10</span> / <span class="tok-num">0</span>; } <span class="tok-kw">catch</span> (DivideByZeroException ex) { Console.<span class="tok-fn">WriteLine</span>(ex.Message); }</code></pre>
 <div class="expected"><pre><code>try { int r = 10 / 0; } catch (DivideByZeroException ex) { Console.WriteLine(ex.Message); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Write a try/finally block that closes a file in the finally.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">try</span> { <span class="tok-c">/* work */</span> } <span class="tok-kw">finally</span> { File.<span class="tok-fn">Close</span>(); }</code></pre>
 <div class="expected"><pre><code>try { /* work */ } finally { File.Close(); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Throw an ArgumentException with a message.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">throw</span> <span class="tok-kw">new</span> <span class="tok-fn">ArgumentException</span>(<span class="tok-s">&quot;Invalid name&quot;</span>, <span class="tok-kw">nameof</span>(name));</code></pre>
 <div class="expected"><pre><code>throw new ArgumentException(&quot;Invalid name&quot;, nameof(name));</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Create a custom exception class called OrderNotFoundException.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> OrderNotFoundException : Exception { <span class="tok-kw">public</span> <span class="tok-fn">OrderNotFoundException</span>(<span class="tok-kw">string</span> msg) : <span class="tok-kw">base</span>(msg) { } }</code></pre>
 <div class="expected"><pre><code>class OrderNotFoundException : Exception { public OrderNotFoundException(string msg) : base(msg) { } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Use a using statement to read all text from a file.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">using</span> (<span class="tok-kw">var</span> sr = <span class="tok-kw">new</span> <span class="tok-fn">StreamReader</span>(path)) { <span class="tok-kw">string</span> content = sr.<span class="tok-fn">ReadToEnd</span>(); }</code></pre>
 <div class="expected"><pre><code>using (var sr = new StreamReader(path)) { string content = sr.ReadToEnd(); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Use a using declaration (C# 8+) for a file stream.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">using</span> <span class="tok-kw">var</span> fs = File.<span class="tok-fn">OpenRead</span>(path);</code></pre>
 <div class="expected"><pre><code>using var fs = File.OpenRead(path);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Catch multiple exception types in order from most to least specific.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">try</span> { <span class="tok-c">/* code */</span> } <span class="tok-kw">catch</span> (InvalidOperationException ex) { } <span class="tok-kw">catch</span> (Exception ex) { }</code></pre>
 <div class="expected"><pre><code>try { /* code */ } catch (InvalidOperationException ex) { } catch (Exception ex) { }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Use a when filter to catch only exceptions with a specific HRESULT.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">catch</span> (COMException ex) <span class="tok-fn">when</span> (ex.ErrorCode == -<span class="tok-num">2147024809</span>) { }</code></pre>
 <div class="expected"><pre><code>catch (COMException ex) when (ex.ErrorCode == -2147024809) { }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Rethrow an exception preserving the original stack trace.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">catch</span> (Exception) { <span class="tok-kw">throw</span>; }</code></pre>
 <div class="expected"><pre><code>catch (Exception) { throw; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Use try/catch with async code and await.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">try</span> { <span class="tok-kw">await</span> Task.<span class="tok-fn">Run</span>(() =&gt; <span class="tok-fn">RiskyOperation</span>()); } <span class="tok-kw">catch</span> (Exception ex) { Console.<span class="tok-fn">WriteLine</span>(ex.Message); }</code></pre>
 <div class="expected"><pre><code>try { await Task.Run(() =&gt; RiskyOperation()); } catch (Exception ex) { Console.WriteLine(ex.Message); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

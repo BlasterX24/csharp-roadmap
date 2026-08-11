@@ -30,6 +30,8 @@ Start with the ASP.NET Core getting-started guide, then explore minimal APIs and
 
 Create a minimal API that responds GET to /hello with "Hello, World!".
 
+**Solution:**
+
 ```
 var app = WebApplication.CreateBuilder(args).Build(); app.MapGet("/hello", () => "Hello, World!"); app.Run();
 ```
@@ -45,6 +47,8 @@ var app = WebApplication.CreateBuilder(args).Build(); app.MapGet("/hello", () =>
 ### Problem 2
 
 Create a minimal API endpoint that accepts a name parameter.
+
+**Solution:**
 
 ```
 app.MapGet("/greet/{name}", (string name) => $"Hello, {name}!");
@@ -62,6 +66,8 @@ app.MapGet("/greet/{name}", (string name) => $"Hello, {name}!");
 
 Create a minimal API POST endpoint that accepts a JSON body.
 
+**Solution:**
+
 ```
 app.MapPost("/items", (Item item) => Results.Created($"/items/1", item));
 ```
@@ -77,6 +83,8 @@ app.MapPost("/items", (Item item) => Results.Created($"/items/1", item));
 ### Problem 4
 
 Configure a service in the DI container.
+
+**Solution:**
 
 ```
 builder.Services.AddSingleton<IMyService, MyService>();
@@ -94,6 +102,8 @@ builder.Services.AddSingleton<IMyService, MyService>();
 
 Add a middleware that logs the request path.
 
+**Solution:**
+
 ```
 app.Use(async (context, next) => { Console.WriteLine(context.Request.Path); await next(); });
 ```
@@ -109,6 +119,8 @@ app.Use(async (context, next) => { Console.WriteLine(context.Request.Path); awai
 ### Problem 6
 
 Create a controller with a [Route("api/[controller]")] attribute.
+
+**Solution:**
 
 ```
 [Route("api/[controller]")] public class UsersController : Controller { }
@@ -126,6 +138,8 @@ Create a controller with a [Route("api/[controller]")] attribute.
 
 Map a route to a controller action using [HttpGet("{id}")].
 
+**Solution:**
+
 ```
 [HttpGet("{id}")] public IActionResult Get(int id) => Ok(id);
 ```
@@ -141,6 +155,8 @@ Map a route to a controller action using [HttpGet("{id}")].
 ### Problem 8
 
 Add CORS middleware to allow all origins.
+
+**Solution:**
 
 ```
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -158,6 +174,8 @@ app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader())
 
 Use app.UseExceptionHandler to add global error handling.
 
+**Solution:**
+
 ```
 app.UseExceptionHandler(error => { error.Run(async context => { context.Response.StatusCode = 500; }); });
 ```
@@ -173,6 +191,8 @@ app.UseExceptionHandler(error => { error.Run(async context => { context.Response
 ### Problem 10
 
 Return a 404 Not Found from a minimal API endpoint.
+
+**Solution:**
 
 ```
 app.MapGet("/check", () => Results.NotFound());

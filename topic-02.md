@@ -30,6 +30,8 @@ Review the official C# type reference and the article on implicit typing to unde
 
 Declare an integer variable named count and initialize it to 42.
 
+**Solution:**
+
 ```
 int count = 42;
 ```
@@ -45,6 +47,8 @@ int count = 42;
 ### Problem 2
 
 Declare a constant string called APP_NAME with value "MyApp".
+
+**Solution:**
 
 ```
 const string APP_NAME = "MyApp";
@@ -62,6 +66,8 @@ const string APP_NAME = "MyApp";
 
 Use var to declare a variable that holds the value 3.14.
 
+**Solution:**
+
 ```
 var pi = 3.14;
 ```
@@ -77,6 +83,8 @@ var pi = 3.14;
 ### Problem 4
 
 Declare a nullable int variable named age that can be null.
+
+**Solution:**
 
 ```
 int? age = null;
@@ -94,6 +102,8 @@ int? age = null;
 
 Write code that converts a string "100" to an integer.
 
+**Solution:**
+
 ```
 int num = int.Parse("100");
 ```
@@ -109,6 +119,8 @@ int num = int.Parse("100");
 ### Problem 6
 
 Declare a boolean flag set to true.
+
+**Solution:**
 
 ```
 bool flag = true;
@@ -126,6 +138,8 @@ bool flag = true;
 
 Create a tuple with a string name and int age.
 
+**Solution:**
+
 ```
 var person = (Name: "Alice", Age: 30);
 ```
@@ -141,6 +155,8 @@ var person = (Name: "Alice", Age: 30);
 ### Problem 8
 
 Write code that safely tries to parse a string to int, returning a default on failure.
+
+**Solution:**
 
 ```
 int result = int.TryParse("abc", out int val) ? val : 0;
@@ -158,6 +174,8 @@ int result = int.TryParse("abc", out int val) ? val : 0;
 
 Declare a dynamic variable and assign a string to it.
 
+**Solution:**
+
 ```
 dynamic item = "hello";
 ```
@@ -173,6 +191,8 @@ dynamic item = "hello";
 ### Problem 10
 
 What is the default value of an uninitialized bool field in a class?
+
+**Solution:**
 
 ```
 false

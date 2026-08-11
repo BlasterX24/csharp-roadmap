@@ -30,6 +30,8 @@ Study the operator precedence table and practice with pattern matching and null-
 
 Write an expression that returns the remainder of 17 divided by 5.
 
+**Solution:**
+
 ```
 17 % 5
 ```
@@ -45,6 +47,8 @@ Write an expression that returns the remainder of 17 divided by 5.
 ### Problem 2
 
 Write a null coalescing expression that assigns name "default" if n is null.
+
+**Solution:**
 
 ```
 string name = n ?? "default";
@@ -62,6 +66,8 @@ string name = n ?? "default";
 
 Use the null conditional operator to safely get the length of a possibly null string.
 
+**Solution:**
+
 ```
 int? len = s?.Length;
 ```
@@ -77,6 +83,8 @@ int? len = s?.Length;
 ### Problem 4
 
 Write a pattern matching expression that checks if obj is an int and prints it.
+
+**Solution:**
 
 ```
 if (obj is int i) Console.WriteLine(i);
@@ -94,6 +102,8 @@ if (obj is int i) Console.WriteLine(i);
 
 Write a ternary expression that sets x to 10 if y is greater than 5, else 0.
 
+**Solution:**
+
 ```
 int x = y > 5 ? 10 : 0;
 ```
@@ -109,6 +119,8 @@ int x = y > 5 ? 10 : 0;
 ### Problem 6
 
 Write a compound assignment that doubles the value of count.
+
+**Solution:**
 
 ```
 count *= 2;
@@ -126,6 +138,8 @@ count *= 2;
 
 Write a switch expression that maps true to "Yes" and false to "No".
 
+**Solution:**
+
 ```
 string result = val switch { true => "Yes", false => "No" };
 ```
@@ -141,6 +155,8 @@ string result = val switch { true => "Yes", false => "No" };
 ### Problem 8
 
 Write an expression that returns the larger of two integers a and b.
+
+**Solution:**
 
 ```
 int max = a > b ? a : b;
@@ -158,6 +174,8 @@ int max = a > b ? a : b;
 
 Use a relational pattern to check if a temperature is between 20 and 30 inclusive.
 
+**Solution:**
+
 ```
 if (temp is >= 20 and <= 30) Console.WriteLine("Comfortable");
 ```
@@ -173,6 +191,8 @@ if (temp is >= 20 and <= 30) Console.WriteLine("Comfortable");
 ### Problem 10
 
 Write code that uses the ??= operator to assign a value only if the variable is null.
+
+**Solution:**
 
 ```
 list ??= new List<string>();

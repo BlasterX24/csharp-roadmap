@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Open an assembly in dnSpy and navigate to the Main method.</p>
+<div class="sol-label">Solution</div>
 <pre><code>File &gt; Open &gt; select the assembly &gt; expand the tree &gt; navigate to Program.cs &gt; Main</code></pre>
 <div class="expected"><pre><code>Navigate to Program.Main in dnSpy</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Decompile a DLL and find all string literals.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Use Analyze &gt; search <span class="tok-kw">for</span> <span class="tok-kw">string</span> references, or search <span class="tok-kw">for</span> String <span class="tok-kw">in</span> the search bar</code></pre>
 <div class="expected"><pre><code>Search for string references in the decompiled assembly</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Identify a hardcoded API key in decompiled code.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Look <span class="tok-kw">for</span> <span class="tok-kw">string</span> assignments with suspicious values like <span class="tok-s">&quot;sk-...&quot;</span> or <span class="tok-s">&quot;api_key=...&quot;</span></code></pre>
 <div class="expected"><pre><code>Find string constants containing API keys or secrets</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Use ILSpy to view the IL of a method.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Right-click method &gt; IL Instructions</code></pre>
 <div class="expected"><pre><code>View IL instructions in ILSpy</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Find all methods that call a specific external method.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Use the Analyze tab &gt; References to find callers</code></pre>
 <div class="expected"><pre><code>Find references to the target method</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Search for all types in an assembly that implement an interface.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Use the search bar with IInterfaceName</code></pre>
 <div class="expected"><pre><code>Find implementing classes via search</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Decompile and find the assembly version.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Check Assembly Properties or the AssemblyInfo attribute</code></pre>
 <div class="expected"><pre><code>Read the AssemblyVersion attribute</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Identify obfuscated class names in a decompiled assembly.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Look <span class="tok-kw">for</span> classes with names like &lt;Module&gt;, &lt;&gt;c, or random strings</code></pre>
 <div class="expected"><pre><code>Identify compiler-generated or obfuscated types</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Find all configuration strings (connection strings, keys).</p>
+<div class="sol-label">Solution</div>
 <pre><code>Search <span class="tok-kw">for</span> strings containing <span class="tok-s">&quot;Server=&quot;</span>, <span class="tok-s">&quot;Password=&quot;</span>, or <span class="tok-s">&quot;key=&quot;</span></code></pre>
 <div class="expected"><pre><code>Search for configuration-related string literals</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Export decompiled source code from ILSpy.</p>
+<div class="sol-label">Solution</div>
 <pre><code>File &gt; Save Code &gt; select output directory</code></pre>
 <div class="expected"><pre><code>Export decompiled source to files</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

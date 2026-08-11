@@ -30,6 +30,8 @@ Study the delegate type, Action/Func signatures, and the event keyword for imple
 
 Declare a delegate int MathOp(int a, int b).
 
+**Solution:**
+
 ```
 delegate int MathOp(int a, int b);
 ```
@@ -45,6 +47,8 @@ delegate int MathOp(int a, int b);
 ### Problem 2
 
 Assign a lambda to Action<string> that prints a message.
+
+**Solution:**
 
 ```
 Action<string> print = msg => Console.WriteLine(msg);
@@ -62,6 +66,8 @@ Action<string> print = msg => Console.WriteLine(msg);
 
 Create a Func<int, int, int> that returns the sum of two ints.
 
+**Solution:**
+
 ```
 Func<int, int, int> add = (a, b) => a + b;
 ```
@@ -77,6 +83,8 @@ Func<int, int, int> add = (a, b) => a + b;
 ### Problem 4
 
 Define an event called OnClick using EventHandler.
+
+**Solution:**
 
 ```
 public event EventHandler OnClick;
@@ -94,6 +102,8 @@ public event EventHandler OnClick;
 
 Invoke an event safely by checking for null first.
 
+**Solution:**
+
 ```
 OnClick?.Invoke(this, EventArgs.Empty);
 ```
@@ -109,6 +119,8 @@ OnClick?.Invoke(this, EventArgs.Empty);
 ### Problem 6
 
 Subscribe a method to an event using +=.
+
+**Solution:**
 
 ```
 obj.OnClick += MyHandler;
@@ -126,6 +138,8 @@ obj.OnClick += MyHandler;
 
 Create a multicast delegate by combining two Action delegates.
 
+**Solution:**
+
 ```
 Action a = () => Console.WriteLine("A"); Action b = () => Console.WriteLine("B"); Action combined = a + b;
 ```
@@ -141,6 +155,8 @@ Action a = () => Console.WriteLine("A"); Action b = () => Console.WriteLine("B")
 ### Problem 8
 
 Pass a Func<int, bool> to a Filter method that returns matching elements.
+
+**Solution:**
 
 ```
 IEnumerable<int> Filter(IEnumerable<int> source, Func<int, bool> predicate) => source.Where(predicate);
@@ -158,6 +174,8 @@ IEnumerable<int> Filter(IEnumerable<int> source, Func<int, bool> predicate) => s
 
 Declare an event using EventHandler<T> with a custom EventArgs.
 
+**Solution:**
+
 ```
 public event EventHandler<ChangedEventArgs> Changed;
 ```
@@ -173,6 +191,8 @@ public event EventHandler<ChangedEventArgs> Changed;
 ### Problem 10
 
 Unsubscribe from an event using -=.
+
+**Solution:**
 
 ```
 obj.OnClick -= MyHandler;

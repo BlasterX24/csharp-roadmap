@@ -30,6 +30,8 @@ Study the Regex class API and common patterns for emails, URLs, and numeric vali
 
 Check if a string matches the pattern for a valid email address.
 
+**Solution:**
+
 ```
 bool valid = Regex.IsMatch(email, @"^[^\s@]+@[^\s@]+\.[^\s@]+$");
 ```
@@ -45,6 +47,8 @@ bool valid = Regex.IsMatch(email, @"^[^\s@]+@[^\s@]+\.[^\s@]+$");
 ### Problem 2
 
 Extract all digits from a string using Regex.Matches.
+
+**Solution:**
 
 ```
 MatchCollection matches = Regex.Matches(input, @"\d+");
@@ -62,6 +66,8 @@ MatchCollection matches = Regex.Matches(input, @"\d+");
 
 Use a named group to extract a date part from a string.
 
+**Solution:**
+
 ```
 var match = Regex.Match(input, @"(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})"); string year = match.Groups["year"].Value;
 ```
@@ -77,6 +83,8 @@ var match = Regex.Match(input, @"(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})");
 ### Problem 4
 
 Replace all spaces in a string with hyphens using Regex.Replace.
+
+**Solution:**
 
 ```
 string result = Regex.Replace(input, @"\s+", "-");
@@ -94,6 +102,8 @@ string result = Regex.Replace(input, @"\s+", "-");
 
 Check if a string is a valid US phone number pattern (123-456-7890).
 
+**Solution:**
+
 ```
 bool valid = Regex.IsMatch(phone, @"^\d{3}-\d{3}-\d{4}$");
 ```
@@ -109,6 +119,8 @@ bool valid = Regex.IsMatch(phone, @"^\d{3}-\d{3}-\d{4}$");
 ### Problem 6
 
 Find all URLs in a string using a regex pattern.
+
+**Solution:**
 
 ```
 var urls = Regex.Matches(text, @"https?://[^\s]+", RegexOptions.IgnoreCase);
@@ -126,6 +138,8 @@ var urls = Regex.Matches(text, @"https?://[^\s]+", RegexOptions.IgnoreCase);
 
 Use Regex.Split to split a string on commas or semicolons.
 
+**Solution:**
+
 ```
 string[] parts = Regex.Split(input, @"[,;]+");
 ```
@@ -141,6 +155,8 @@ string[] parts = Regex.Split(input, @"[,;]+");
 ### Problem 8
 
 Match a string that starts with a capital letter followed by lowercase letters.
+
+**Solution:**
 
 ```
 bool match = Regex.IsMatch(input, @"^[A-Z][a-z]+$");
@@ -158,6 +174,8 @@ bool match = Regex.IsMatch(input, @"^[A-Z][a-z]+$");
 
 Extract the first group value from a match.
 
+**Solution:**
+
 ```
 string val = Regex.Match(input, @"(\d+)").Groups[1].Value;
 ```
@@ -173,6 +191,8 @@ string val = Regex.Match(input, @"(\d+)").Groups[1].Value;
 ### Problem 10
 
 Use Regex with IgnoreCase and Multiline options.
+
+**Solution:**
 
 ```
 var match = Regex.Match(input, @"^hello$", RegexOptions.IgnoreCase | RegexOptions.Multiline);

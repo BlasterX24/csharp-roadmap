@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Create a Person class with Name and Age auto-properties.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Person { <span class="tok-kw">public</span> <span class="tok-kw">string</span> Name { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; } <span class="tok-kw">public</span> <span class="tok-kw">int</span> Age { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; } }</code></pre>
 <div class="expected"><pre><code>class Person { public string Name { get; set; } public int Age { get; set; } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Write a constructor for Person that takes name and age as parameters.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Person { <span class="tok-kw">public</span> <span class="tok-kw">string</span> Name { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; } <span class="tok-kw">public</span> <span class="tok-kw">int</span> Age { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; } <span class="tok-kw">public</span> <span class="tok-fn">Person</span>(<span class="tok-kw">string</span> name, <span class="tok-kw">int</span> age) { Name = name; Age = age; } }</code></pre>
 <div class="expected"><pre><code>class Person { public string Name { get; set; } public int Age { get; set; } public Person(string name, int age) { Name = name; Age = age; } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Add a readonly field Id to Person that is set in the constructor.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Person { <span class="tok-kw">public</span> <span class="tok-kw">readonly</span> <span class="tok-kw">int</span> Id; <span class="tok-kw">public</span> <span class="tok-fn">Person</span>(<span class="tok-kw">int</span> id) { Id = id; } }</code></pre>
 <div class="expected"><pre><code>class Person { public readonly int Id; public Person(int id) { Id = id; } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Create a static class MathHelper with a static method Add.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">static</span> <span class="tok-kw">class</span> MathHelper { <span class="tok-kw">public</span> <span class="tok-kw">static</span> <span class="tok-kw">int</span> <span class="tok-fn">Add</span>(<span class="tok-kw">int</span> a, <span class="tok-kw">int</span> b) =&gt; a + b; }</code></pre>
 <div class="expected"><pre><code>static class MathHelper { public static int Add(int a, int b) =&gt; a + b; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Write a property with only a getter that computes FullName from First and Last.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">public</span> <span class="tok-kw">string</span> FullName =&gt; $<span class="tok-s">&quot;{First} {Last}&quot;</span>;</code></pre>
 <div class="expected"><pre><code>public string FullName =&gt; $&quot;{First} {Last}&quot;;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Create a private field _count and expose it via a public Count property.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Counter { <span class="tok-kw">private</span> <span class="tok-kw">int</span> _count; <span class="tok-kw">public</span> <span class="tok-kw">int</span> Count { <span class="tok-kw">get</span> { <span class="tok-kw">return</span> _count; } <span class="tok-kw">set</span> { _count = value; } } }</code></pre>
 <div class="expected"><pre><code>class Counter { private int _count; public int Count { get { return _count; } set { _count = value; } } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Write an object initializer to create a Person with Name="Alice" and Age=30.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> p = <span class="tok-kw">new</span> Person { Name = <span class="tok-s">&quot;Alice&quot;</span>, Age = <span class="tok-num">30</span> };</code></pre>
 <div class="expected"><pre><code>var p = new Person { Name = &quot;Alice&quot;, Age = 30 };</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Create a static constructor that initializes a static field.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Config { <span class="tok-kw">public</span> <span class="tok-kw">static</span> <span class="tok-kw">string</span> AppName; <span class="tok-kw">static</span> <span class="tok-fn">Config</span>() { AppName = <span class="tok-s">&quot;MyApp&quot;</span>; } }</code></pre>
 <div class="expected"><pre><code>class Config { public static string AppName; static Config() { AppName = &quot;MyApp&quot;; } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Use the 'this' keyword to disambiguate a parameter from a field.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">class</span> Person { <span class="tok-kw">string</span> name; <span class="tok-kw">public</span> <span class="tok-fn">Person</span>(<span class="tok-kw">string</span> name) { <span class="tok-kw">this</span>.name = name; } }</code></pre>
 <div class="expected"><pre><code>class Person { string name; public Person(string name) { this.name = name; } }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Add a private setter to the Id property so it can only be set internally.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">public</span> <span class="tok-kw">int</span> Id { <span class="tok-kw">get</span>; <span class="tok-kw">private</span> <span class="tok-kw">set</span>; }</code></pre>
 <div class="expected"><pre><code>public int Id { get; private set; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

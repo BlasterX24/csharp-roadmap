@@ -30,6 +30,8 @@ Study lambda syntax, closures, and how lambdas integrate with delegates and LINQ
 
 Write a lambda that takes an int and returns its square.
 
+**Solution:**
+
 ```
 Func<int, int> square = x => x * x;
 ```
@@ -45,6 +47,8 @@ Func<int, int> square = x => x * x;
 ### Problem 2
 
 Write a lambda that captures a variable and adds it to each element.
+
+**Solution:**
 
 ```
 int addend = 10; Func<int, int> add = n => n + addend;
@@ -62,6 +66,8 @@ int addend = 10; Func<int, int> add = n => n + addend;
 
 Use a lambda with Select to convert strings to uppercase.
 
+**Solution:**
+
 ```
 var upper = names.Select(n => n.ToUpper());
 ```
@@ -77,6 +83,8 @@ var upper = names.Select(n => n.ToUpper());
 ### Problem 4
 
 Write a multi-line lambda that calculates factorial.
+
+**Solution:**
 
 ```
 Func<int, int> fact = n => { int r = 1; for (int i = 2; i <= n; i++) r *= i; return r; };
@@ -94,6 +102,8 @@ Func<int, int> fact = n => { int r = 1; for (int i = 2; i <= n; i++) r *= i; ret
 
 Use a lambda as a predicate in Where to filter odd numbers.
 
+**Solution:**
+
 ```
 var odds = nums.Where(x => x % 2 != 0);
 ```
@@ -109,6 +119,8 @@ var odds = nums.Where(x => x % 2 != 0);
 ### Problem 6
 
 Pass a lambda to Array.Find to find the first negative number.
+
+**Solution:**
 
 ```
 int first = Array.Find(arr, x => x < 0);
@@ -126,6 +138,8 @@ int first = Array.Find(arr, x => x < 0);
 
 Use a lambda with OrderBy to sort by string length.
 
+**Solution:**
+
 ```
 var sorted = names.OrderBy(n => n.Length);
 ```
@@ -141,6 +155,8 @@ var sorted = names.OrderBy(n => n.Length);
 ### Problem 8
 
 Write a lambda that returns a tuple with the input and its square.
+
+**Solution:**
 
 ```
 Func<int, (int, int)> pair = x => (x, x * x);
@@ -158,6 +174,8 @@ Func<int, (int, int)> pair = x => (x, x * x);
 
 Use a discard in a lambda to ignore the second parameter.
 
+**Solution:**
+
 ```
 Func<int, int, int> first = (a, _) => a;
 ```
@@ -173,6 +191,8 @@ Func<int, int, int> first = (a, _) => a;
 ### Problem 10
 
 Create a Func<string, bool> lambda that checks if a string contains "test".
+
+**Solution:**
 
 ```
 Func<string, bool> containsTest = s => s.Contains("test");

@@ -30,6 +30,8 @@ Study the System.IO namespace, focusing on File, Directory, StreamReader, and as
 
 Read all text from a file named data.txt.
 
+**Solution:**
+
 ```
 string content = File.ReadAllText("data.txt");
 ```
@@ -45,6 +47,8 @@ string content = File.ReadAllText("data.txt");
 ### Problem 2
 
 Write "Hello" to a file named output.txt.
+
+**Solution:**
 
 ```
 File.WriteAllText("output.txt", "Hello");
@@ -62,6 +66,8 @@ File.WriteAllText("output.txt", "Hello");
 
 Read all lines from a file into a string array.
 
+**Solution:**
+
 ```
 string[] lines = File.ReadAllLines("data.txt");
 ```
@@ -77,6 +83,8 @@ string[] lines = File.ReadAllLines("data.txt");
 ### Problem 4
 
 Create a directory named reports if it does not exist.
+
+**Solution:**
 
 ```
 Directory.CreateDirectory("reports");
@@ -94,6 +102,8 @@ Directory.CreateDirectory("reports");
 
 Use StreamReader to read a file line-by-line.
 
+**Solution:**
+
 ```
 using var sr = new StreamReader("data.txt"); while (sr.Peek() >= 0) { string line = sr.ReadLine(); }
 ```
@@ -109,6 +119,8 @@ using var sr = new StreamReader("data.txt"); while (sr.Peek() >= 0) { string lin
 ### Problem 6
 
 Use StreamWriter to append text to a file.
+
+**Solution:**
 
 ```
 using var sw = new StreamWriter("log.txt", true); sw.WriteLine("New entry");
@@ -126,6 +138,8 @@ using var sw = new StreamWriter("log.txt", true); sw.WriteLine("New entry");
 
 Check if a file exists before reading it.
 
+**Solution:**
+
 ```
 if (File.Exists(path)) { string c = File.ReadAllText(path); }
 ```
@@ -141,6 +155,8 @@ if (File.Exists(path)) { string c = File.ReadAllText(path); }
 ### Problem 8
 
 Use async to read a file asynchronously.
+
+**Solution:**
 
 ```
 string content = await File.ReadAllTextAsync("data.txt");
@@ -158,6 +174,8 @@ string content = await File.ReadAllTextAsync("data.txt");
 
 Write binary data using BinaryWriter.
 
+**Solution:**
+
 ```
 using var bw = new BinaryWriter(File.OpenWrite("data.bin")); bw.Write(42);
 ```
@@ -173,6 +191,8 @@ using var bw = new BinaryWriter(File.OpenWrite("data.bin")); bw.Write(42);
 ### Problem 10
 
 List all .txt files in a directory.
+
+**Solution:**
 
 ```
 string[] files = Directory.GetFiles("reports", "*.txt");

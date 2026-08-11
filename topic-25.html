@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Build a CLI file organizer that sorts files by extension using File I/O and LINQ.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> files = Directory.<span class="tok-fn">GetFiles</span>(sourceDir); <span class="tok-kw">var</span> grouped = files.<span class="tok-fn">GroupBy</span>(f =&gt; Path.<span class="tok-fn">GetExtension</span>(f));</code></pre>
 <div class="expected"><pre><code>var files = Directory.GetFiles(sourceDir); var grouped = files.GroupBy(f =&gt; Path.GetExtension(f));</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Create a REST API with ASP.NET that manages a todo list with CRUD operations.</p>
+<div class="sol-label">Solution</div>
 <pre><code>app.<span class="tok-fn">MapGet</span>(<span class="tok-s">&quot;/todos&quot;</span>, () =&gt; todos); app.<span class="tok-fn">MapPost</span>(<span class="tok-s">&quot;/todos&quot;</span>, (Todo t) =&gt; { todos.<span class="tok-fn">Add</span>(t); <span class="tok-kw">return</span> Results.<span class="tok-fn">Created</span>($<span class="tok-s">&quot;/todos/{t.Id}&quot;</span>, t); });</code></pre>
 <div class="expected"><pre><code>app.MapGet(&quot;/todos&quot;, () =&gt; todos); app.MapPost(&quot;/todos&quot;, (Todo t) =&gt; { todos.Add(t); return Results.Created($&quot;/todos/{t.Id}&quot;, t); });</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Implement a background task runner using async/await and CancellationToken.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> cts = <span class="tok-kw">new</span> <span class="tok-fn">CancellationTokenSource</span>(); _ = Task.<span class="tok-fn">Run</span>(() =&gt; <span class="tok-fn">ProcessAsync</span>(cts.Token));</code></pre>
 <div class="expected"><pre><code>var cts = new CancellationTokenSource(); _ = Task.Run(() =&gt; ProcessAsync(cts.Token));</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Build a JSON configuration manager that reads/writes settings using File I/O.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> config = JsonSerializer.Deserialize&lt;AppSettings&gt;(File.<span class="tok-fn">ReadAllText</span>(path));</code></pre>
 <div class="expected"><pre><code>var config = JsonSerializer.Deserialize&lt;AppSettings&gt;(File.ReadAllText(path));</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Create a LINQ query engine that filters and sorts a CSV dataset.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> results = records.<span class="tok-fn">Where</span>(r =&gt; r.Age &gt; <span class="tok-num">18</span>).<span class="tok-fn">OrderBy</span>(r =&gt; r.Name).<span class="tok-fn">Select</span>(r =&gt; r.<span class="tok-fn">ToDisplayString</span>());</code></pre>
 <div class="expected"><pre><code>var results = records.Where(r =&gt; r.Age &gt; 18).OrderBy(r =&gt; r.Name).Select(r =&gt; r.ToDisplayString());</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Build a plugin system using reflection and interfaces.</p>
+<div class="sol-label">Solution</div>
 <pre><code>Assembly.<span class="tok-fn">Load</span>(pluginPath); <span class="tok-kw">var</span> plugins = assembly.<span class="tok-fn">GetTypes</span>().<span class="tok-fn">Where</span>(t =&gt; <span class="tok-kw">typeof</span>(IPlugin).<span class="tok-fn">IsAssignableFrom</span>(t));</code></pre>
 <div class="expected"><pre><code>Assembly.Load(pluginPath); var plugins = assembly.GetTypes().Where(t =&gt; typeof(IPlugin).IsAssignableFrom(t));</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Implement a custom logger using delegates and events.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">public</span> <span class="tok-kw">event</span> Action&lt;<span class="tok-kw">string</span>&gt; OnLog; <span class="tok-kw">void</span> <span class="tok-fn">Log</span>(<span class="tok-kw">string</span> msg) =&gt; OnLog?.<span class="tok-fn">Invoke</span>(msg);</code></pre>
 <div class="expected"><pre><code>public event Action&lt;string&gt; OnLog; void Log(string msg) =&gt; OnLog?.Invoke(msg);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Build a URL shortener using ASP.NET with in-memory storage.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">var</span> urls = <span class="tok-kw">new</span> Dictionary&lt;<span class="tok-kw">string</span>, <span class="tok-kw">string</span>&gt;(); app.<span class="tok-fn">MapPost</span>(<span class="tok-s">&quot;/shorten&quot;</span>, (<span class="tok-kw">string</span> url) =&gt; { <span class="tok-kw">var</span> key = Guid.<span class="tok-fn">NewGuid</span>().<span class="tok-fn">ToString</span>()[..<span class="tok-num">8</span>]; urls[key] = url; <span class="tok-kw">return</span> key; });</code></pre>
 <div class="expected"><pre><code>var urls = new Dictionary&lt;string, string&gt;(); app.MapPost(&quot;/shorten&quot;, (string url) =&gt; { var key = Guid.NewGuid().ToString()[..8]; urls[key] = url; return key; });</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Create a parameterized SQL data access layer using ADO.NET.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">using</span> <span class="tok-kw">var</span> cmd = <span class="tok-kw">new</span> <span class="tok-fn">SqlCommand</span>(<span class="tok-s">&quot;SELECT * FROM Users WHERE Id = @id&quot;</span>, conn); cmd.Parameters.<span class="tok-fn">AddWithValue</span>(<span class="tok-s">&quot;@id&quot;</span>, userId);</code></pre>
 <div class="expected"><pre><code>using var cmd = new SqlCommand(&quot;SELECT * FROM Users WHERE Id = @id&quot;, conn); cmd.Parameters.AddWithValue(&quot;@id&quot;, userId);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Build a performance-benchmarked caching layer with ArrayPool and ValueTask.</p>
+<div class="sol-label">Solution</div>
 <pre><code>[MemoryDiagnoser] <span class="tok-kw">public</span> <span class="tok-kw">class</span> CacheBenchmark { [Benchmark] <span class="tok-kw">public</span> ValueTask&lt;<span class="tok-kw">int</span>&gt; <span class="tok-fn">GetOrAdd</span>() =&gt; <span class="tok-kw">new</span> ValueTask&lt;<span class="tok-kw">int</span>&gt;(<span class="tok-num">42</span>); }</code></pre>
 <div class="expected"><pre><code>[MemoryDiagnoser] public class CacheBenchmark { [Benchmark] public ValueTask&lt;int&gt; GetOrAdd() =&gt; new ValueTask&lt;int&gt;(42); }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

@@ -31,6 +31,9 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 .problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
       border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
 .problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.sol-label { color:#34d399; font-weight:700; font-size:.82rem; margin:.9rem 0 .35rem;
+      text-transform:uppercase; letter-spacing:.5px; }
+.sol-label::before { content:"✓ "; }
 .expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
       padding:.6rem 1rem; margin:.6rem 0; }
 .expected::before { content:"Expected output:"; display:block; font-size:.8rem;
@@ -65,51 +68,61 @@ p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
 <h2>Practice Problems &amp; Solutions</h2>
 <div class="problem"><h4>Problem 1</h4>
 <p>Write a parameterized SQL query to prevent injection.</p>
+<div class="sol-label">Solution</div>
 <pre><code>cmd.Parameters.<span class="tok-fn">AddWithValue</span>(<span class="tok-s">&quot;@name&quot;</span>, inputName);</code></pre>
 <div class="expected"><pre><code>cmd.Parameters.AddWithValue(&quot;@name&quot;, inputName);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 2</h4>
 <p>Validate an email input using [EmailAddress] attribute.</p>
+<div class="sol-label">Solution</div>
 <pre><code>[EmailAddress] <span class="tok-kw">public</span> <span class="tok-kw">string</span> Email { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; }</code></pre>
 <div class="expected"><pre><code>[EmailAddress] public string Email { get; set; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 3</h4>
 <p>Store a secret using dotnet user-secrets.</p>
+<div class="sol-label">Solution</div>
 <pre><code>dotnet user-secrets <span class="tok-kw">set</span> <span class="tok-s">&quot;ApiKey&quot;</span> <span class="tok-s">&quot;mykey123&quot;</span></code></pre>
 <div class="expected"><pre><code>dotnet user-secrets set &quot;ApiKey&quot; &quot;mykey123&quot;</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 4</h4>
 <p>Read a secret from configuration.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">string</span> key = config[<span class="tok-s">&quot;ApiKey&quot;</span>];</code></pre>
 <div class="expected"><pre><code>string key = config[&quot;ApiKey&quot;];</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 5</h4>
 <p>Hash a password with BCrypt.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">string</span> hash = BCrypt.Net.BCrypt.<span class="tok-fn">HashPassword</span>(password);</code></pre>
 <div class="expected"><pre><code>string hash = BCrypt.Net.BCrypt.HashPassword(password);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 6</h4>
 <p>Validate input length using [StringLength].</p>
+<div class="sol-label">Solution</div>
 <pre><code>[<span class="tok-fn">StringLength</span>(<span class="tok-num">100</span>, MinimumLength = <span class="tok-num">3</span>)] <span class="tok-kw">public</span> <span class="tok-kw">string</span> Name { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; }</code></pre>
 <div class="expected"><pre><code>[StringLength(100, MinimumLength = 3)] public string Name { get; set; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 7</h4>
 <p>Use [Range] to validate a numeric input.</p>
+<div class="sol-label">Solution</div>
 <pre><code>[<span class="tok-fn">Range</span>(<span class="tok-num">1</span>, <span class="tok-num">100</span>)] <span class="tok-kw">public</span> <span class="tok-kw">int</span> Quantity { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; }</code></pre>
 <div class="expected"><pre><code>[Range(1, 100)] public int Quantity { get; set; }</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 8</h4>
 <p>Enable CORS with a specific allowed origin.</p>
+<div class="sol-label">Solution</div>
 <pre><code>builder.Services.<span class="tok-fn">AddCors</span>(options =&gt; options.<span class="tok-fn">AddPolicy</span>(<span class="tok-s">&quot;Policy&quot;</span>, policy =&gt; policy.<span class="tok-fn">WithOrigins</span>(<span class="tok-s">&quot;https://example.com&quot;</span>)));</code></pre>
 <div class="expected"><pre><code>builder.Services.AddCors(options =&gt; options.AddPolicy(&quot;Policy&quot;, policy =&gt; policy.WithOrigins(&quot;https://example.com&quot;)));</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 9</h4>
 <p>Use [Authorize] to protect an API endpoint.</p>
+<div class="sol-label">Solution</div>
 <pre><code>[Authorize] <span class="tok-kw">public</span> IActionResult <span class="tok-fn">Secret</span>() =&gt; <span class="tok-fn">Ok</span>(<span class="tok-s">&quot;secret&quot;</span>);</code></pre>
 <div class="expected"><pre><code>[Authorize] public IActionResult Secret() =&gt; Ok(&quot;secret&quot;);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>
 <div class="problem"><h4>Problem 10</h4>
 <p>Sanitize HTML input to prevent XSS.</p>
+<div class="sol-label">Solution</div>
 <pre><code><span class="tok-kw">string</span> safe = WebUtility.<span class="tok-fn">HtmlEncode</span>(input);</code></pre>
 <div class="expected"><pre><code>string safe = WebUtility.HtmlEncode(input);</code></pre></div>
 <p class="points"><strong>Learning points:</strong> </p></div>

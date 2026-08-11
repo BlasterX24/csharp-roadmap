@@ -30,6 +30,8 @@ Study the method parameter modifiers reference and practice with ref, out, and p
 
 Write a method Add that takes two ints and returns their sum.
 
+**Solution:**
+
 ```
 int Add(int a, int b) => a + b;
 ```
@@ -45,6 +47,8 @@ int Add(int a, int b) => a + b;
 ### Problem 2
 
 Write a method DoubleRef that uses ref to double a parameter.
+
+**Solution:**
 
 ```
 void DoubleRef(ref int x) { x *= 2; }
@@ -62,6 +66,8 @@ void DoubleRef(ref int x) { x *= 2; }
 
 Write a method TryDivide that returns true via out and the result via a second out.
 
+**Solution:**
+
 ```
 bool TryDivide(int a, int b, out double result) { result = 0; if (b == 0) return false; result = (double)a / b; return true; }
 ```
@@ -77,6 +83,8 @@ bool TryDivide(int a, int b, out double result) { result = 0; if (b == 0) return
 ### Problem 4
 
 Write a method with a default parameter greeting = "Hello".
+
+**Solution:**
 
 ```
 void Greet(string greeting = "Hello") { Console.WriteLine(greeting); }
@@ -94,6 +102,8 @@ void Greet(string greeting = "Hello") { Console.WriteLine(greeting); }
 
 Write a method using params to accept any number of ints and return their sum.
 
+**Solution:**
+
 ```
 int Sum(params int[] numbers) { int total = 0; foreach (var n in numbers) total += n; return total; }
 ```
@@ -109,6 +119,8 @@ int Sum(params int[] numbers) { int total = 0; foreach (var n in numbers) total 
 ### Problem 6
 
 Write an expression-bodied method that returns the square of an int.
+
+**Solution:**
 
 ```
 int Square(int x) => x * x;
@@ -126,6 +138,8 @@ int Square(int x) => x * x;
 
 Write a method that takes an in parameter and prints it without modifying it.
 
+**Solution:**
+
 ```
 void Print(in int value) { Console.WriteLine(value); }
 ```
@@ -141,6 +155,8 @@ void Print(in int value) { Console.WriteLine(value); }
 ### Problem 8
 
 Overload a method Print to accept either an int or a string.
+
+**Solution:**
 
 ```
 void Print(int n) { Console.WriteLine(n); } void Print(string s) { Console.WriteLine(s); }
@@ -158,6 +174,8 @@ void Print(int n) { Console.WriteLine(n); } void Print(string s) { Console.Write
 
 Write a local function inside a method that calculates factorial.
 
+**Solution:**
+
 ```
 int Factorial(int n) { int fact(int x) => x <= 1 ? 1 : x * fact(x - 1); return fact(n); }
 ```
@@ -173,6 +191,8 @@ int Factorial(int n) { int fact(int x) => x <= 1 ? 1 : x * fact(x - 1); return f
 ### Problem 10
 
 Write a method with named arguments so the caller can pass arguments in any order.
+
+**Solution:**
 
 ```
 void Build(string name, int age) { }

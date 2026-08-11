@@ -30,6 +30,8 @@ Study the async/await fundamentals, Task-based patterns, and CancellationToken f
 
 Write an async method that returns Task<string> with a 1-second delay.
 
+**Solution:**
+
 ```
 async Task<string> GetDelayedAsync() { await Task.Delay(1000); return "done"; }
 ```
@@ -45,6 +47,8 @@ async Task<string> GetDelayedAsync() { await Task.Delay(1000); return "done"; }
 ### Problem 2
 
 Await a Task<int> and store the result.
+
+**Solution:**
 
 ```
 int result = await GetNumberAsync();
@@ -62,6 +66,8 @@ int result = await GetNumberAsync();
 
 Run two async operations in parallel using Task.WhenAll.
 
+**Solution:**
+
 ```
 var task1 = GetAsync("a"); var task2 = GetAsync("b"); await Task.WhenAll(task1, task2);
 ```
@@ -77,6 +83,8 @@ var task1 = GetAsync("a"); var task2 = GetAsync("b"); await Task.WhenAll(task1, 
 ### Problem 4
 
 Cancel an async operation using CancellationToken.
+
+**Solution:**
 
 ```
 var cts = new CancellationTokenSource(); await LongRunningAsync(cts.Token);
@@ -94,6 +102,8 @@ var cts = new CancellationTokenSource(); await LongRunningAsync(cts.Token);
 
 Check for cancellation inside an async loop.
 
+**Solution:**
+
 ```
 while (!token.IsCancellationRequested) { await Task.Delay(100); }
 ```
@@ -109,6 +119,8 @@ while (!token.IsCancellationRequested) { await Task.Delay(100); }
 ### Problem 6
 
 Use Task.Run to execute CPU-bound work asynchronously.
+
+**Solution:**
 
 ```
 int result = await Task.Run(() => HeavyComputation());
@@ -126,6 +138,8 @@ int result = await Task.Run(() => HeavyComputation());
 
 Use ConfigureAwait(false) to avoid deadlocks in library code.
 
+**Solution:**
+
 ```
 await GetDataAsync().ConfigureAwait(false);
 ```
@@ -141,6 +155,8 @@ await GetDataAsync().ConfigureAwait(false);
 ### Problem 8
 
 Handle exceptions from an async method with try/catch.
+
+**Solution:**
 
 ```
 try { await RiskyAsync(); } catch (Exception ex) { Console.WriteLine(ex.Message); }
@@ -158,6 +174,8 @@ try { await RiskyAsync(); } catch (Exception ex) { Console.WriteLine(ex.Message)
 
 Cancel a Task after a timeout using CancellationTokenSource.
 
+**Solution:**
+
 ```
 var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5)); await LongOpAsync(cts.Token);
 ```
@@ -173,6 +191,8 @@ var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5)); await LongOpAsyn
 ### Problem 10
 
 Use Task.WhenAny to get the first completed result from multiple sources.
+
+**Solution:**
 
 ```
 var winner = await Task.WhenAny(task1, task2); var result = await winner;

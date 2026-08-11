@@ -30,6 +30,8 @@ Study NuGet package creation, the dotnet CLI for packaging, and the NuGet.org pu
 
 Add the Newtonsoft.Json package to a project using dotnet CLI.
 
+**Solution:**
+
 ```
 dotnet add package Newtonsoft.Json
 ```
@@ -45,6 +47,8 @@ dotnet add package Newtonsoft.Json
 ### Problem 2
 
 Create a NuGet package from a project.
+
+**Solution:**
 
 ```
 dotnet pack
@@ -62,6 +66,8 @@ dotnet pack
 
 Publish a NuGet package to NuGet.org.
 
+**Solution:**
+
 ```
 dotnet nuget push *.nupkg --api-key <API_KEY> --source https://api.nuget.org/v3/index.json
 ```
@@ -77,6 +83,8 @@ dotnet nuget push *.nupkg --api-key <API_KEY> --source https://api.nuget.org/v3/
 ### Problem 4
 
 Specify a package version in the .csproj file.
+
+**Solution:**
 
 ```
 <Version>1.0.0</Version>
@@ -94,6 +102,8 @@ Specify a package version in the .csproj file.
 
 Add a package dependency with a version range.
 
+**Solution:**
+
 ```
 <PackageReference Include="Newtonsoft.Json" Version="[13.0.1, 14.0.0)" />
 ```
@@ -109,6 +119,8 @@ Add a package dependency with a version range.
 ### Problem 6
 
 List installed NuGet packages in a project.
+
+**Solution:**
 
 ```
 dotnet list package
@@ -126,6 +138,8 @@ dotnet list package
 
 Restore NuGet packages for a solution.
 
+**Solution:**
+
 ```
 dotnet restore
 ```
@@ -141,6 +155,8 @@ dotnet restore
 ### Problem 8
 
 Create a NuGet package with a specific output directory.
+
+**Solution:**
 
 ```
 dotnet pack -o ./nupkgs
@@ -158,6 +174,8 @@ dotnet pack -o ./nupkgs
 
 Add a private NuGet source.
 
+**Solution:**
+
 ```
 dotnet nuget add source https://myrepo.com/v3/index.json --name MyFeed
 ```
@@ -173,6 +191,8 @@ dotnet nuget add source https://myrepo.com/v3/index.json --name MyFeed
 ### Problem 10
 
 Update a specific NuGet package to the latest version.
+
+**Solution:**
 
 ```
 dotnet add package Newtonsoft.Json --latest
