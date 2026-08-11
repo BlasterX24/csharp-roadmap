@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 7: Methods & Params — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 7: Methods & Params</h1>
+<div class="sub">parameters, ref/out/in, default values, params, expression-bodied</div></div>
+<p>Methods are the building blocks of C# programs. They encapsulate reusable logic and can accept parameters by value, by reference (ref), as output (out), or as read-only (in). Default parameter values let callers omit arguments. The params keyword enables variable-length argument lists. Expression-bodied members provide concise syntax for simple methods.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Study the method parameter modifiers reference and practice with ref, out, and params to understand value vs reference semantics.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/params</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>Methods are defined with access modifier, return type, name, and parameter list</li><li>Passing by value copies the value; ref passes by reference allowing modification</li><li>out parameters must be assigned inside the method before returning</li><li>in parameters are read-only references; cannot be modified</li><li>Default parameter values let callers omit arguments with matching defaults</li><li>params allows a variable number of arguments as an array</li><li>Expression-bodied members use => for one-liner methods and properties</li><li>Local functions are methods defined inside other methods</li><li>Method overloading allows multiple methods with the same name but different signatures</li><li>Static methods belong to the type, not an instance</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Write a method Add that takes two ints and returns their sum.</p>
+<pre><code><span class="tok-kw">int</span> <span class="tok-fn">Add</span>(<span class="tok-kw">int</span> a, <span class="tok-kw">int</span> b) =&gt; a + b;</code></pre>
+<div class="expected"><pre><code>int Add(int a, int b) =&gt; a + b;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Write a method DoubleRef that uses ref to double a parameter.</p>
+<pre><code><span class="tok-kw">void</span> <span class="tok-fn">DoubleRef</span>(<span class="tok-kw">ref</span> <span class="tok-kw">int</span> x) { x *= <span class="tok-num">2</span>; }</code></pre>
+<div class="expected"><pre><code>void DoubleRef(ref int x) { x *= 2; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Write a method TryDivide that returns true via out and the result via a second out.</p>
+<pre><code><span class="tok-kw">bool</span> <span class="tok-fn">TryDivide</span>(<span class="tok-kw">int</span> a, <span class="tok-kw">int</span> b, <span class="tok-kw">out</span> <span class="tok-kw">double</span> result) { result = <span class="tok-num">0</span>; <span class="tok-kw">if</span> (b == <span class="tok-num">0</span>) <span class="tok-kw">return</span> <span class="tok-kw">false</span>; result = (<span class="tok-kw">double</span>)a / b; <span class="tok-kw">return</span> <span class="tok-kw">true</span>; }</code></pre>
+<div class="expected"><pre><code>bool TryDivide(int a, int b, out double result) { result = 0; if (b == 0) return false; result = (double)a / b; return true; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Write a method with a default parameter greeting = "Hello".</p>
+<pre><code><span class="tok-kw">void</span> <span class="tok-fn">Greet</span>(<span class="tok-kw">string</span> greeting = <span class="tok-s">&quot;Hello&quot;</span>) { Console.<span class="tok-fn">WriteLine</span>(greeting); }</code></pre>
+<div class="expected"><pre><code>void Greet(string greeting = &quot;Hello&quot;) { Console.WriteLine(greeting); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Write a method using params to accept any number of ints and return their sum.</p>
+<pre><code><span class="tok-kw">int</span> <span class="tok-fn">Sum</span>(<span class="tok-kw">params</span> <span class="tok-kw">int</span>[] numbers) { <span class="tok-kw">int</span> total = <span class="tok-num">0</span>; <span class="tok-kw">foreach</span> (<span class="tok-kw">var</span> n <span class="tok-kw">in</span> numbers) total += n; <span class="tok-kw">return</span> total; }</code></pre>
+<div class="expected"><pre><code>int Sum(params int[] numbers) { int total = 0; foreach (var n in numbers) total += n; return total; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Write an expression-bodied method that returns the square of an int.</p>
+<pre><code><span class="tok-kw">int</span> <span class="tok-fn">Square</span>(<span class="tok-kw">int</span> x) =&gt; x * x;</code></pre>
+<div class="expected"><pre><code>int Square(int x) =&gt; x * x;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Write a method that takes an in parameter and prints it without modifying it.</p>
+<pre><code><span class="tok-kw">void</span> <span class="tok-fn">Print</span>(<span class="tok-kw">in</span> <span class="tok-kw">int</span> value) { Console.<span class="tok-fn">WriteLine</span>(value); }</code></pre>
+<div class="expected"><pre><code>void Print(in int value) { Console.WriteLine(value); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Overload a method Print to accept either an int or a string.</p>
+<pre><code><span class="tok-kw">void</span> <span class="tok-fn">Print</span>(<span class="tok-kw">int</span> n) { Console.<span class="tok-fn">WriteLine</span>(n); } <span class="tok-kw">void</span> <span class="tok-fn">Print</span>(<span class="tok-kw">string</span> s) { Console.<span class="tok-fn">WriteLine</span>(s); }</code></pre>
+<div class="expected"><pre><code>void Print(int n) { Console.WriteLine(n); } void Print(string s) { Console.WriteLine(s); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Write a local function inside a method that calculates factorial.</p>
+<pre><code><span class="tok-kw">int</span> <span class="tok-fn">Factorial</span>(<span class="tok-kw">int</span> n) { <span class="tok-kw">int</span> <span class="tok-fn">fact</span>(<span class="tok-kw">int</span> x) =&gt; x &lt;= <span class="tok-num">1</span> ? <span class="tok-num">1</span> : x * <span class="tok-fn">fact</span>(x - <span class="tok-num">1</span>); <span class="tok-kw">return</span> <span class="tok-fn">fact</span>(n); }</code></pre>
+<div class="expected"><pre><code>int Factorial(int n) { int fact(int x) =&gt; x &lt;= 1 ? 1 : x * fact(x - 1); return fact(n); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Write a method with named arguments so the caller can pass arguments in any order.</p>
+<pre><code><span class="tok-kw">void</span> <span class="tok-fn">Build</span>(<span class="tok-kw">string</span> name, <span class="tok-kw">int</span> age) { }</code></pre>
+<div class="expected"><pre><code>void Build(string name, int age) { }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is the difference between ref and out parameters?</div>
+<div class="a"><strong>A:</strong> ref requires the variable to be initialized before calling the method; out does not require pre-initialization but must be assigned inside the method.</div></div>
+<div class="qa"><div class="q">Q2: Can default parameter values be used with ref or out?</div>
+<div class="a"><strong>A:</strong> No; ref, out, and in parameters cannot have default values because they require an explicit variable reference.</div></div>
+<div class="qa"><div class="q">Q3: What is the purpose of the in parameter modifier?</div>
+<div class="a"><strong>A:</strong> It passes a value by reference but prevents modification, useful for large structs to avoid copying while ensuring immutability.</div></div>
+<div class="qa"><div class="q">Q4: How does params differ from a regular array parameter?</div>
+<div class="a"><strong>A:</strong> params lets the caller pass individual arguments that the compiler wraps into an array; a regular array parameter requires the caller to construct the array.</div></div>
+<div class="qa"><div class="q">Q5: Can you overload methods based on return type alone?</div>
+<div class="a"><strong>A:</strong> No; overloading is based on parameter list (name, count, types, modifiers), not on return type.</div></div>
+<div class="qa"><div class="q">Q6: What is an expression-bodied method?</div>
+<div class="a"><strong>A:</strong> A concise syntax using => that replaces the method body with a single expression; the compiler infers the return.</div></div>
+<div class="qa"><div class="q">Q7: What are named arguments?</div>
+<div class="a"><strong>A:</strong> Named arguments let you specify the parameter name when calling a method, allowing arguments to be passed in any order.</div></div>
+<div class="qa"><div class="q">Q8: What is the difference between a static method and an instance method?</div>
+<div class="a"><strong>A:</strong> A static method belongs to the type and can be called without an instance; an instance method requires an object and can access instance members.</div></div>
+<div class="qa"><div class="q">Q9: What is a local function?</div>
+<div class="a"><strong>A:</strong> A function defined inside another method that can capture variables from the enclosing scope, useful for helper logic.</div></div>
+<div class="qa"><div class="q">Q10: Can you use params with named arguments?</div>
+<div class="a"><strong>A:</strong> Yes, but the params array must be the last parameter; named arguments can precede it.</div></div>
+<div class="nav"><a href="topic-06.html">← 6. Control Flow</a>
+<a href="topic-08.html">→ 8. OOP: Classes & Objects</a></div>
+</body></html>

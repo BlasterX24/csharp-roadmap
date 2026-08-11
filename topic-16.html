@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 16: Async/Await — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 16: Async/Await</h1>
+<div class="sub">Task, async/await, CancellationToken, parallel operations</div></div>
+<p>Async/await lets you write asynchronous code that reads like synchronous code while keeping the thread responsive. A Task represents an asynchronous operation. async marks a method as asynchronous; await pauses execution until a Task completes. CancellationToken cooperatively cancels long-running operations. Task.WhenAll and Task.WhenAny enable parallel operations.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Study the async/await fundamentals, Task-based patterns, and CancellationToken for cooperative cancellation.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/csharp/async/</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/</li><li>https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/async-in-aspnet-core</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>async methods return Task or Task<T> (or void for event handlers)</li><li>await suspends the method until the Task completes, then resumes</li><li>ConfigureAwait(false) avoids capturing the synchronization context</li><li>Task.Run offloads CPU-bound work to the thread pool</li><li>Task.WhenAll waits for all tasks to complete</li><li>Task.WhenAny completes when any one task finishes</li><li>CancellationToken enables cooperative cancellation with IsCancellationRequested</li><li>CancellationTokenSource creates and manages the token</li><li>ValueTask is a performance-optimized alternative to Task for hot paths</li><li>Exception handling in async uses normal try/catch around await calls</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Write an async method that returns Task<string> with a 1-second delay.</p>
+<pre><code><span class="tok-kw">async</span> Task&lt;<span class="tok-kw">string</span>&gt; <span class="tok-fn">GetDelayedAsync</span>() { <span class="tok-kw">await</span> Task.<span class="tok-fn">Delay</span>(<span class="tok-num">1000</span>); <span class="tok-kw">return</span> <span class="tok-s">&quot;done&quot;</span>; }</code></pre>
+<div class="expected"><pre><code>async Task&lt;string&gt; GetDelayedAsync() { await Task.Delay(1000); return &quot;done&quot;; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Await a Task<int> and store the result.</p>
+<pre><code><span class="tok-kw">int</span> result = <span class="tok-kw">await</span> <span class="tok-fn">GetNumberAsync</span>();</code></pre>
+<div class="expected"><pre><code>int result = await GetNumberAsync();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Run two async operations in parallel using Task.WhenAll.</p>
+<pre><code><span class="tok-kw">var</span> task1 = <span class="tok-fn">GetAsync</span>(<span class="tok-s">&quot;a&quot;</span>); <span class="tok-kw">var</span> task2 = <span class="tok-fn">GetAsync</span>(<span class="tok-s">&quot;b&quot;</span>); <span class="tok-kw">await</span> Task.<span class="tok-fn">WhenAll</span>(task1, task2);</code></pre>
+<div class="expected"><pre><code>var task1 = GetAsync(&quot;a&quot;); var task2 = GetAsync(&quot;b&quot;); await Task.WhenAll(task1, task2);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Cancel an async operation using CancellationToken.</p>
+<pre><code><span class="tok-kw">var</span> cts = <span class="tok-kw">new</span> <span class="tok-fn">CancellationTokenSource</span>(); <span class="tok-kw">await</span> <span class="tok-fn">LongRunningAsync</span>(cts.Token);</code></pre>
+<div class="expected"><pre><code>var cts = new CancellationTokenSource(); await LongRunningAsync(cts.Token);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Check for cancellation inside an async loop.</p>
+<pre><code><span class="tok-kw">while</span> (!token.IsCancellationRequested) { <span class="tok-kw">await</span> Task.<span class="tok-fn">Delay</span>(<span class="tok-num">100</span>); }</code></pre>
+<div class="expected"><pre><code>while (!token.IsCancellationRequested) { await Task.Delay(100); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Use Task.Run to execute CPU-bound work asynchronously.</p>
+<pre><code><span class="tok-kw">int</span> result = <span class="tok-kw">await</span> Task.<span class="tok-fn">Run</span>(() =&gt; <span class="tok-fn">HeavyComputation</span>());</code></pre>
+<div class="expected"><pre><code>int result = await Task.Run(() =&gt; HeavyComputation());</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Use ConfigureAwait(false) to avoid deadlocks in library code.</p>
+<pre><code><span class="tok-kw">await</span> <span class="tok-fn">GetDataAsync</span>().<span class="tok-fn">ConfigureAwait</span>(<span class="tok-kw">false</span>);</code></pre>
+<div class="expected"><pre><code>await GetDataAsync().ConfigureAwait(false);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Handle exceptions from an async method with try/catch.</p>
+<pre><code><span class="tok-kw">try</span> { <span class="tok-kw">await</span> <span class="tok-fn">RiskyAsync</span>(); } <span class="tok-kw">catch</span> (Exception ex) { Console.<span class="tok-fn">WriteLine</span>(ex.Message); }</code></pre>
+<div class="expected"><pre><code>try { await RiskyAsync(); } catch (Exception ex) { Console.WriteLine(ex.Message); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Cancel a Task after a timeout using CancellationTokenSource.</p>
+<pre><code><span class="tok-kw">var</span> cts = <span class="tok-kw">new</span> <span class="tok-fn">CancellationTokenSource</span>(TimeSpan.<span class="tok-fn">FromSeconds</span>(<span class="tok-num">5</span>)); <span class="tok-kw">await</span> <span class="tok-fn">LongOpAsync</span>(cts.Token);</code></pre>
+<div class="expected"><pre><code>var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5)); await LongOpAsync(cts.Token);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Use Task.WhenAny to get the first completed result from multiple sources.</p>
+<pre><code><span class="tok-kw">var</span> winner = <span class="tok-kw">await</span> Task.<span class="tok-fn">WhenAny</span>(task1, task2); <span class="tok-kw">var</span> result = <span class="tok-kw">await</span> winner;</code></pre>
+<div class="expected"><pre><code>var winner = await Task.WhenAny(task1, task2); var result = await winner;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What happens when you call an async method without await?</div>
+<div class="a"><strong>A:</strong> The method starts executing synchronously until the first await, then returns an incomplete Task; the caller gets the Task but may not wait for completion.</div></div>
+<div class="qa"><div class="q">Q2: What is the difference between Task and ValueTask?</div>
+<div class="a"><strong>A:</strong> Task is a reference type that allocates on the heap; ValueTask is a struct optimized for scenarios where the result is often available synchronously.</div></div>
+<div class="qa"><div class="q">Q3: Why use ConfigureAwait(false)?</div>
+<div class="a"><strong>A:</strong> It prevents capturing the SynchronizationContext, avoiding deadlocks in library code that does not need to resume on the original thread.</div></div>
+<div class="qa"><div class="q">Q4: Can you await multiple tasks in parallel?</div>
+<div class="a"><strong>A:</strong> Yes; Task.WhenAll waits for all tasks; Task.WhenAny completes when any one finishes.</div></div>
+<div class="qa"><div class="q">Q5: What is CancellationTokenSource?</div>
+<div class="a"><strong>A:</strong> It creates a CancellationToken and provides Cancel() to signal cancellation; it can also accept a timeout.</div></div>
+<div class="qa"><div class="q">Q6: What is the difference between Task.Run and Task.Factory.StartNew?</div>
+<div class="a"><strong>A:</strong> Task.Run is a simpler, recommended API for offloading work; Task.Factory.StartNew offers more control over scheduling and options.</div></div>
+<div class="qa"><div class="q">Q7: How do you handle exceptions from multiple parallel tasks?</div>
+<div class="a"><strong>A:</strong> Task.WhenAll throws AggregateException; use try/catch and inspect the InnerExceptions collection.</div></div>
+<div class="qa"><div class="q">Q8: What is the async void problem?</div>
+<div class="a"><strong>A:</strong> async void methods cannot be awaited and exceptions cannot be caught; use async Task except for event handlers.</div></div>
+<div class="qa"><div class="q">Q9: What is the synchronization context?</div>
+<div class="a"><strong>A:</strong> It determines which thread the continuation runs on; in UI apps it posts to the UI thread; ConfigureAwait(false) skips this.</div></div>
+<div class="qa"><div class="q">Q10: How do you cancel a running Task?</div>
+<div class="a"><strong>A:</strong> Pass a CancellationToken to the async method; check IsCancellationRequested or call token.ThrowIfCancellationRequested().</div></div>
+<div class="nav"><a href="topic-15.html">← 15. File I/O</a>
+<a href="topic-17.html">→ 17. Regex in C#</a></div>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 23: Secure Coding in C# — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 23: Secure Coding in C#</h1>
+<div class="sub">parameterized SQL, input validation, secrets handling</div></div>
+<p>Secure coding prevents vulnerabilities like SQL injection, XSS, and secrets exposure. Parameterized queries prevent SQL injection. Input validation rejects malicious data. The Secret Manager and Azure Key Vault handle secrets securely. HTTPS, CORS, and authentication protect web applications.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Study OWASP Top 10, parameterized queries, and .NET security best practices.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/standard/security/</li><li>https://learn.microsoft.com/en-us/aspnet/core/security/</li><li>https://learn.microsoft.com/en-us/dotnet/core/app-secrets</li><li>https://learn.microsoft.com/en-us/azure/key-vault/</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>Always use parameterized queries to prevent SQL injection</li><li>Validate and sanitize all user input on the server side</li><li>Use built-in validation attributes ([Required], [StringLength], [Range])</li><li>Store secrets in Secret Manager, environment variables, or Key Vault, never in code</li><li>Enable HTTPS and HSTS for all web applications</li><li>Use Content Security Policy (CSP) to prevent XSS</li><li>Hash passwords with PBKDF2, bcrypt, or Argon2, never MD5/SHA1</li><li>Apply the principle of least privilege for database and file access</li><li>Use anti-forgery tokens to prevent CSRF attacks</li><li>Log security events without exposing sensitive data</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Write a parameterized SQL query to prevent injection.</p>
+<pre><code>cmd.Parameters.<span class="tok-fn">AddWithValue</span>(<span class="tok-s">&quot;@name&quot;</span>, inputName);</code></pre>
+<div class="expected"><pre><code>cmd.Parameters.AddWithValue(&quot;@name&quot;, inputName);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Validate an email input using [EmailAddress] attribute.</p>
+<pre><code>[EmailAddress] <span class="tok-kw">public</span> <span class="tok-kw">string</span> Email { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; }</code></pre>
+<div class="expected"><pre><code>[EmailAddress] public string Email { get; set; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Store a secret using dotnet user-secrets.</p>
+<pre><code>dotnet user-secrets <span class="tok-kw">set</span> <span class="tok-s">&quot;ApiKey&quot;</span> <span class="tok-s">&quot;mykey123&quot;</span></code></pre>
+<div class="expected"><pre><code>dotnet user-secrets set &quot;ApiKey&quot; &quot;mykey123&quot;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Read a secret from configuration.</p>
+<pre><code><span class="tok-kw">string</span> key = config[<span class="tok-s">&quot;ApiKey&quot;</span>];</code></pre>
+<div class="expected"><pre><code>string key = config[&quot;ApiKey&quot;];</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Hash a password with BCrypt.</p>
+<pre><code><span class="tok-kw">string</span> hash = BCrypt.Net.BCrypt.<span class="tok-fn">HashPassword</span>(password);</code></pre>
+<div class="expected"><pre><code>string hash = BCrypt.Net.BCrypt.HashPassword(password);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Validate input length using [StringLength].</p>
+<pre><code>[<span class="tok-fn">StringLength</span>(<span class="tok-num">100</span>, MinimumLength = <span class="tok-num">3</span>)] <span class="tok-kw">public</span> <span class="tok-kw">string</span> Name { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; }</code></pre>
+<div class="expected"><pre><code>[StringLength(100, MinimumLength = 3)] public string Name { get; set; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Use [Range] to validate a numeric input.</p>
+<pre><code>[<span class="tok-fn">Range</span>(<span class="tok-num">1</span>, <span class="tok-num">100</span>)] <span class="tok-kw">public</span> <span class="tok-kw">int</span> Quantity { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; }</code></pre>
+<div class="expected"><pre><code>[Range(1, 100)] public int Quantity { get; set; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Enable CORS with a specific allowed origin.</p>
+<pre><code>builder.Services.<span class="tok-fn">AddCors</span>(options =&gt; options.<span class="tok-fn">AddPolicy</span>(<span class="tok-s">&quot;Policy&quot;</span>, policy =&gt; policy.<span class="tok-fn">WithOrigins</span>(<span class="tok-s">&quot;https://example.com&quot;</span>)));</code></pre>
+<div class="expected"><pre><code>builder.Services.AddCors(options =&gt; options.AddPolicy(&quot;Policy&quot;, policy =&gt; policy.WithOrigins(&quot;https://example.com&quot;)));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Use [Authorize] to protect an API endpoint.</p>
+<pre><code>[Authorize] <span class="tok-kw">public</span> IActionResult <span class="tok-fn">Secret</span>() =&gt; <span class="tok-fn">Ok</span>(<span class="tok-s">&quot;secret&quot;</span>);</code></pre>
+<div class="expected"><pre><code>[Authorize] public IActionResult Secret() =&gt; Ok(&quot;secret&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Sanitize HTML input to prevent XSS.</p>
+<pre><code><span class="tok-kw">string</span> safe = WebUtility.<span class="tok-fn">HtmlEncode</span>(input);</code></pre>
+<div class="expected"><pre><code>string safe = WebUtility.HtmlEncode(input);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is SQL injection and how do you prevent it?</div>
+<div class="a"><strong>A:</strong> SQL injection inserts malicious SQL via user input; prevent it with parameterized queries, stored procedures, and ORM frameworks.</div></div>
+<div class="qa"><div class="q">Q2: Why is MD5 not recommended for password hashing?</div>
+<div class="a"><strong>A:</strong> MD5 is fast and vulnerable to rainbow table attacks; use PBKDF2, bcrypt, or Argon2 which are slow and salted.</div></div>
+<div class="qa"><div class="q">Q3: What is the Secret Manager tool?</div>
+<div class="a"><strong>A:</strong> A development tool that stores sensitive data in a local JSON file outside the project, avoiding secrets in source control.</div></div>
+<div class="qa"><div class="q">Q4: How does input validation prevent attacks?</div>
+<div class="a"><strong>A:</strong> It rejects malformed or malicious input before it reaches business logic, preventing injection and buffer overflow attacks.</div></div>
+<div class="qa"><div class="q">Q5: What is CSRF and how do you prevent it?</div>
+<div class="a"><strong>A:</strong> CSRF tricks users into submitting unwanted requests; prevent it with anti-forgery tokens and SameSite cookies.</div></div>
+<div class="qa"><div class="q">Q6: What is Content Security Policy (CSP)?</div>
+<div class="a"><strong>A:</strong> An HTTP header that restricts which resources (scripts, styles, images) can be loaded, preventing XSS.</div></div>
+<div class="qa"><div class="q">Q7: Why should you never store secrets in source code?</div>
+<div class="a"><strong>A:</strong> They become visible in version control, log files, and decompiled assemblies; use secure storage instead.</div></div>
+<div class="qa"><div class="q">Q8: What is the principle of least privilege?</div>
+<div class="a"><strong>A:</strong> Grant only the minimum permissions needed to perform a task, reducing the impact of a compromise.</div></div>
+<div class="qa"><div class="q">Q9: How do you secure API communication?</div>
+<div class="a"><strong>A:</strong> Use HTTPS with TLS, validate JWT tokens, and implement proper authentication and authorization.</div></div>
+<div class="qa"><div class="q">Q10: What is the difference between authentication and authorization?</div>
+<div class="a"><strong>A:</strong> Authentication verifies identity; authorization determines what an authenticated user is allowed to do.</div></div>
+<div class="nav"><a href="topic-22.html">← 22. .NET Reversing with dnSpy/ILSpy</a>
+<a href="topic-24.html">→ 24. Memory & Performance</a></div>
+</body></html>

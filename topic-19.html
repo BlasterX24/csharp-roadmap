@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 19: ASP.NET Basics — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 19: ASP.NET Basics</h1>
+<div class="sub">Minimal APIs, controllers, routing, middleware</div></div>
+<p>ASP.NET Core is the cross-platform web framework for building APIs and web apps. Minimal APIs provide a lightweight way to define endpoints with minimal ceremony. Controllers offer the traditional MVC pattern. Middleware pipeline processes requests. Routing maps URLs to handlers.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Start with the ASP.NET Core getting-started guide, then explore minimal APIs and middleware.</p>
+<ul><li>https://learn.microsoft.com/en-us/aspnet/core/getting-started/</li><li>https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis</li><li>https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/actions</li><li>https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>WebApplication.CreateBuilder creates a configurable host</li><li>app.MapGet/MapPost/MapPut/MapDelete define minimal API endpoints</li><li>Controllers use [Route], [HttpGet], [HttpPost] attributes for routing</li><li>Middleware components process requests in a pipeline</li><li>app.Use* adds middleware; app.Map* branches the pipeline</li><li>Dependency injection (DI) registers services in the container</li><li>app.Run() starts the web server</li><li>Request and Response objects provide HTTP data</li><li>Model binding maps request data to method parameters</li><li>Filters intercept controller actions for cross-cutting concerns</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Create a minimal API that responds GET to /hello with "Hello, World!".</p>
+<pre><code><span class="tok-kw">var</span> app = WebApplication.<span class="tok-fn">CreateBuilder</span>(args).<span class="tok-fn">Build</span>(); app.<span class="tok-fn">MapGet</span>(<span class="tok-s">&quot;/hello&quot;</span>, () =&gt; <span class="tok-s">&quot;Hello, World!&quot;</span>); app.<span class="tok-fn">Run</span>();</code></pre>
+<div class="expected"><pre><code>var app = WebApplication.CreateBuilder(args).Build(); app.MapGet(&quot;/hello&quot;, () =&gt; &quot;Hello, World!&quot;); app.Run();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Create a minimal API endpoint that accepts a name parameter.</p>
+<pre><code>app.<span class="tok-fn">MapGet</span>(<span class="tok-s">&quot;/greet/{name}&quot;</span>, (<span class="tok-kw">string</span> name) =&gt; $<span class="tok-s">&quot;Hello, {name}!&quot;</span>);</code></pre>
+<div class="expected"><pre><code>app.MapGet(&quot;/greet/{name}&quot;, (string name) =&gt; $&quot;Hello, {name}!&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Create a minimal API POST endpoint that accepts a JSON body.</p>
+<pre><code>app.<span class="tok-fn">MapPost</span>(<span class="tok-s">&quot;/items&quot;</span>, (Item item) =&gt; Results.<span class="tok-fn">Created</span>($<span class="tok-s">&quot;/items/1&quot;</span>, item));</code></pre>
+<div class="expected"><pre><code>app.MapPost(&quot;/items&quot;, (Item item) =&gt; Results.Created($&quot;/items/1&quot;, item));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Configure a service in the DI container.</p>
+<pre><code>builder.Services.AddSingleton&lt;IMyService, MyService&gt;();</code></pre>
+<div class="expected"><pre><code>builder.Services.AddSingleton&lt;IMyService, MyService&gt;();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Add a middleware that logs the request path.</p>
+<pre><code>app.<span class="tok-fn">Use</span>(<span class="tok-kw">async</span> (context, next) =&gt; { Console.<span class="tok-fn">WriteLine</span>(context.Request.Path); <span class="tok-kw">await</span> <span class="tok-fn">next</span>(); });</code></pre>
+<div class="expected"><pre><code>app.Use(async (context, next) =&gt; { Console.WriteLine(context.Request.Path); await next(); });</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Create a controller with a [Route("api/[controller]")] attribute.</p>
+<pre><code>[<span class="tok-fn">Route</span>(<span class="tok-s">&quot;api/[controller]&quot;</span>)] <span class="tok-kw">public</span> <span class="tok-kw">class</span> UsersController : Controller { }</code></pre>
+<div class="expected"><pre><code>[Route(&quot;api/[controller]&quot;)] public class UsersController : Controller { }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Map a route to a controller action using [HttpGet("{id}")].</p>
+<pre><code>[<span class="tok-fn">HttpGet</span>(<span class="tok-s">&quot;{id}&quot;</span>)] <span class="tok-kw">public</span> IActionResult <span class="tok-fn">Get</span>(<span class="tok-kw">int</span> id) =&gt; <span class="tok-fn">Ok</span>(id);</code></pre>
+<div class="expected"><pre><code>[HttpGet(&quot;{id}&quot;)] public IActionResult Get(int id) =&gt; Ok(id);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Add CORS middleware to allow all origins.</p>
+<pre><code>app.<span class="tok-fn">UseCors</span>(policy =&gt; policy.<span class="tok-fn">AllowAnyOrigin</span>().<span class="tok-fn">AllowAnyMethod</span>().<span class="tok-fn">AllowAnyHeader</span>());</code></pre>
+<div class="expected"><pre><code>app.UseCors(policy =&gt; policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Use app.UseExceptionHandler to add global error handling.</p>
+<pre><code>app.<span class="tok-fn">UseExceptionHandler</span>(error =&gt; { error.<span class="tok-fn">Run</span>(<span class="tok-kw">async</span> context =&gt; { context.Response.StatusCode = <span class="tok-num">500</span>; }); });</code></pre>
+<div class="expected"><pre><code>app.UseExceptionHandler(error =&gt; { error.Run(async context =&gt; { context.Response.StatusCode = 500; }); });</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Return a 404 Not Found from a minimal API endpoint.</p>
+<pre><code>app.<span class="tok-fn">MapGet</span>(<span class="tok-s">&quot;/check&quot;</span>, () =&gt; Results.<span class="tok-fn">NotFound</span>());</code></pre>
+<div class="expected"><pre><code>app.MapGet(&quot;/check&quot;, () =&gt; Results.NotFound());</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is the difference between minimal APIs and controllers?</div>
+<div class="a"><strong>A:</strong> Minimal APIs are lightweight, attribute-free, and ideal for simple APIs; controllers use attributes and support features like model validation and filters.</div></div>
+<div class="qa"><div class="q">Q2: How does middleware pipeline work?</div>
+<div class="a"><strong>A:</strong> Each middleware component calls next() to pass the request to the next component; if not called, the pipeline short-circuits.</div></div>
+<div class="qa"><div class="q">Q3: What is dependency injection in ASP.NET?</div>
+<div class="a"><strong>A:</strong> The framework creates and injects service instances into constructors, promoting loose coupling and testability.</div></div>
+<div class="qa"><div class="q">Q4: How do you configure Kestrel to listen on a specific port?</div>
+<div class="a"><strong>A:</strong> Use builder.WebHost.ConfigureKestrel(options => options.ListenLocalhost(5000)) or use appsettings.json.</div></div>
+<div class="qa"><div class="q">Q5: What is model binding?</div>
+<div class="a"><strong>A:</strong> The process of mapping request data (query strings, route data, body) to method parameters or model objects.</div></div>
+<div class="qa"><div class="q">Q6: How do you return JSON from a minimal API?</div>
+<div class="a"><strong>A:</strong> Return an object directly; ASP.NET serializes it to JSON automatically with the default JSON serializer.</div></div>
+<div class="qa"><div class="q">Q7: What is the difference between app.Use and app.Map?</div>
+<div class="a"><strong>A:</strong> Use adds middleware to the pipeline; Map branches the pipeline based on a path prefix.</div></div>
+<div class="qa"><div class="q">Q8: How do you add authentication middleware?</div>
+<div class="a"><strong>A:</strong> Use app.UseAuthentication() and app.UseAuthorization() after adding services with AddAuthentication().</div></div>
+<div class="qa"><div class="q">Q9: What is the Purpose of [FromBody] and [FromQuery] attributes?</div>
+<div class="a"><strong>A:</strong> They specify the source of model binding: FromBody reads from the request body; FromQuery reads from query string parameters.</div></div>
+<div class="qa"><div class="q">Q10: Can minimal APIs use filters?</div>
+<div class="a"><strong>A:</strong> Yes; since .NET 7, minimal APIs support endpoint filters for validation and cross-cutting concerns.</div></div>
+<div class="nav"><a href="topic-18.html">← 18. NuGet & Packaging</a>
+<a href="topic-20.html">→ 20. .NET Reflection</a></div>
+</body></html>

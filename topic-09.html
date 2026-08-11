@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 9: OOP: Inheritance & Interfaces — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 9: OOP: Inheritance & Interfaces</h1>
+<div class="sub">base, virtual/override, abstract, interface, implements</div></div>
+<p>Inheritance lets a class derive from a base class, inheriting its members. Abstract classes define incomplete contracts that derived classes must fulfill. Interfaces define a contract of members that implementing classes must provide. Together they enable polymorphism, code reuse, and clean architectural separation.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Study inheritance and interface implementation, focusing on virtual/override, abstract classes, and interface default implementations.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/inheritance</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>A derived class inherits all non-private members from its base class</li><li>virtual members can be overridden in derived classes with override</li><li>abstract members have no implementation and must be overridden</li><li>sealed classes prevent further inheritance</li><li>An interface defines a contract of methods, properties, events, or indexers</li><li>A class can implement multiple interfaces but inherit from only one class</li><li>The 'base' keyword accesses members of the parent class</li><li>Interface default implementations provide fallback code in C# 8+</li><li>Explicit interface implementations resolve ambiguity between multiple interfaces</li><li>The Liskov Substitution Principle requires derived classes to be substitutable for base</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Create a base class Animal with a virtual Speak method.</p>
+<pre><code><span class="tok-kw">class</span> Animal { <span class="tok-kw">public</span> <span class="tok-kw">virtual</span> <span class="tok-kw">void</span> <span class="tok-fn">Speak</span>() { Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;...&quot;</span>); } }</code></pre>
+<div class="expected"><pre><code>class Animal { public virtual void Speak() { Console.WriteLine(&quot;...&quot;); } }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Create a Dog class that overrides Animal.Speak to print "Woof!".</p>
+<pre><code><span class="tok-kw">class</span> Dog : Animal { <span class="tok-kw">public</span> <span class="tok-kw">override</span> <span class="tok-kw">void</span> <span class="tok-fn">Speak</span>() { Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Woof!&quot;</span>); } }</code></pre>
+<div class="expected"><pre><code>class Dog : Animal { public override void Speak() { Console.WriteLine(&quot;Woof!&quot;); } }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Define an interface ISwim with a Swim method.</p>
+<pre><code><span class="tok-kw">interface</span> ISwim { <span class="tok-kw">void</span> <span class="tok-fn">Swim</span>(); }</code></pre>
+<div class="expected"><pre><code>interface ISwim { void Swim(); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Make Duck inherit from Animal and implement ISwim.</p>
+<pre><code><span class="tok-kw">class</span> Duck : Animal, ISwim { <span class="tok-kw">public</span> <span class="tok-kw">void</span> <span class="tok-fn">Swim</span>() { Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Swimming&quot;</span>); } }</code></pre>
+<div class="expected"><pre><code>class Duck : Animal, ISwim { public void Swim() { Console.WriteLine(&quot;Swimming&quot;); } }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Create an abstract class Shape with an abstract Area method.</p>
+<pre><code><span class="tok-kw">abstract</span> <span class="tok-kw">class</span> Shape { <span class="tok-kw">public</span> <span class="tok-kw">abstract</span> <span class="tok-kw">double</span> <span class="tok-fn">Area</span>(); }</code></pre>
+<div class="expected"><pre><code>abstract class Shape { public abstract double Area(); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Create a Circle class that inherits Shape and implements Area.</p>
+<pre><code><span class="tok-kw">class</span> Circle : Shape { <span class="tok-kw">double</span> radius; <span class="tok-kw">public</span> <span class="tok-fn">Circle</span>(<span class="tok-kw">double</span> r) { radius = r; } <span class="tok-kw">public</span> <span class="tok-kw">override</span> <span class="tok-kw">double</span> <span class="tok-fn">Area</span>() =&gt; Math.PI * radius * radius; }</code></pre>
+<div class="expected"><pre><code>class Circle : Shape { double radius; public Circle(double r) { radius = r; } public override double Area() =&gt; Math.PI * radius * radius; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Use base to call the parent constructor from a derived class.</p>
+<pre><code><span class="tok-kw">class</span> Derived : Base { <span class="tok-kw">public</span> <span class="tok-fn">Derived</span>(<span class="tok-kw">int</span> x) : <span class="tok-kw">base</span>(x) { } }</code></pre>
+<div class="expected"><pre><code>class Derived : Base { public Derived(int x) : base(x) { } }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Seal a class so it cannot be inherited.</p>
+<pre><code><span class="tok-kw">sealed</span> <span class="tok-kw">class</span> FinalClass { }</code></pre>
+<div class="expected"><pre><code>sealed class FinalClass { }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Use an interface to require a Calculate method on any implementing class.</p>
+<pre><code><span class="tok-kw">interface</span> ICalculator { <span class="tok-kw">double</span> <span class="tok-fn">Calculate</span>(<span class="tok-kw">double</span> a, <span class="tok-kw">double</span> b); }</code></pre>
+<div class="expected"><pre><code>interface ICalculator { double Calculate(double a, double b); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Explicitly implement an interface method so it is only accessible via the interface type.</p>
+<pre><code><span class="tok-kw">class</span> MyClass : IMyInterface { <span class="tok-kw">void</span> IMyInterface.<span class="tok-fn">DoWork</span>() { } }</code></pre>
+<div class="expected"><pre><code>class MyClass : IMyInterface { void IMyInterface.DoWork() { } }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: Why can't C# classes inherit from multiple classes?</div>
+<div class="a"><strong>A:</strong> C# uses single inheritance for classes to avoid the diamond problem; multiple interface implementation provides the flexibility of multiple contracts.</div></div>
+<div class="qa"><div class="q">Q2: What is the difference between abstract and virtual?</div>
+<div class="a"><strong>A:</strong> Abstract has no implementation and forces overriding; virtual provides a default implementation that derived classes may optionally override.</div></div>
+<div class="qa"><div class="q">Q3: Can you create an instance of an abstract class?</div>
+<div class="a"><strong>A:</strong> No; abstract classes cannot be instantiated directly; they must be subclassed and their abstract members implemented.</div></div>
+<div class="qa"><div class="q">Q4: What happens if a class does not implement all interface members?</div>
+<div class="a"><strong>A:</strong> It must be declared abstract, or the compiler reports an error for unimplemented members.</div></div>
+<div class="qa"><div class="q">Q5: What is the sealed keyword used for?</div>
+<div class="a"><strong>A:</strong> It prevents a class from being inherited or a virtual/override member from being further overridden.</div></div>
+<div class="qa"><div class="q">Q6: What is explicit interface implementation?</div>
+<div class="a"><strong>A:</strong> It implements an interface member with a fully qualified name, making it accessible only through the interface type, not through the class.</div></div>
+<div class="qa"><div class="q">Q7: Can an interface have fields?</div>
+<div class="a"><strong>A:</strong> No; interfaces can only declare methods, properties, events, and indexers (C# 11 adds default interface methods).</div></div>
+<div class="qa"><div class="q">Q8: What is the 'base' keyword?</div>
+<div class="a"><strong>A:</strong> It accesses the base class's implementation of a method, constructor, or property, useful for extending rather than replacing behavior.</div></div>
+<div class="qa"><div class="q">Q9: Can a class inherit an interface and provide a default implementation?</div>
+<div class="a"><strong>A:</strong> Yes; since C# 8, interfaces can contain default implementations that classes inherit unless overridden.</div></div>
+<div class="qa"><div class="q">Q10: What is the Liskov Substitution Principle?</div>
+<div class="a"><strong>A:</strong> Objects of a derived class should be substitutable for objects of the base class without altering correctness.</div></div>
+<div class="nav"><a href="topic-08.html">← 8. OOP: Classes & Objects</a>
+<a href="topic-10.html">→ 10. OOP: Polymorphism & Generics</a></div>
+</body></html>

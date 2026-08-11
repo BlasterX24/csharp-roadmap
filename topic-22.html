@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 22: .NET Reversing with dnSpy/ILSpy — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 22: .NET Reversing with dnSpy/ILSpy</h1>
+<div class="sub">reading decompiled code, finding secrets</div></div>
+<p>Decompilers like dnSpy and ILSpy reverse-engineer compiled .NET assemblies back into readable C# code. They are essential tools for security researchers analyzing third-party libraries, finding hardcoded secrets, understanding proprietary logic, and auditing code for vulnerabilities.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Install dnSpy or ILSpy, open an assembly, and practice navigating the decompiled code structure.</p>
+<ul><li>https://github.com/dnSpy/dnSpy</li><li>https://github.com/icsharpcode/ILSpy</li><li>https://learn.microsoft.com/en-us/dotnet/standard/assembly/</li><li>https://learn.microsoft.com/en-us/dotnet/framework/tools/</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>dnSpy supports both decompilation and live editing/decompiling of assemblies</li><li>ILSpy offers a lightweight, open-source alternative with plugin support</li><li>Decompilers reconstruct C# source from IL metadata and opcodes</li><li>Obfuscation tools like ConfuserEx and Dotfuscator make decompiled code harder to read</li><li>Hardcoded secrets (API keys, connection strings, passwords) are visible in decompiled code</li><li>String encryption obfuscation stores encrypted strings that are decrypted at runtime</li><li>Method body analysis reveals algorithm logic and control flow</li><li>Assembly references show which libraries and frameworks are used</li><li>Metadata analysis reveals types, attributes, and versioning information</li><li>Debug symbols (.pdb files) enable source-level debugging of decompiled code</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Open an assembly in dnSpy and navigate to the Main method.</p>
+<pre><code>File &gt; Open &gt; select the assembly &gt; expand the tree &gt; navigate to Program.cs &gt; Main</code></pre>
+<div class="expected"><pre><code>Navigate to Program.Main in dnSpy</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Decompile a DLL and find all string literals.</p>
+<pre><code>Use Analyze &gt; search <span class="tok-kw">for</span> <span class="tok-kw">string</span> references, or search <span class="tok-kw">for</span> String <span class="tok-kw">in</span> the search bar</code></pre>
+<div class="expected"><pre><code>Search for string references in the decompiled assembly</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Identify a hardcoded API key in decompiled code.</p>
+<pre><code>Look <span class="tok-kw">for</span> <span class="tok-kw">string</span> assignments with suspicious values like <span class="tok-s">&quot;sk-...&quot;</span> or <span class="tok-s">&quot;api_key=...&quot;</span></code></pre>
+<div class="expected"><pre><code>Find string constants containing API keys or secrets</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Use ILSpy to view the IL of a method.</p>
+<pre><code>Right-click method &gt; IL Instructions</code></pre>
+<div class="expected"><pre><code>View IL instructions in ILSpy</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Find all methods that call a specific external method.</p>
+<pre><code>Use the Analyze tab &gt; References to find callers</code></pre>
+<div class="expected"><pre><code>Find references to the target method</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Search for all types in an assembly that implement an interface.</p>
+<pre><code>Use the search bar with IInterfaceName</code></pre>
+<div class="expected"><pre><code>Find implementing classes via search</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Decompile and find the assembly version.</p>
+<pre><code>Check Assembly Properties or the AssemblyInfo attribute</code></pre>
+<div class="expected"><pre><code>Read the AssemblyVersion attribute</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Identify obfuscated class names in a decompiled assembly.</p>
+<pre><code>Look <span class="tok-kw">for</span> classes with names like &lt;Module&gt;, &lt;&gt;c, or random strings</code></pre>
+<div class="expected"><pre><code>Identify compiler-generated or obfuscated types</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Find all configuration strings (connection strings, keys).</p>
+<pre><code>Search <span class="tok-kw">for</span> strings containing <span class="tok-s">&quot;Server=&quot;</span>, <span class="tok-s">&quot;Password=&quot;</span>, or <span class="tok-s">&quot;key=&quot;</span></code></pre>
+<div class="expected"><pre><code>Search for configuration-related string literals</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Export decompiled source code from ILSpy.</p>
+<pre><code>File &gt; Save Code &gt; select output directory</code></pre>
+<div class="expected"><pre><code>Export decompiled source to files</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is the difference between dnSpy and ILSpy?</div>
+<div class="a"><strong>A:</strong> dnSpy includes a debugger and editor; ILSpy is lighter and open-source with plugin support. Both decompile .NET assemblies.</div></div>
+<div class="qa"><div class="q">Q2: How do decompilers reconstruct C# code?</div>
+<div class="a"><strong>A:</strong> They read IL opcodes and metadata, then apply heuristics to reconstruct high-level constructs like classes, methods, and properties.</div></div>
+<div class="qa"><div class="q">Q3: What is string encryption obfuscation?</div>
+<div class="a"><strong>A:</strong> A technique where string literals are encrypted and decrypted at runtime, making static analysis harder.</div></div>
+<div class="qa"><div class="q">Q4: How do you find hardcoded secrets?</div>
+<div class="a"><strong>A:</strong> Search for string literals in decompiled code; look for patterns like API keys, passwords, and connection strings.</div></div>
+<div class="qa"><div class="q">Q5: What are debug symbols (.pdb files)?</div>
+<div class="a"><strong>A:</strong> Files that map IL instructions to source code lines, enabling step-through debugging of decompiled assemblies.</div></div>
+<div class="qa"><div class="q">Q6: How do you handle obfuscated code?</div>
+<div class="a"><strong>A:</strong> Use deobfuscators like de4dot, or analyze IL directly to understand the true behavior.</div></div>
+<div class="qa"><div class="q">Q7: What information can you extract from assembly metadata?</div>
+<div class="a"><strong>A:</strong> Version numbers, dependencies, type definitions, custom attributes, and security permissions.</div></div>
+<div class="qa"><div class="q">Q8: Can you modify and recompile a decompiled assembly?</div>
+<div class="a"><strong>A:</strong> Yes; dnSpy supports editing and recompiling method bodies directly.</div></div>
+<div class="qa"><div class="q">Q9: What is the difference between IL and decompiled C#?</div>
+<div class="a"><strong>A:</strong> IL is the low-level instruction set; decompiled C# is a reconstruction that approximates the original source code.</div></div>
+<div class="qa"><div class="q">Q10: How do you analyze a .NET assembly without decompiling?</div>
+<div class="a"><strong>A:</strong> Use ildasm for raw IL, monodis for Mono assemblies, or dotPeek for quick decompilation.</div></div>
+<div class="nav"><a href="topic-21.html">← 21. IL (Intermediate Language)</a>
+<a href="topic-23.html">→ 23. Secure Coding in C#</a></div>
+</body></html>

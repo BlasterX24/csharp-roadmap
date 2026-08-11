@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 12: Delegates & Events — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 12: Delegates & Events</h1>
+<div class="sub">delegate, Action, Func, event, multicast</div></div>
+<p>Delegates are type-safe function pointers that reference methods. Action and Func are built-in generic delegates for common signatures. Events use delegates to implement the publish-subscribe pattern, allowing objects to notify subscribers when something happens. Multicast delegates support multiple method targets.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Study the delegate type, Action/Func signatures, and the event keyword for implementing observers.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/</li><li>https://learn.microsoft.com/en-us/dotnet/api/system.action</li><li>https://learn.microsoft.com/en-us/dotnet/api/system.func-1</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>A delegate defines a method signature; any method matching the signature can be assigned</li><li>Action<T> is a delegate that returns void with up to 16 parameters</li><li>Func<T, TResult> is a delegate that returns a value with up to 16 parameters</li><li>Events are delegates that can only be invoked from the declaring class</li><li>The += operator subscribes to an event; -= unsubscribes</li><li>Multicast delegates chain multiple method calls into one delegate instance</li><li>EventHandler<T> is a standard delegate for .NET events</li><li>Delegate.Combine and Delegate.Remove manage multicast chains</li><li>Anonymous methods and lambdas simplify delegate instantiation</li><li>Delegates enable callback patterns, strategy patterns, and LINQ queries</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Declare a delegate int MathOp(int a, int b).</p>
+<pre><code><span class="tok-kw">delegate</span> <span class="tok-kw">int</span> <span class="tok-fn">MathOp</span>(<span class="tok-kw">int</span> a, <span class="tok-kw">int</span> b);</code></pre>
+<div class="expected"><pre><code>delegate int MathOp(int a, int b);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Assign a lambda to Action<string> that prints a message.</p>
+<pre><code>Action&lt;<span class="tok-kw">string</span>&gt; print = msg =&gt; Console.<span class="tok-fn">WriteLine</span>(msg);</code></pre>
+<div class="expected"><pre><code>Action&lt;string&gt; print = msg =&gt; Console.WriteLine(msg);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Create a Func<int, int, int> that returns the sum of two ints.</p>
+<pre><code>Func&lt;<span class="tok-kw">int</span>, <span class="tok-kw">int</span>, <span class="tok-kw">int</span>&gt; add = (a, b) =&gt; a + b;</code></pre>
+<div class="expected"><pre><code>Func&lt;int, int, int&gt; add = (a, b) =&gt; a + b;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Define an event called OnClick using EventHandler.</p>
+<pre><code><span class="tok-kw">public</span> <span class="tok-kw">event</span> EventHandler OnClick;</code></pre>
+<div class="expected"><pre><code>public event EventHandler OnClick;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Invoke an event safely by checking for null first.</p>
+<pre><code>OnClick?.<span class="tok-fn">Invoke</span>(<span class="tok-kw">this</span>, EventArgs.Empty);</code></pre>
+<div class="expected"><pre><code>OnClick?.Invoke(this, EventArgs.Empty);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Subscribe a method to an event using +=.</p>
+<pre><code>obj.OnClick += MyHandler;</code></pre>
+<div class="expected"><pre><code>obj.OnClick += MyHandler;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Create a multicast delegate by combining two Action delegates.</p>
+<pre><code>Action a = () =&gt; Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;A&quot;</span>); Action b = () =&gt; Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;B&quot;</span>); Action combined = a + b;</code></pre>
+<div class="expected"><pre><code>Action a = () =&gt; Console.WriteLine(&quot;A&quot;); Action b = () =&gt; Console.WriteLine(&quot;B&quot;); Action combined = a + b;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Pass a Func<int, bool> to a Filter method that returns matching elements.</p>
+<pre><code>IEnumerable&lt;<span class="tok-kw">int</span>&gt; <span class="tok-fn">Filter</span>(IEnumerable&lt;<span class="tok-kw">int</span>&gt; source, Func&lt;<span class="tok-kw">int</span>, <span class="tok-kw">bool</span>&gt; predicate) =&gt; source.<span class="tok-fn">Where</span>(predicate);</code></pre>
+<div class="expected"><pre><code>IEnumerable&lt;int&gt; Filter(IEnumerable&lt;int&gt; source, Func&lt;int, bool&gt; predicate) =&gt; source.Where(predicate);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Declare an event using EventHandler<T> with a custom EventArgs.</p>
+<pre><code><span class="tok-kw">public</span> <span class="tok-kw">event</span> EventHandler&lt;ChangedEventArgs&gt; Changed;</code></pre>
+<div class="expected"><pre><code>public event EventHandler&lt;ChangedEventArgs&gt; Changed;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Unsubscribe from an event using -=.</p>
+<pre><code>obj.OnClick -= MyHandler;</code></pre>
+<div class="expected"><pre><code>obj.OnClick -= MyHandler;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is the difference between a delegate and an event?</div>
+<div class="a"><strong>A:</strong> A delegate can be invoked, reassigned, and combined from anywhere; an event can only be invoked from the declaring class and subscribers can only += or -=.</div></div>
+<div class="qa"><div class="q">Q2: Why use EventHandler instead of a custom delegate?</div>
+<div class="a"><strong>A:</strong> EventHandler is a standard .NET convention; it provides a consistent signature and works with EventArgs for event data.</div></div>
+<div class="qa"><div class="q">Q3: What is a multicast delegate?</div>
+<div class="a"><strong>A:</strong> A delegate that holds references to multiple methods; invoking it calls all methods in order.</div></div>
+<div class="qa"><div class="q">Q4: When should you use Action vs Func?</div>
+<div class="a"><strong>A:</strong> Use Action when the method returns void; use Func when it returns a value.</div></div>
+<div class="qa"><div class="q">Q5: What happens if you invoke a delegate that references a disposed object?</div>
+<div class="a"><strong>A:</strong> It depends on the delegate chain; if one target throws, subsequent targets may not be called.</div></div>
+<div class="qa"><div class="q">Q6: How do you prevent null delegate invocations?</div>
+<div class="a"><strong>A:</strong> Use the null-conditional operator: myDelegate?.Invoke(args);</div></div>
+<div class="qa"><div class="q">Q7: Can events be invoked outside the declaring class?</div>
+<div class="a"><strong>A:</strong> No; the event keyword restricts invocation to the class that declared it; external code can only subscribe or unsubscribe.</div></div>
+<div class="qa"><div class="q">Q8: What is the purpose of EventArgs?</div>
+<div class="a"><strong>A:</strong> It provides a base class for passing event-specific data to event handlers.</div></div>
+<div class="qa"><div class="q">Q9: How do you make a delegate from a static method?</div>
+<div class="a"><strong>A:</strong> Assign the method name directly: Action print = MyClass.Print;</div></div>
+<div class="qa"><div class="q">Q10: Can a delegate reference multiple methods?</div>
+<div class="a"><strong>A:</strong> Yes; using multicast delegates with + or +=, you chain multiple methods into one delegate.</div></div>
+<div class="nav"><a href="topic-11.html">← 11. LINQ</a>
+<a href="topic-13.html">→ 13. Lambda & Functional</a></div>
+</body></html>

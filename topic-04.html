@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 4: Strings — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 4: Strings</h1>
+<div class="sub">string methods, interpolation $"", StringBuilder, regex</div></div>
+<p>Strings in C# are immutable sequences of characters. The String class provides methods for searching, splitting, replacing, and formatting. String interpolation ($"") lets you embed expressions directly. StringBuilder is used for efficient concatenation in loops. Regular expressions via the Regex class enable complex pattern matching.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Explore the String class reference, string interpolation docs, and StringBuilder for performance-sensitive concatenation.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/csharp/how-to/strings-csharp</li><li>https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-string</li><li>https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-text-stringbuilder</li><li>https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expressions</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>Strings are immutable; every modification creates a new string</li><li>String interpolation with $"" embeds expressions inside { }</li><li>StringBuilder is mutable and efficient for building strings in loops</li><li>Common string methods: Contains, StartsWith, EndsWith, IndexOf, Replace, Split, Trim</li><li>string.Join combines an array/collection into a single string with a separator</li><li>string.Format with numbered placeholders {0} {1} formats output</li><li>Null and empty strings are different; use string.IsNullOrEmpty() to check both</li><li>Verbatim strings @"..." preserve backslashes and allow multi-line text</li><li>Raw string literals """...""" are new in C# 11 for multi-line raw text</li><li>String comparison uses StringComparison enum for culture-aware or ordinal checks</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Use string interpolation to print "Hello, Alice! You are 30 years old."</p>
+<pre><code><span class="tok-kw">string</span> msg = $<span class="tok-s">&quot;Hello, {name}! You are {age} years old.&quot;</span>;</code></pre>
+<div class="expected"><pre><code>string msg = $&quot;Hello, {name}! You are {age} years old.&quot;;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Write code that splits a CSV string "a,b,c" into an array.</p>
+<pre><code><span class="tok-kw">string</span>[] parts = <span class="tok-s">&quot;a,b,c&quot;</span>.<span class="tok-fn">Split</span>(<span class="tok-s">&#x27;,&#x27;</span>);</code></pre>
+<div class="expected"><pre><code>string[] parts = &quot;a,b,c&quot;.Split(&#x27;,&#x27;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Use StringBuilder to build "aaa" by appending "a" three times.</p>
+<pre><code><span class="tok-kw">var</span> sb = <span class="tok-kw">new</span> System.Text.<span class="tok-fn">StringBuilder</span>(); <span class="tok-kw">for</span> (<span class="tok-kw">int</span> i = <span class="tok-num">0</span>; i &lt; <span class="tok-num">3</span>; i++) sb.<span class="tok-fn">Append</span>(<span class="tok-s">&quot;a&quot;</span>); <span class="tok-kw">string</span> result = sb.<span class="tok-fn">ToString</span>();</code></pre>
+<div class="expected"><pre><code>var sb = new System.Text.StringBuilder(); for (int i = 0; i &lt; 3; i++) sb.Append(&quot;a&quot;); string result = sb.ToString();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Check if a string is null or empty.</p>
+<pre><code><span class="tok-kw">bool</span> empty = <span class="tok-kw">string</span>.<span class="tok-fn">IsNullOrEmpty</span>(input);</code></pre>
+<div class="expected"><pre><code>bool empty = string.IsNullOrEmpty(input);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Replace all spaces in a string with underscores.</p>
+<pre><code><span class="tok-kw">string</span> result = input.<span class="tok-fn">Replace</span>(<span class="tok-s">&quot; &quot;</span>, <span class="tok-s">&quot;_&quot;</span>);</code></pre>
+<div class="expected"><pre><code>string result = input.Replace(&quot; &quot;, &quot;_&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Convert a string to lowercase and remove leading/trailing whitespace.</p>
+<pre><code><span class="tok-kw">string</span> result = input.<span class="tok-fn">ToLower</span>().<span class="tok-fn">Trim</span>();</code></pre>
+<div class="expected"><pre><code>string result = input.ToLower().Trim();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Find the index of the first occurrence of "world" in a string.</p>
+<pre><code><span class="tok-kw">int</span> idx = <span class="tok-s">&quot;hello world&quot;</span>.<span class="tok-fn">IndexOf</span>(<span class="tok-s">&quot;world&quot;</span>);</code></pre>
+<div class="expected"><pre><code>int idx = &quot;hello world&quot;.IndexOf(&quot;world&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Join an array of strings with a comma separator.</p>
+<pre><code><span class="tok-kw">string</span> csv = <span class="tok-kw">string</span>.<span class="tok-fn">Join</span>(<span class="tok-s">&quot;,&quot;</span>, <span class="tok-kw">new</span>[] { <span class="tok-s">&quot;a&quot;</span>, <span class="tok-s">&quot;b&quot;</span>, <span class="tok-s">&quot;c&quot;</span> });</code></pre>
+<div class="expected"><pre><code>string csv = string.Join(&quot;,&quot;, new[] { &quot;a&quot;, &quot;b&quot;, &quot;c&quot; });</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Use a verbatim string to assign a path with backslashes.</p>
+<pre><code><span class="tok-kw">string</span> path = @<span class="tok-s">&quot;C:\Users\Alice\Documents&quot;</span>;</code></pre>
+<div class="expected"><pre><code>string path = @&quot;C:\Users\Alice\Documents&quot;;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Check if a string starts with "http" using case-insensitive comparison.</p>
+<pre><code><span class="tok-kw">bool</span> ok = url.<span class="tok-fn">StartsWith</span>(<span class="tok-s">&quot;http&quot;</span>, StringComparison.OrdinalIgnoreCase);</code></pre>
+<div class="expected"><pre><code>bool ok = url.StartsWith(&quot;http&quot;, StringComparison.OrdinalIgnoreCase);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: Why are strings immutable in C#?</div>
+<div class="a"><strong>A:</strong> Immutability ensures thread safety, enables string interning, and simplifies hash code computation for dictionary keys.</div></div>
+<div class="qa"><div class="q">Q2: When should you use StringBuilder over concatenation?</div>
+<div class="a"><strong>A:</strong> Use StringBuilder when building strings in loops or with many modifications; each + concatenation creates a new string, while StringBuilder mutates a buffer.</div></div>
+<div class="qa"><div class="q">Q3: What is the difference between string.Empty and ""?</div>
+<div class="a"><strong>A:</strong> They are equivalent; both represent a zero-length string. string.Empty is more readable and avoids allocation of a string literal.</div></div>
+<div class="qa"><div class="q">Q4: How do you perform a case-insensitive search in a string?</div>
+<div class="a"><strong>A:</strong> Use StringComparison.OrdinalIgnoreCase with methods like Contains, IndexOf, or StartsWith.</div></div>
+<div class="qa"><div class="q">Q5: What is string interpolation's performance impact?</div>
+<div class="a"><strong>A:</strong> It is syntactic sugar that the compiler converts to string.Format calls; for tight loops, StringBuilder is still preferred.</div></div>
+<div class="qa"><div class="q">Q6: What does the @ prefix do in a string literal?</div>
+<div class="a"><strong>A:</strong> It creates a verbatim string where backslashes are treated as literal characters and line breaks are preserved.</div></div>
+<div class="qa"><div class="q">Q7: How do you convert a char array back to a string?</div>
+<div class="a"><strong>A:</strong> Use new string(charArray) or string.Concat(charArray).</div></div>
+<div class="qa"><div class="q">Q8: What is the difference between Replace and Substring?</div>
+<div class="a"><strong>A:</strong> Replace swaps all occurrences of a pattern with a replacement; Substring extracts a portion of the string by index and length.</div></div>
+<div class="qa"><div class="q">Q9: Can you modify a string in place?</div>
+<div class="a"><strong>A:</strong> No; strings are immutable. You must create a new string or use StringBuilder to build text incrementally.</div></div>
+<div class="qa"><div class="q">Q10: What does StringComparison.Ordinal do?</div>
+<div class="a"><strong>A:</strong> It performs a byte-by-byte comparison of the string characters, which is fast but culture-unaware.</div></div>
+<div class="nav"><a href="topic-03.html">← 3. Operators & Expressions</a>
+<a href="topic-05.html">→ 5. Arrays & Collections</a></div>
+</body></html>

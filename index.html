@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><h1>C# Roadmap — A to Z</h1>
+<div class="sub">25 topics covering C# from basics to .NET reversing & ASP.NET</div></div>
+<p class="meta">25 topics · 10 problems + 10 Q&amp;A each ·
+<span class="badge">Learn From</span><span class="badge">Practice</span><span class="badge">Test yourself</span></p>
+<a class="index-card" href="topic-01.html">
+<span class="num">01</span> Setup & .NET Intro
+<div class="d">dotnet CLI, project structure, Main(), Console.WriteLine</div></a><a class="index-card" href="topic-02.html">
+<span class="num">02</span> Variables & Types
+<div class="d">int, double, string, bool, var, const, dynamic</div></a><a class="index-card" href="topic-03.html">
+<span class="num">03</span> Operators & Expressions
+<div class="d">arithmetic, comparison, logical, null coalescing, pattern matching</div></a><a class="index-card" href="topic-04.html">
+<span class="num">04</span> Strings
+<div class="d">string methods, interpolation $"", StringBuilder, regex</div></a><a class="index-card" href="topic-05.html">
+<span class="num">05</span> Arrays & Collections
+<div class="d">Array, List<T>, Dictionary<K,V>, LINQ basics</div></a><a class="index-card" href="topic-06.html">
+<span class="num">06</span> Control Flow
+<div class="d">if/else, switch, for/foreach/while, break/continue</div></a><a class="index-card" href="topic-07.html">
+<span class="num">07</span> Methods & Params
+<div class="d">parameters, ref/out/in, default values, params, expression-bodied</div></a><a class="index-card" href="topic-08.html">
+<span class="num">08</span> OOP: Classes & Objects
+<div class="d">properties, constructors, auto-props, static, readonly</div></a><a class="index-card" href="topic-09.html">
+<span class="num">09</span> OOP: Inheritance & Interfaces
+<div class="d">base, virtual/override, abstract, interface, implements</div></a><a class="index-card" href="topic-10.html">
+<span class="num">10</span> OOP: Polymorphism & Generics
+<div class="d">override/new/sealed, generic classes/methods</div></a><a class="index-card" href="topic-11.html">
+<span class="num">11</span> LINQ
+<div class="d">Where, Select, OrderBy, GroupBy, Sum/Count, method vs query syntax</div></a><a class="index-card" href="topic-12.html">
+<span class="num">12</span> Delegates & Events
+<div class="d">delegate, Action, Func, event, multicast</div></a><a class="index-card" href="topic-13.html">
+<span class="num">13</span> Lambda & Functional
+<div class="d">lambda expressions, LINQ integration, closures</div></a><a class="index-card" href="topic-14.html">
+<span class="num">14</span> Exception Handling
+<div class="d">try/catch/finally, throw, custom exceptions, using</div></a><a class="index-card" href="topic-15.html">
+<span class="num">15</span> File I/O
+<div class="d">File/Directory, StreamReader/Writer, binary I/O, async I/O</div></a><a class="index-card" href="topic-16.html">
+<span class="num">16</span> Async/Await
+<div class="d">Task, async/await, CancellationToken, parallel operations</div></a><a class="index-card" href="topic-17.html">
+<span class="num">17</span> Regex in C#
+<div class="d">Regex class, patterns, matches, groups, common patterns</div></a><a class="index-card" href="topic-18.html">
+<span class="num">18</span> NuGet & Packaging
+<div class="d">NuGet basics, creating packages, project dependencies</div></a><a class="index-card" href="topic-19.html">
+<span class="num">19</span> ASP.NET Basics
+<div class="d">Minimal APIs, controllers, routing, middleware</div></a><a class="index-card" href="topic-20.html">
+<span class="num">20</span> .NET Reflection
+<div class="d">Type, MethodInfo, PropertyInfo, dynamic invocation</div></a><a class="index-card" href="topic-21.html">
+<span class="num">21</span> IL (Intermediate Language)
+<div class="d">understanding IL opcodes, decompilation</div></a><a class="index-card" href="topic-22.html">
+<span class="num">22</span> .NET Reversing with dnSpy/ILSpy
+<div class="d">reading decompiled code, finding secrets</div></a><a class="index-card" href="topic-23.html">
+<span class="num">23</span> Secure Coding in C#
+<div class="d">parameterized SQL, input validation, secrets handling</div></a><a class="index-card" href="topic-24.html">
+<span class="num">24</span> Memory & Performance
+<div class="d">Span<T>, stackalloc, ArrayPool, benchmarking</div></a><a class="index-card" href="topic-25.html">
+<span class="num">25</span> Capstone Projects
+<div class="d">10 C# projects combining all topics</div></a>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 20: .NET Reflection — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 20: .NET Reflection</h1>
+<div class="sub">Type, MethodInfo, PropertyInfo, dynamic invocation</div></div>
+<p>Reflection lets you inspect and invoke types, methods, properties, and fields at runtime. The System.Reflection namespace provides Type, MethodInfo, PropertyInfo, and FieldInfo classes. Reflection enables dynamic loading, late binding, and metadata inspection, but incurs a performance cost.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Study the System.Reflection namespace and practice inspecting types and invoking methods dynamically.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/fundamentals/reflection-and-loading</li><li>https://learn.microsoft.com/en-us/dotnet/api/system.type</li><li>https://learn.microsoft.com/en-us/dotnet/api/system.reflection.methodinfo</li><li>https://learn.microsoft.com/en-us/dotnet/api/system.reflection.propertyinfo</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>typeof(T) and obj.GetType() obtain the Type of a class</li><li>Type.GetMethods() returns all methods; GetProperties() returns all properties</li><li>MethodInfo.Invoke() dynamically calls a method by reflection</li><li>PropertyInfo.GetValue and SetValue read/write properties dynamically</li><li>FieldInfo reads/writes fields at runtime</li><li>Assembly.Load loads assemblies dynamically from bytes or files</li><li>CustomAttributes provides access to attributes on types and members</li><li>BindingFlags control which members are retrieved (public, static, instance)</li><li>Activator.CreateInstance creates instances of types dynamically</li><li>Reflection is used by serialization, ORMs, DI containers, and testing frameworks</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Get the Type of a string variable using reflection.</p>
+<pre><code>Type t = <span class="tok-kw">typeof</span>(<span class="tok-kw">string</span>);</code></pre>
+<div class="expected"><pre><code>Type t = typeof(string);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Get all public methods of a type.</p>
+<pre><code>MethodInfo[] methods = <span class="tok-kw">typeof</span>(MyClass).<span class="tok-fn">GetMethods</span>(BindingFlags.Public | BindingFlags.Instance);</code></pre>
+<div class="expected"><pre><code>MethodInfo[] methods = typeof(MyClass).GetMethods(BindingFlags.Public | BindingFlags.Instance);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Invoke a method by name using MethodInfo.Invoke.</p>
+<pre><code>MethodInfo m = <span class="tok-kw">typeof</span>(MyClass).<span class="tok-fn">GetMethod</span>(<span class="tok-s">&quot;DoWork&quot;</span>); m.<span class="tok-fn">Invoke</span>(obj, <span class="tok-kw">new</span> <span class="tok-kw">object</span>[] { });</code></pre>
+<div class="expected"><pre><code>MethodInfo m = typeof(MyClass).GetMethod(&quot;DoWork&quot;); m.Invoke(obj, new object[] { });</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Get a property value using PropertyInfo.GetValue.</p>
+<pre><code>PropertyInfo p = <span class="tok-kw">typeof</span>(MyClass).<span class="tok-fn">GetProperty</span>(<span class="tok-s">&quot;Name&quot;</span>); <span class="tok-kw">string</span> val = (<span class="tok-kw">string</span>)p.<span class="tok-fn">GetValue</span>(obj);</code></pre>
+<div class="expected"><pre><code>PropertyInfo p = typeof(MyClass).GetProperty(&quot;Name&quot;); string val = (string)p.GetValue(obj);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Create an instance of a type dynamically using Activator.</p>
+<pre><code><span class="tok-kw">object</span> instance = Activator.<span class="tok-fn">CreateInstance</span>(<span class="tok-kw">typeof</span>(MyClass));</code></pre>
+<div class="expected"><pre><code>object instance = Activator.CreateInstance(typeof(MyClass));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Check if a type implements an interface.</p>
+<pre><code><span class="tok-kw">bool</span> implements = <span class="tok-kw">typeof</span>(MyClass).<span class="tok-fn">IsAssignableFrom</span>(<span class="tok-kw">typeof</span>(IMyInterface));</code></pre>
+<div class="expected"><pre><code>bool implements = typeof(MyClass).IsAssignableFrom(typeof(IMyInterface));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Get custom attributes on a class.</p>
+<pre><code><span class="tok-kw">var</span> attrs = <span class="tok-kw">typeof</span>(MyClass).<span class="tok-fn">GetCustomAttributes</span>(<span class="tok-kw">typeof</span>(ObsoleteAttribute), <span class="tok-kw">false</span>);</code></pre>
+<div class="expected"><pre><code>var attrs = typeof(MyClass).GetCustomAttributes(typeof(ObsoleteAttribute), false);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Set a property value dynamically with PropertyInfo.SetValue.</p>
+<pre><code>PropertyInfo p = <span class="tok-kw">typeof</span>(MyClass).<span class="tok-fn">GetProperty</span>(<span class="tok-s">&quot;Count&quot;</span>); p.<span class="tok-fn">SetValue</span>(obj, <span class="tok-num">42</span>);</code></pre>
+<div class="expected"><pre><code>PropertyInfo p = typeof(MyClass).GetProperty(&quot;Count&quot;); p.SetValue(obj, 42);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Get all properties of a type that are strings.</p>
+<pre><code><span class="tok-kw">var</span> strProps = <span class="tok-kw">typeof</span>(MyClass).<span class="tok-fn">GetProperties</span>().<span class="tok-fn">Where</span>(p =&gt; p.PropertyType == <span class="tok-kw">typeof</span>(<span class="tok-kw">string</span>));</code></pre>
+<div class="expected"><pre><code>var strProps = typeof(MyClass).GetProperties().Where(p =&gt; p.PropertyType == typeof(string));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Use Type.GetConstructor to create an instance with constructor parameters.</p>
+<pre><code><span class="tok-kw">var</span> ctor = <span class="tok-kw">typeof</span>(MyClass).<span class="tok-fn">GetConstructor</span>(<span class="tok-kw">new</span>[] { <span class="tok-kw">typeof</span>(<span class="tok-kw">string</span>) }); <span class="tok-kw">object</span> obj = ctor.<span class="tok-fn">Invoke</span>(<span class="tok-kw">new</span> <span class="tok-kw">object</span>[] { <span class="tok-s">&quot;test&quot;</span> });</code></pre>
+<div class="expected"><pre><code>var ctor = typeof(MyClass).GetConstructor(new[] { typeof(string) }); object obj = ctor.Invoke(new object[] { &quot;test&quot; });</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is the performance cost of reflection?</div>
+<div class="a"><strong>A:</strong> Reflection is significantly slower than direct calls due to dynamic type checking and boxing; cache reflected members for repeated use.</div></div>
+<div class="qa"><div class="q">Q2: What are BindingFlags?</div>
+<div class="a"><strong>A:</strong> Flags that control which members are retrieved: Public, Private, Static, Instance, DeclaredOnly, FlattenHierarchy.</div></div>
+<div class="qa"><div class="q">Q3: What is the difference between typeof and GetType?</div>
+<div class="a"><strong>A:</strong> typeof(T) is a compile-time operation; GetType() is a runtime method on an object instance.</div></div>
+<div class="qa"><div class="q">Q4: How does Activator.CreateInstance work?</div>
+<div class="a"><strong>A:</strong> It dynamically creates an instance of a type using its constructor; you can pass constructor parameters as arguments.</div></div>
+<div class="qa"><div class="q">Q5: What is the difference between Property and Field info?</div>
+<div class="a"><strong>A:</strong> PropertyInfo wraps properties (get/set accessors); FieldInfo wraps fields directly.</div></div>
+<div class="qa"><div class="q">Q6: How do you get generic type arguments?</div>
+<div class="a"><strong>A:</strong> Use Type.GetGenericArguments() which returns an array of Type objects for the type parameters.</div></div>
+<div class="qa"><div class="q">Q7: What is dynamic invocation?</div>
+<div class="a"><strong>A:</strong> Calling a method or accessing a property by name at runtime using reflection or the dynamic keyword.</div></div>
+<div class="qa"><div class="q">Q8: What is Assembly.Load used for?</div>
+<div class="a"><strong>A:</strong> To dynamically load an assembly from a file or byte array, enabling plugin architectures.</div></div>
+<div class="qa"><div class="q">Q9: Can reflection access private members?</div>
+<div class="a"><strong>A:</strong> Yes; using BindingFlags.NonPublic, reflection can access private fields, methods, and properties.</div></div>
+<div class="qa"><div class="q">Q10: What are the alternatives to reflection?</div>
+<div class="a"><strong>A:</strong> Source generators, expression trees, dynamic keyword, and compiled delegates offer better performance for known types.</div></div>
+<div class="nav"><a href="topic-19.html">← 19. ASP.NET Basics</a>
+<a href="topic-21.html">→ 21. IL (Intermediate Language)</a></div>
+</body></html>

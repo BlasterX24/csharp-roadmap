@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 11: LINQ — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 11: LINQ</h1>
+<div class="sub">Where, Select, OrderBy, GroupBy, Sum/Count, method vs query syntax</div></div>
+<p>LINQ (Language Integrated Query) provides a unified syntax for querying data from any source—arrays, lists, databases, XML. It offers two styles: method syntax (fluent) using extension methods like Where, Select, OrderBy, and query syntax using from, where, orderby, select keywords. Both compile to the same IL.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Start with the LINQ overview, then practice converting between method and query syntax.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/linq/</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/linq/write-linq-queries</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/linq/method-syntax-vs-query-syntax</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>Where filters elements based on a predicate</li><li>Select projects elements into a new form</li><li>OrderBy and OrderByDescending sort elements</li><li>GroupBy groups elements by a key</li><li>Sum, Count, Average aggregate numeric values</li><li>First, Last, Single retrieve individual elements</li><li>Any and All test conditions across collections</li><li>Distinct removes duplicates</li><li>Join pairs elements from two sequences based on matching keys</li><li>Deferred execution means queries are not evaluated until enumerated</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Use LINQ to filter numbers greater than 5 from an array.</p>
+<pre><code><span class="tok-kw">var</span> result = arr.<span class="tok-fn">Where</span>(x =&gt; x &gt; <span class="tok-num">5</span>);</code></pre>
+<div class="expected"><pre><code>var result = arr.Where(x =&gt; x &gt; 5);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Use Select to square each number in an int array.</p>
+<pre><code><span class="tok-kw">var</span> squares = arr.<span class="tok-fn">Select</span>(x =&gt; x * x);</code></pre>
+<div class="expected"><pre><code>var squares = arr.Select(x =&gt; x * x);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Order a string array alphabetically using LINQ.</p>
+<pre><code><span class="tok-kw">var</span> sorted = arr.<span class="tok-fn">OrderBy</span>(s =&gt; s);</code></pre>
+<div class="expected"><pre><code>var sorted = arr.OrderBy(s =&gt; s);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Group numbers by whether they are even or odd.</p>
+<pre><code><span class="tok-kw">var</span> groups = arr.<span class="tok-fn">GroupBy</span>(x =&gt; x % <span class="tok-num">2</span> == <span class="tok-num">0</span> ? <span class="tok-s">&quot;Even&quot;</span> : <span class="tok-s">&quot;Odd&quot;</span>);</code></pre>
+<div class="expected"><pre><code>var groups = arr.GroupBy(x =&gt; x % 2 == 0 ? &quot;Even&quot; : &quot;Odd&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Count how many strings in an array start with "a".</p>
+<pre><code><span class="tok-kw">int</span> count = arr.<span class="tok-fn">Count</span>(s =&gt; s.<span class="tok-fn">StartsWith</span>(<span class="tok-s">&quot;a&quot;</span>));</code></pre>
+<div class="expected"><pre><code>int count = arr.Count(s =&gt; s.StartsWith(&quot;a&quot;));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Use LINQ query syntax to select names longer than 3 characters.</p>
+<pre><code><span class="tok-kw">var</span> result = from n <span class="tok-kw">in</span> names where n.Length &gt; <span class="tok-num">3</span> select n;</code></pre>
+<div class="expected"><pre><code>var result = from n in names where n.Length &gt; 3 select n;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Use First to get the first element greater than 10.</p>
+<pre><code><span class="tok-kw">int</span> first = arr.<span class="tok-fn">First</span>(x =&gt; x &gt; <span class="tok-num">10</span>);</code></pre>
+<div class="expected"><pre><code>int first = arr.First(x =&gt; x &gt; 10);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Use Any to check if any element is negative.</p>
+<pre><code><span class="tok-kw">bool</span> hasNegative = arr.<span class="tok-fn">Any</span>(x =&gt; x &lt; <span class="tok-num">0</span>);</code></pre>
+<div class="expected"><pre><code>bool hasNegative = arr.Any(x =&gt; x &lt; 0);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Use Sum to total all elements in an int array.</p>
+<pre><code><span class="tok-kw">int</span> total = arr.<span class="tok-fn">Sum</span>();</code></pre>
+<div class="expected"><pre><code>int total = arr.Sum();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Use Distinct to remove duplicate integers from a list.</p>
+<pre><code><span class="tok-kw">var</span> unique = list.<span class="tok-fn">Distinct</span>();</code></pre>
+<div class="expected"><pre><code>var unique = list.Distinct();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is deferred execution in LINQ?</div>
+<div class="a"><strong>A:</strong> The query is not evaluated when defined; it is executed when enumerated (e.g., in a foreach), allowing lazy evaluation.</div></div>
+<div class="qa"><div class="q">Q2: What forces immediate execution?</div>
+<div class="a"><strong>A:</strong> Methods like ToList(), ToArray(), Count(), First(), and Sum() force the query to execute immediately.</div></div>
+<div class="qa"><div class="q">Q3: What is the difference between First and FirstOrDefault?</div>
+<div class="a"><strong>A:</strong> First throws InvalidOperationException if no element matches; FirstOrDefault returns default(T) instead.</div></div>
+<div class="qa"><div class="q">Q4: How does GroupBy work?</div>
+<div class="a"><strong>A:</strong> It groups elements by a key selector and returns an IEnumerable<IGrouping<TKey, TElement>> where each group has a Key and elements.</div></div>
+<div class="qa"><div class="q">Q5: What is the difference between method syntax and query syntax?</div>
+<div class="a"><strong>A:</strong> Method syntax uses extension methods (Where, Select); query syntax uses SQL-like keywords (from, where, select). They compile to the same code.</div></div>
+<div class="qa"><div class="q">Q6: How do you flatten a collection of collections?</div>
+<div class="a"><strong>A:</strong> Use SelectMany or query syntax with multiple from clauses.</div></div>
+<div class="qa"><div class="q">Q7: What does the AsEnumerable() method do?</div>
+<div class="a"><strong>A:</strong> It returns the source as IEnumerable<T>, switching to LINQ to Objects from a more specific provider like IQueryable<T>.</div></div>
+<div class="qa"><div class="q">Q8: Can you chain multiple LINQ operators?</div>
+<div class="a"><strong>A:</strong> Yes; LINQ operators return IEnumerable<T>, so you can chain Where, Select, OrderBy, etc. in a fluent pipeline.</div></div>
+<div class="qa"><div class="q">Q9: What is the difference between All and Any?</div>
+<div class="a"><strong>A:</strong> All returns true if every element satisfies the predicate; Any returns true if at least one element satisfies it.</div></div>
+<div class="qa"><div class="q">Q10: How do you get the maximum value with LINQ?</div>
+<div class="a"><strong>A:</strong> Use arr.Max() or arr.Max(x => x.Property) to find the maximum element or maximum projected value.</div></div>
+<div class="nav"><a href="topic-10.html">← 10. OOP: Polymorphism & Generics</a>
+<a href="topic-12.html">→ 12. Delegates & Events</a></div>
+</body></html>

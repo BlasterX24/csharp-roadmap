@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 5: Arrays & Collections — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 5: Arrays & Collections</h1>
+<div class="sub">Array, List<T>, Dictionary<K,V>, LINQ basics</div></div>
+<p>Arrays and collections store groups of values. Arrays have fixed size, while List<T> and Dictionary<K,V> grow dynamically. LINQ provides a declarative way to query, filter, and transform collections using method syntax (Where, Select, OrderBy) or query syntax (from ... where ... select).</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Learn the Array and generic collection classes, then practice with LINQ to manipulate data efficiently.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/generic-collections</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/linq/</li><li>https://learn.microsoft.com/en-us/dotnet/api/system.linq</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>Arrays are fixed-size, zero-indexed, and can be single or multidimensional</li><li>List<T> is a generic, resizable array backed by an internal array</li><li>Dictionary<K,V> stores key-value pairs with O(1) lookup</li><li>Queue<T> is FIFO; Stack<T> is LIFO</li><li>HashSet<T> stores unique elements with O(1) contains checks</li><li>LINQ method syntax uses extension methods like .Where().Select()</li><li>LINQ query syntax uses from, where, orderby, select keywords</li><li>Array.Copy and Array.Resize manipulate array contents</li><li>Collection initializers let you populate collections inline</li><li>Index and Range operators ([^1], 0..3) simplify array slicing</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Declare and initialize an integer array with values 1, 2, 3.</p>
+<pre><code><span class="tok-kw">int</span>[] arr = <span class="tok-kw">new</span> <span class="tok-kw">int</span>[] { <span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span> };</code></pre>
+<div class="expected"><pre><code>int[] arr = new int[] { 1, 2, 3 };</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Add the number 4 to the end of a List<int> named nums.</p>
+<pre><code>nums.<span class="tok-fn">Add</span>(<span class="tok-num">4</span>);</code></pre>
+<div class="expected"><pre><code>nums.Add(4);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Use LINQ to select only even numbers from an int array.</p>
+<pre><code><span class="tok-kw">var</span> evens = arr.<span class="tok-fn">Where</span>(x =&gt; x % <span class="tok-num">2</span> == <span class="tok-num">0</span>);</code></pre>
+<div class="expected"><pre><code>var evens = arr.Where(x =&gt; x % 2 == 0);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Use LINQ query syntax to order strings alphabetically.</p>
+<pre><code><span class="tok-kw">var</span> sorted = from s <span class="tok-kw">in</span> names orderby s select s;</code></pre>
+<div class="expected"><pre><code>var sorted = from s in names orderby s select s;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Get the length of a string array.</p>
+<pre><code><span class="tok-kw">int</span> len = arr.Length;</code></pre>
+<div class="expected"><pre><code>int len = arr.Length;</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Check if a Dictionary<string,int> contains a specific key.</p>
+<pre><code><span class="tok-kw">bool</span> exists = dict.<span class="tok-fn">ContainsKey</span>(<span class="tok-s">&quot;Alice&quot;</span>);</code></pre>
+<div class="expected"><pre><code>bool exists = dict.ContainsKey(&quot;Alice&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Use LINQ to get the sum of all elements in an int array.</p>
+<pre><code><span class="tok-kw">int</span> total = arr.<span class="tok-fn">Sum</span>();</code></pre>
+<div class="expected"><pre><code>int total = arr.Sum();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Convert a List<int> to an array.</p>
+<pre><code><span class="tok-kw">int</span>[] array = nums.<span class="tok-fn">ToArray</span>();</code></pre>
+<div class="expected"><pre><code>int[] array = nums.ToArray();</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Use the index operator to get the last element of an array.</p>
+<pre><code><span class="tok-kw">int</span> last = arr[^<span class="tok-num">1</span>];</code></pre>
+<div class="expected"><pre><code>int last = arr[^1];</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Use the range operator to get the first three elements of an array.</p>
+<pre><code><span class="tok-kw">int</span>[] first3 = arr[<span class="tok-num">0</span>..<span class="tok-num">3</span>];</code></pre>
+<div class="expected"><pre><code>int[] first3 = arr[0..3];</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is the difference between an array and List<T>?</div>
+<div class="a"><strong>A:</strong> Arrays have fixed size; List<T> is a dynamic, resizable collection that internally uses an array and copies elements when capacity is exceeded.</div></div>
+<div class="qa"><div class="q">Q2: How does Dictionary<K,V> handle hash collisions?</div>
+<div class="a"><strong>A:</strong> It uses chaining (linked lists per bucket) or open addressing depending on the .NET version; collisions degrade lookup from O(1) to O(n) in the worst case.</div></div>
+<div class="qa"><div class="q">Q3: What is the difference between List<T>.Add and List<T>.Insert?</div>
+<div class="a"><strong>A:</strong> Add appends to the end; Insert places an element at a specific index, shifting subsequent elements.</div></div>
+<div class="qa"><div class="q">Q4: How do you iterate over a Dictionary<string,int>?</div>
+<div class="a"><strong>A:</strong> Use foreach with KeyValuePair<string,int>, or iterate over dict.Keys or dict.Values directly.</div></div>
+<div class="qa"><div class="q">Q5: What does LINQ's .Select() do?</div>
+<div class="a"><strong>A:</strong> It projects each element into a new form by applying a transform function, returning an IEnumerable of the projected type.</div></div>
+<div class="qa"><div class="q">Q6: When should you use a HashSet<T>?</div>
+<div class="a"><strong>A:</strong> When you need fast O(1) membership checks and want to ensure uniqueness without storing duplicate values.</div></div>
+<div class="qa"><div class="q">Q7: What is the difference between Queue<T> and Stack<T>?</div>
+<div class="a"><strong>A:</strong> Queue<T> is first-in-first-out (FIFO); Stack<T> is last-in-first-out (LIFO).</div></div>
+<div class="qa"><div class="q">Q8: How do you sort an array in place?</div>
+<div class="a"><strong>A:</strong> Use Array.Sort(arr) or arr.Sort() for a List<T>.</div></div>
+<div class="qa"><div class="q">Q9: What does the 'from' keyword do in LINQ query syntax?</div>
+<div class="a"><strong>A:</strong> It introduces a range variable that iterates over the source collection, similar to foreach.</div></div>
+<div class="qa"><div class="q">Q10: How do you remove all elements matching a condition from a List<T>?</div>
+<div class="a"><strong>A:</strong> Use list.RemoveAll(predicate) which removes all elements for which the predicate returns true.</div></div>
+<div class="nav"><a href="topic-04.html">← 4. Strings</a>
+<a href="topic-06.html">→ 6. Control Flow</a></div>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 25: Capstone Projects — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 25: Capstone Projects</h1>
+<div class="sub">10 C# projects combining all topics</div></div>
+<p>The capstone projects combine everything you have learned—OOP, LINQ, async, file I/O, ASP.NET, security, and performance—into practical applications. Each project targets real-world scenarios and requires integrating multiple C# concepts.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Pick a project, plan the architecture, implement incrementally, and test thoroughly.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-project-overview</li><li>https://learn.microsoft.com/en-us/dotnet/core/testing/</li><li>https://learn.microsoft.com/en-us/aspnet/core/test/</li><li>https://learn.microsoft.com/en-us/dotnet/core/docker/</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>Design before coding: define interfaces, data models, and workflows</li><li>Use dependency injection to decouple components</li><li>Write unit tests alongside production code</li><li>Implement proper error handling with try/catch and logging</li><li>Use async/await for I/O-bound operations</li><li>Apply security best practices: input validation, parameterized queries, secrets management</li><li>Profile and optimize performance-critical paths</li><li>Use LINQ for data transformation and querying</li><li>Document your code with XML comments</li><li>Containerize your application with Docker for deployment</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Build a CLI file organizer that sorts files by extension using File I/O and LINQ.</p>
+<pre><code><span class="tok-kw">var</span> files = Directory.<span class="tok-fn">GetFiles</span>(sourceDir); <span class="tok-kw">var</span> grouped = files.<span class="tok-fn">GroupBy</span>(f =&gt; Path.<span class="tok-fn">GetExtension</span>(f));</code></pre>
+<div class="expected"><pre><code>var files = Directory.GetFiles(sourceDir); var grouped = files.GroupBy(f =&gt; Path.GetExtension(f));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Create a REST API with ASP.NET that manages a todo list with CRUD operations.</p>
+<pre><code>app.<span class="tok-fn">MapGet</span>(<span class="tok-s">&quot;/todos&quot;</span>, () =&gt; todos); app.<span class="tok-fn">MapPost</span>(<span class="tok-s">&quot;/todos&quot;</span>, (Todo t) =&gt; { todos.<span class="tok-fn">Add</span>(t); <span class="tok-kw">return</span> Results.<span class="tok-fn">Created</span>($<span class="tok-s">&quot;/todos/{t.Id}&quot;</span>, t); });</code></pre>
+<div class="expected"><pre><code>app.MapGet(&quot;/todos&quot;, () =&gt; todos); app.MapPost(&quot;/todos&quot;, (Todo t) =&gt; { todos.Add(t); return Results.Created($&quot;/todos/{t.Id}&quot;, t); });</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Implement a background task runner using async/await and CancellationToken.</p>
+<pre><code><span class="tok-kw">var</span> cts = <span class="tok-kw">new</span> <span class="tok-fn">CancellationTokenSource</span>(); _ = Task.<span class="tok-fn">Run</span>(() =&gt; <span class="tok-fn">ProcessAsync</span>(cts.Token));</code></pre>
+<div class="expected"><pre><code>var cts = new CancellationTokenSource(); _ = Task.Run(() =&gt; ProcessAsync(cts.Token));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Build a JSON configuration manager that reads/writes settings using File I/O.</p>
+<pre><code><span class="tok-kw">var</span> config = JsonSerializer.Deserialize&lt;AppSettings&gt;(File.<span class="tok-fn">ReadAllText</span>(path));</code></pre>
+<div class="expected"><pre><code>var config = JsonSerializer.Deserialize&lt;AppSettings&gt;(File.ReadAllText(path));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Create a LINQ query engine that filters and sorts a CSV dataset.</p>
+<pre><code><span class="tok-kw">var</span> results = records.<span class="tok-fn">Where</span>(r =&gt; r.Age &gt; <span class="tok-num">18</span>).<span class="tok-fn">OrderBy</span>(r =&gt; r.Name).<span class="tok-fn">Select</span>(r =&gt; r.<span class="tok-fn">ToDisplayString</span>());</code></pre>
+<div class="expected"><pre><code>var results = records.Where(r =&gt; r.Age &gt; 18).OrderBy(r =&gt; r.Name).Select(r =&gt; r.ToDisplayString());</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Build a plugin system using reflection and interfaces.</p>
+<pre><code>Assembly.<span class="tok-fn">Load</span>(pluginPath); <span class="tok-kw">var</span> plugins = assembly.<span class="tok-fn">GetTypes</span>().<span class="tok-fn">Where</span>(t =&gt; <span class="tok-kw">typeof</span>(IPlugin).<span class="tok-fn">IsAssignableFrom</span>(t));</code></pre>
+<div class="expected"><pre><code>Assembly.Load(pluginPath); var plugins = assembly.GetTypes().Where(t =&gt; typeof(IPlugin).IsAssignableFrom(t));</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Implement a custom logger using delegates and events.</p>
+<pre><code><span class="tok-kw">public</span> <span class="tok-kw">event</span> Action&lt;<span class="tok-kw">string</span>&gt; OnLog; <span class="tok-kw">void</span> <span class="tok-fn">Log</span>(<span class="tok-kw">string</span> msg) =&gt; OnLog?.<span class="tok-fn">Invoke</span>(msg);</code></pre>
+<div class="expected"><pre><code>public event Action&lt;string&gt; OnLog; void Log(string msg) =&gt; OnLog?.Invoke(msg);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Build a URL shortener using ASP.NET with in-memory storage.</p>
+<pre><code><span class="tok-kw">var</span> urls = <span class="tok-kw">new</span> Dictionary&lt;<span class="tok-kw">string</span>, <span class="tok-kw">string</span>&gt;(); app.<span class="tok-fn">MapPost</span>(<span class="tok-s">&quot;/shorten&quot;</span>, (<span class="tok-kw">string</span> url) =&gt; { <span class="tok-kw">var</span> key = Guid.<span class="tok-fn">NewGuid</span>().<span class="tok-fn">ToString</span>()[..<span class="tok-num">8</span>]; urls[key] = url; <span class="tok-kw">return</span> key; });</code></pre>
+<div class="expected"><pre><code>var urls = new Dictionary&lt;string, string&gt;(); app.MapPost(&quot;/shorten&quot;, (string url) =&gt; { var key = Guid.NewGuid().ToString()[..8]; urls[key] = url; return key; });</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Create a parameterized SQL data access layer using ADO.NET.</p>
+<pre><code><span class="tok-kw">using</span> <span class="tok-kw">var</span> cmd = <span class="tok-kw">new</span> <span class="tok-fn">SqlCommand</span>(<span class="tok-s">&quot;SELECT * FROM Users WHERE Id = @id&quot;</span>, conn); cmd.Parameters.<span class="tok-fn">AddWithValue</span>(<span class="tok-s">&quot;@id&quot;</span>, userId);</code></pre>
+<div class="expected"><pre><code>using var cmd = new SqlCommand(&quot;SELECT * FROM Users WHERE Id = @id&quot;, conn); cmd.Parameters.AddWithValue(&quot;@id&quot;, userId);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Build a performance-benchmarked caching layer with ArrayPool and ValueTask.</p>
+<pre><code>[MemoryDiagnoser] <span class="tok-kw">public</span> <span class="tok-kw">class</span> CacheBenchmark { [Benchmark] <span class="tok-kw">public</span> ValueTask&lt;<span class="tok-kw">int</span>&gt; <span class="tok-fn">GetOrAdd</span>() =&gt; <span class="tok-kw">new</span> ValueTask&lt;<span class="tok-kw">int</span>&gt;(<span class="tok-num">42</span>); }</code></pre>
+<div class="expected"><pre><code>[MemoryDiagnoser] public class CacheBenchmark { [Benchmark] public ValueTask&lt;int&gt; GetOrAdd() =&gt; new ValueTask&lt;int&gt;(42); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: How do you approach a capstone project?</div>
+<div class="a"><strong>A:</strong> Plan the architecture first, define interfaces, implement incrementally with tests, and refactor as you learn more.</div></div>
+<div class="qa"><div class="q">Q2: What design patterns are useful in these projects?</div>
+<div class="a"><strong>A:</strong> Repository, Strategy, Observer (events), Factory, and Dependency Injection patterns are commonly used.</div></div>
+<div class="qa"><div class="q">Q3: How do you test a REST API?</div>
+<div class="a"><strong>A:</strong> Use integration tests with WebApplicationFactory or HttpClient to send requests and verify responses.</div></div>
+<div class="qa"><div class="q">Q4: What is the role of dependency injection in a capstone project?</div>
+<div class="a"><strong>A:</strong> It decouples components, making the code testable and maintainable by allowing interface-based programming.</div></div>
+<div class="qa"><div class="q">Q5: How do you handle errors in a production application?</div>
+<div class="a"><strong>A:</strong> Use try/catch with logging, return appropriate HTTP status codes, and implement global error handling middleware.</div></div>
+<div class="qa"><div class="q">Q6: What is the benefit of async/await in I/O-bound operations?</div>
+<div class="a"><strong>A:</strong> It keeps threads free for other work during I/O waits, improving scalability and responsiveness.</div></div>
+<div class="qa"><div class="q">Q7: How do you secure a REST API?</div>
+<div class="a"><strong>A:</strong> Use authentication (JWT), authorization (roles/policies), input validation, and HTTPS.</div></div>
+<div class="qa"><div class="q">Q8: What is the purpose of unit tests?</div>
+<div class="a"><strong>A:</strong> They verify individual components work correctly in isolation, enabling refactoring with confidence.</div></div>
+<div class="qa"><div class="q">Q9: How do you containerize a .NET application?</div>
+<div class="a"><strong>A:</strong> Create a Dockerfile with the .NET SDK for building and the runtime image for execution, then build and run.</div></div>
+<div class="qa"><div class="q">Q10: What should you consider when choosing a capstone project?</div>
+<div class="a"><strong>A:</strong> Choose something you are passionate about, that covers multiple topics, and that you can complete within your timeline.</div></div>
+<div class="nav"><a href="topic-24.html">← 24. Memory & Performance</a>
+<a href="index.html">Index →</a></div>
+</body></html>

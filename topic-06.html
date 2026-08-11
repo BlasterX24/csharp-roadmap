@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic 6: Control Flow — C# Roadmap — A to Z</title>
+<style>/* theme-dark */
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+       line-height: 1.8; font-size: 16px; max-width: 900px; margin: 0 auto;
+       padding: 2rem 1.5rem 4rem; background:#0f172a; color:#e2e8f0; }
+h1 { font-size: 1.9rem; margin: 0 0 .4rem; color:#f8fafc; letter-spacing:-.5px; }
+h2 { font-size: 1.35rem; margin: 2.2rem 0 .8rem; color:#7dd3fc;
+     border-bottom: 2px solid #1e293b; padding-bottom:.35rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; color:#a5b4fc; }
+p { margin: .5rem 0; }
+a { color:#93c5fd; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, ol { padding-left: 1.4rem; margin: .5rem 0; }
+li { margin: .3rem 0; }
+pre { background:#0b1120; border:1px solid #1e293b; border-radius:8px;
+      padding: 1rem 1.2rem; overflow-x:auto; line-height:1.6; font-size:.9rem;
+      white-space:pre; }
+code { font-family:'Cascadia Code','Fira Code','JetBrains Mono',Consolas,monospace; }
+p code, li code, td code { background:#1e293b; padding:.1rem .35rem;
+      border-radius:4px; font-size:.9em; }
+.tok-kw { color:#c084fc; } .tok-fn { color:#fbbf24; } .tok-num { color:#f472b6; }
+.tok-c { color:#64748b; font-style:italic; } .tok-s { color:#34d399; }
+.header { border-bottom:3px solid #334155; padding-bottom:1rem; margin-bottom:2rem; }
+.header .sub { color:#94a3b8; font-size:.95rem; }
+.learn, .concepts { background:#111c31; border:1px solid #1e293b;
+      border-radius:10px; padding:1.2rem 1.5rem; margin:1.2rem 0; }
+.learn a { display:inline-block; margin:.15rem .6rem .15rem 0; }
+.problem { background:#111c31; border:1px solid #1e293b; border-left:4px solid #38bdf8;
+      border-radius:8px; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+.problem h4 { margin:.1rem 0 .6rem; color:#f8fafc; font-size:1.02rem; }
+.expected { background:#0b1120; border:1px dashed #334155; border-radius:6px;
+      padding:.6rem 1rem; margin:.6rem 0; }
+.expected::before { content:"Expected output:"; display:block; font-size:.8rem;
+      color:#64748b; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+.expected pre { border:none; padding:0; background:transparent; margin:0; }
+.points { color:#94a3b8; font-size:.92rem; }
+.qa { background:#111c31; border:1px solid #1e293b; border-radius:8px;
+      padding:1rem 1.5rem; margin:1rem 0; }
+.qa .q { color:#fbbf24; font-weight:600; }
+.qa .a { margin-top:.4rem; }
+.index-card { background:#111c31; border:1px solid #1e293b; border-radius:10px;
+      padding:1rem 1.5rem; margin:.8rem 0; display:block; color:#e2e8f0; }
+.index-card:hover { border-color:#38bdf8; text-decoration:none; }
+.index-card .num { color:#38bdf8; font-weight:700; margin-right:.5rem; }
+.index-card .d { color:#94a3b8; font-size:.9rem; }
+.nav { display:flex; justify-content:space-between; gap:1rem; margin:2.5rem 0 0;
+      padding-top:1.2rem; border-top:1px solid #1e293b; font-size:.95rem; }
+.meta { color:#64748b; font-size:.85rem; margin:.3rem 0 2rem; }
+.badge { display:inline-block; background:#1e293b; color:#7dd3fc; padding:.15rem .6rem;
+      border-radius:999px; font-size:.78rem; margin-right:.4rem; }
+@media print { body{background:#fff;color:#111;} pre,.problem,.qa,.learn,.concepts{background:#f8fafc;border-color:#ddd;} }
+</style></head><body>
+<div class="header"><a href="index.html" style="font-size:.85rem">← C# Roadmap — A to Z index</a>
+<h1>Topic 6: Control Flow</h1>
+<div class="sub">if/else, switch, for/foreach/while, break/continue</div></div>
+<p>Control flow determines the order in which statements execute. C# provides conditional statements (if, else, switch), iteration statements (for, foreach, while, do-while), and jump statements (break, continue, return, goto). Pattern matching in switch expressions adds powerful type-based dispatch.</p>
+<div class="learn"><h3>Learn From</h3>
+<p>Review the control flow statements reference and practice with pattern matching in switch expressions.</p>
+<ul><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements</li><li>https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch</li></ul></div>
+<div class="concepts"><h3>Key Concepts</h3>
+<ul><li>if/else checks a bool condition and branches execution</li><li>switch matches a value against constant or pattern cases</li><li>switch expressions return a value from pattern-matching arms</li><li>for loops use init; condition; iterator for counted iteration</li><li>foreach iterates over any IEnumerable or IEnumerable<T></li><li>while evaluates its condition before each iteration</li><li>do-while evaluates its condition after each iteration</li><li>break exits the nearest enclosing loop or switch</li><li>continue skips to the next iteration of the nearest enclosing loop</li><li>throw returns from a method and signals an error</li></ul></div>
+<h2>Practice Problems &amp; Solutions</h2>
+<div class="problem"><h4>Problem 1</h4>
+<p>Write an if/else that prints "positive" if n > 0, else "non-positive".</p>
+<pre><code><span class="tok-kw">if</span> (n &gt; <span class="tok-num">0</span>) Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;positive&quot;</span>); <span class="tok-kw">else</span> Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;non-positive&quot;</span>);</code></pre>
+<div class="expected"><pre><code>if (n &gt; 0) Console.WriteLine(&quot;positive&quot;); else Console.WriteLine(&quot;non-positive&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 2</h4>
+<p>Write a for loop that prints numbers 1 through 5.</p>
+<pre><code><span class="tok-kw">for</span> (<span class="tok-kw">int</span> i = <span class="tok-num">1</span>; i &lt;= <span class="tok-num">5</span>; i++) Console.<span class="tok-fn">WriteLine</span>(i);</code></pre>
+<div class="expected"><pre><code>for (int i = 1; i &lt;= 5; i++) Console.WriteLine(i);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 3</h4>
+<p>Write a foreach loop that prints each string in a string array.</p>
+<pre><code><span class="tok-kw">foreach</span> (<span class="tok-kw">var</span> s <span class="tok-kw">in</span> arr) Console.<span class="tok-fn">WriteLine</span>(s);</code></pre>
+<div class="expected"><pre><code>foreach (var s in arr) Console.WriteLine(s);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 4</h4>
+<p>Write a while loop that decrements a counter until it reaches 0.</p>
+<pre><code><span class="tok-kw">while</span> (count &gt; <span class="tok-num">0</span>) { Console.<span class="tok-fn">WriteLine</span>(count); count--; }</code></pre>
+<div class="expected"><pre><code>while (count &gt; 0) { Console.WriteLine(count); count--; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 5</h4>
+<p>Write a switch expression that maps 1 to "One", 2 to "Two", and default to "Other".</p>
+<pre><code><span class="tok-kw">string</span> result = num <span class="tok-kw">switch</span> { <span class="tok-num">1</span> =&gt; <span class="tok-s">&quot;One&quot;</span>, <span class="tok-num">2</span> =&gt; <span class="tok-s">&quot;Two&quot;</span>, _ =&gt; <span class="tok-s">&quot;Other&quot;</span> };</code></pre>
+<div class="expected"><pre><code>string result = num switch { 1 =&gt; &quot;One&quot;, 2 =&gt; &quot;Two&quot;, _ =&gt; &quot;Other&quot; };</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 6</h4>
+<p>Write code that breaks out of a foreach loop when a negative number is found.</p>
+<pre><code><span class="tok-kw">foreach</span> (<span class="tok-kw">var</span> n <span class="tok-kw">in</span> nums) { <span class="tok-kw">if</span> (n &lt; <span class="tok-num">0</span>) <span class="tok-kw">break</span>; Console.<span class="tok-fn">WriteLine</span>(n); }</code></pre>
+<div class="expected"><pre><code>foreach (var n in nums) { if (n &lt; 0) break; Console.WriteLine(n); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 7</h4>
+<p>Write a do-while loop that asks for input until "quit" is entered.</p>
+<pre><code><span class="tok-kw">string</span> input; <span class="tok-kw">do</span> { input = Console.<span class="tok-fn">ReadLine</span>(); } <span class="tok-kw">while</span> (input != <span class="tok-s">&quot;quit&quot;</span>);</code></pre>
+<div class="expected"><pre><code>string input; do { input = Console.ReadLine(); } while (input != &quot;quit&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 8</h4>
+<p>Write an if/else if/else chain that categorizes a score into A, B, C, or F.</p>
+<pre><code><span class="tok-kw">if</span> (score &gt;= <span class="tok-num">90</span>) Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;A&quot;</span>); <span class="tok-kw">else</span> <span class="tok-kw">if</span> (score &gt;= <span class="tok-num">80</span>) Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;B&quot;</span>); <span class="tok-kw">else</span> <span class="tok-kw">if</span> (score &gt;= <span class="tok-num">70</span>) Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;C&quot;</span>); <span class="tok-kw">else</span> Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;F&quot;</span>);</code></pre>
+<div class="expected"><pre><code>if (score &gt;= 90) Console.WriteLine(&quot;A&quot;); else if (score &gt;= 80) Console.WriteLine(&quot;B&quot;); else if (score &gt;= 70) Console.WriteLine(&quot;C&quot;); else Console.WriteLine(&quot;F&quot;);</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 9</h4>
+<p>Write a switch statement that prints the day name for a DayOfWeek enum value.</p>
+<pre><code><span class="tok-kw">switch</span> (day) { <span class="tok-kw">case</span> DayOfWeek.Monday: Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Monday&quot;</span>); <span class="tok-kw">break</span>; <span class="tok-kw">case</span> DayOfWeek.Friday: Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Friday&quot;</span>); <span class="tok-kw">break</span>; <span class="tok-kw">default</span>: Console.<span class="tok-fn">WriteLine</span>(<span class="tok-s">&quot;Other day&quot;</span>); <span class="tok-kw">break</span>; }</code></pre>
+<div class="expected"><pre><code>switch (day) { case DayOfWeek.Monday: Console.WriteLine(&quot;Monday&quot;); break; case DayOfWeek.Friday: Console.WriteLine(&quot;Friday&quot;); break; default: Console.WriteLine(&quot;Other day&quot;); break; }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<div class="problem"><h4>Problem 10</h4>
+<p>Write a continue statement that skips odd numbers in a for loop from 0 to 9.</p>
+<pre><code><span class="tok-kw">for</span> (<span class="tok-kw">int</span> i = <span class="tok-num">0</span>; i &lt; <span class="tok-num">10</span>; i++) { <span class="tok-kw">if</span> (i % <span class="tok-num">2</span> != <span class="tok-num">0</span>) <span class="tok-kw">continue</span>; Console.<span class="tok-fn">WriteLine</span>(i); }</code></pre>
+<div class="expected"><pre><code>for (int i = 0; i &lt; 10; i++) { if (i % 2 != 0) continue; Console.WriteLine(i); }</code></pre></div>
+<p class="points"><strong>Learning points:</strong> </p></div>
+<h2>Quick Questions &amp; Answers</h2>
+<div class="qa"><div class="q">Q1: What is the difference between switch statement and switch expression?</div>
+<div class="a"><strong>A:</strong> A switch statement executes statements for each case; a switch expression returns a value and uses pattern-matching arms with => syntax.</div></div>
+<div class="qa"><div class="q">Q2: Can you use string values in a switch expression?</div>
+<div class="a"><strong>A:</strong> Yes; switch expressions support constant patterns for strings and other types that implement equality comparison.</div></div>
+<div class="qa"><div class="q">Q3: What does the _ (discard) mean in a switch expression?</div>
+<div class="a"><strong>A:</strong> It acts as the default case, matching any value not covered by earlier arms.</div></div>
+<div class="qa"><div class="q">Q4: When should you use a do-while loop instead of while?</div>
+<div class="a"><strong>A:</strong> When you need the body to execute at least once before checking the condition, such as menu prompts or input validation.</div></div>
+<div class="qa"><div class="q">Q5: What is the difference between break and continue?</div>
+<div class="a"><strong>A:</strong> break exits the loop entirely; continue skips to the next iteration without finishing the current iteration.</div></div>
+<div class="qa"><div class="q">Q6: Can you nest switch statements?</div>
+<div class="a"><strong>A:</strong> Yes; you can nest any control flow statement inside another, though deep nesting is often better refactored into methods.</div></div>
+<div class="qa"><div class="q">Q7: What is a fall-through in switch and does C# allow it?</div>
+<div class="a"><strong>A:</strong> Fall-through means executing a case without a break; C# does not allow it—every case must end with break, return, throw, or goto.</div></div>
+<div class="qa"><div class="q">Q8: What is the pattern matching _ in if statements?</div>
+<div class="a"><strong>A:</strong> The discard pattern _ matches any value and is used in switch expressions as the default case.</div></div>
+<div class="qa"><div class="q">Q9: Can foreach iterate over any collection type?</div>
+<div class="a"><strong>A:</strong> foreach works on any type that implements IEnumerable or IEnumerable<T>, or has a GetEnumerator method.</div></div>
+<div class="qa"><div class="q">Q10: What happens if a for loop condition is always true?</div>
+<div class="a"><strong>A:</strong> The loop runs forever (infinite loop); you must use break or return to exit it.</div></div>
+<div class="nav"><a href="topic-05.html">← 5. Arrays & Collections</a>
+<a href="topic-07.html">→ 7. Methods & Params</a></div>
+</body></html>
